@@ -1,0 +1,523 @@
+@import "tailwindcss";
+
+/* --------------------------------------------------------------------------
+   QFF26 DESIGN TOKENS
+   Colour values sampled directly from the supplied reference screenshots.
+   -------------------------------------------------------------------------- */
+
+@theme {
+  --color-qff-black: #000000;
+  --color-qff-white: #ffffff;
+
+  /* Signature purple, sampled from the reference footer block. */
+  --color-qff-purple: #a16af3;
+  --color-qff-purple-deep: #1a0e2e;
+  --color-qff-purple-lift: #c39bfa;
+
+  /* Secondary treatment colours: image duotones only, never UI surfaces. */
+  --color-qff-green: #70ee9d;
+  --color-qff-green-deep: #04140c;
+  --color-qff-blue: #4a80d8;
+  --color-qff-blue-deep: #08111f;
+
+  /* Surfaces, sampled from the reference panels and rows. */
+  --color-qff-surface: #1e1e1e;
+  --color-qff-surface-2: #353535;
+
+  --color-qff-muted: #9f9f9f;
+  --color-qff-dim: #8a8a8a;
+
+  --font-sans: var(--font-geist-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+  --font-display: var(--font-oxanium), var(--font-geist-sans), sans-serif;
+}
+
+:root {
+  --border: rgba(255, 255, 255, 0.2);
+  --border-strong: rgba(255, 255, 255, 0.35);
+  --border-dark: rgba(0, 0, 0, 0.2);
+
+  /* Horizontal page padding. The reference runs edge to edge: no narrow
+     centred container. 20px mobile / 24px tablet / 32px desktop. */
+  --pad: 20px;
+
+  /* Narrower inner column used by the centred editorial sections. */
+  --container: 1376px;
+
+  --space-section: clamp(4.375rem, 8vw, 13.75rem);
+
+  /* Step units for the geometric staircase edges. Measured from the
+     reference at a 1710px viewport: hero 28px, footer 14px. */
+  --step: 12px;
+  --hero-step: 18px;
+  --footer-step: 10px;
+  --corner-step: 14px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --pad: 24px;
+    --hero-step: 23px;
+    --footer-step: 12px;
+    --corner-step: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --pad: 32px;
+    --step: 16px;
+    --hero-step: 28px;
+    --footer-step: 14px;
+    --corner-step: 22px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BASE
+   -------------------------------------------------------------------------- */
+
+* {
+  border-radius: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-qff-black);
+  /* Guard against any single element forcing a horizontal scrollbar. */
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--color-qff-black);
+  color: var(--color-qff-white);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-qff-purple);
+  color: var(--color-qff-black);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-qff-purple);
+  outline-offset: 3px;
+}
+
+/* Focus ring needs to invert on the purple footer to stay visible. */
+.on-purple :focus-visible {
+  outline-color: var(--color-qff-black);
+}
+
+/* Layout, typography and border classes live in @layer components so that
+   Tailwind utilities can override them at call sites. Unlayered rules would
+   otherwise beat every utility regardless of source order. */
+@layer components {
+  /* --------------------------------------------------------------------------
+     LAYOUT
+     -------------------------------------------------------------------------- */
+
+  .container-wide {
+    width: 100%;
+    padding-inline: var(--pad);
+  }
+
+  .container-editorial {
+    width: 100%;
+    max-width: calc(var(--container) + var(--pad) * 2);
+    margin-inline: auto;
+    padding-inline: var(--pad);
+  }
+
+  .section {
+    padding-block: var(--space-section);
+  }
+
+  .section-tight {
+    padding-block: calc(var(--space-section) * 0.55);
+  }
+
+  /* Horizontal carousels scroll natively for touch; the scrollbar is hidden
+     because prev/next controls carry the affordance on pointer devices. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* --------------------------------------------------------------------------
+     TYPOGRAPHY
+     Scales derived from the reference at a 1710px viewport:
+     hero 78px, section heading 42px, statement 44px, card title 28px.
+     -------------------------------------------------------------------------- */
+
+  .text-hero {
+    font-size: clamp(3rem, 6.2vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+  }
+
+  .text-h2 {
+    font-size: clamp(1.875rem, 3vw, 2.625rem);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+  }
+
+  .text-h3 {
+    font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .text-statement {
+    font-size: clamp(1.5rem, 2.6vw, 2.75rem);
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+  }
+
+  .text-card-title {
+    font-size: clamp(1.25rem, 1.65vw, 1.75rem);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+
+  .text-quote {
+    font-size: clamp(1.0625rem, 1.5vw, 1.625rem);
+    line-height: 1.26;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+
+  .text-faq {
+    font-size: clamp(1rem, 1.25vw, 1.3125rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+
+  .text-body {
+    font-size: clamp(0.9375rem, 1vw, 1.0625rem);
+    line-height: 1.5;
+    color: var(--color-qff-muted);
+  }
+
+  /* Uppercase technical metadata: the reference's second voice. */
+  .label-mono {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .label-mono-sm {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* Techno display face: wordmark, statistics, countdown. Numbers only. */
+  .num-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-stat {
+    font-size: clamp(2.75rem, 4.4vw, 4.75rem);
+  }
+
+  .text-countdown {
+    font-size: clamp(2.5rem, 3.6vw, 4rem);
+  }
+
+  /* --------------------------------------------------------------------------
+     BORDERS / SURFACES
+     -------------------------------------------------------------------------- */
+
+  .hairline {
+    border: 1px solid var(--border);
+  }
+
+  .hairline-t {
+    border-top: 1px solid var(--border);
+  }
+
+  .hairline-b {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hairline-dark {
+    border: 1px solid var(--border-dark);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   DIGITAL / GLITCH SYSTEM
+   Used sparingly: hero, section transitions, the recap wordmark and the
+   background tickers. Never applied to body copy.
+   -------------------------------------------------------------------------- */
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.045) 0 1px,
+    transparent 1px 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Horizontal ticker. Track holds the content twice; translating by -50%
+   returns to an identical frame, so the loop is seamless. */
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-x var(--marquee-duration, 60s) linear infinite;
+}
+
+.marquee-track[data-direction="reverse"] {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Sliced-band glitch. Each band is a clipped copy of the same text nudged
+   horizontally; the pulse fires occasionally rather than continuously. */
+@keyframes glitch-slip {
+  0%,
+  92%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  93% {
+    transform: translate3d(calc(var(--slip) * -1), 0, 0);
+  }
+  95% {
+    transform: translate3d(var(--slip), 0, 0);
+  }
+  97% {
+    transform: translate3d(calc(var(--slip) * 0.4), 0, 0);
+  }
+}
+
+.glitch-band {
+  position: absolute;
+  inset: 0;
+  animation: glitch-slip var(--glitch-duration, 7s) steps(1, end) infinite;
+  animation-delay: var(--glitch-delay, 0s);
+}
+
+/* Hero entrance. CSS rather than JS so the hero stays a server component. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise-in 700ms var(--ease-out) both;
+}
+
+@keyframes media-settle {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.media-settle {
+  animation: media-settle 1800ms var(--ease-out) both;
+}
+
+/* Image slice displacement. Each slice is a clipped copy of the same image
+   sitting invisible until the pulse fires, so the photograph stays clean and
+   the glitch reads as an occasional digital artefact rather than a filter. */
+@keyframes glitch-slice {
+  0%,
+  87%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  88% {
+    opacity: 1;
+    transform: translate3d(var(--slice-shift), 0, 0);
+  }
+  90% {
+    opacity: 1;
+    transform: translate3d(calc(var(--slice-shift) * -0.55), 0, 0);
+  }
+  92% {
+    opacity: 1;
+    transform: translate3d(calc(var(--slice-shift) * 0.28), 0, 0);
+  }
+  93.5% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.glitch-slice {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: glitch-slice var(--slice-duration, 9s) steps(1, end) infinite;
+  animation-delay: var(--slice-delay, 0s);
+}
+
+/* Chromatic split, fired on the same cycle at low strength. */
+.glitch-split {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  animation: glitch-slice var(--slice-duration, 9s) steps(1, end) infinite;
+  animation-delay: var(--slice-delay, 0s);
+}
+
+/* Hover glitch for interactive headings. */
+@keyframes glitch-nudge {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    transform: translate3d(-2px, 1px, 0);
+  }
+  40% {
+    transform: translate3d(2px, -1px, 0);
+  }
+  60% {
+    transform: translate3d(-1px, 0, 0);
+  }
+}
+
+.glitch-hover:hover .glitch-layer {
+  animation: glitch-nudge 320ms steps(2, end) 1;
+}
+
+/* --------------------------------------------------------------------------
+   IMAGE TREATMENT
+   True duotone via SVG filters (see <DuotoneDefs />). The grayscale/contrast
+   pre-pass matches the raw, high-contrast look of the reference imagery.
+   -------------------------------------------------------------------------- */
+
+.duotone-purple,
+.duotone-green,
+.duotone-blue,
+.duotone-mono {
+  filter: grayscale(1) contrast(1.08);
+}
+
+@supports (filter: url("#qff-duotone-purple")) {
+  .duotone-purple {
+    filter: grayscale(1) contrast(1.08) url("#qff-duotone-purple");
+  }
+  .duotone-green {
+    filter: grayscale(1) contrast(1.08) url("#qff-duotone-green");
+  }
+  .duotone-blue {
+    filter: grayscale(1) contrast(1.08) url("#qff-duotone-blue");
+  }
+  .duotone-mono {
+    filter: grayscale(1) contrast(1.14);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MOTION
+   Level 1 transitions live on the components. Level 2 reveals and level 3
+   signature effects are all disabled below.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .rise,
+  .media-settle {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .glitch-slice,
+  .glitch-split,
+  .glitch-band,
+  .glitch-hover:hover .glitch-layer {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
