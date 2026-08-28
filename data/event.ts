@@ -21,9 +21,10 @@ export const event: EventConfig = {
   // "QFF" is deliberately not expanded: no approved expansion has been supplied.
   expansion: null,
 
-  // Confirmed: Saturday 10 October 2026, Bengaluru (IST, UTC+05:30). The
-  // start time of day is not yet confirmed, so this counts to the start of
-  // the date; set NEXT_PUBLIC_EVENT_STARTS_AT to override with the exact time.
+  // Confirmed start: Saturday 10 October 2026, Bengaluru (IST, UTC+05:30).
+  // This is when the festival begins, not the full duration. End date is not
+  // yet confirmed. Start time of day is also unconfirmed, so the countdown
+  // targets the start of this date; set NEXT_PUBLIC_EVENT_STARTS_AT to override.
   startsAt: process.env.NEXT_PUBLIC_EVENT_STARTS_AT ?? "2026-10-10T00:00:00+05:30",
   // End date not yet confirmed.
   endsAt: process.env.NEXT_PUBLIC_EVENT_ENDS_AT ?? null,
@@ -39,8 +40,8 @@ export const event: EventConfig = {
 
   urls: {
     site: process.env.NEXT_PUBLIC_SITE_URL ?? "https://qff26.quantumx.foundation",
-    registration: url("NEXT_PUBLIC_REGISTRATION_URL"),
-    speakerApplication: url("NEXT_PUBLIC_SPEAKER_URL"),
+    registration: url("NEXT_PUBLIC_REGISTRATION_URL", "https://luma.com/user/quantumx"),
+    speakerApplication: url("NEXT_PUBLIC_SPEAKER_URL", "https://tally.so/r/D46GER"),
     sponsor: url("NEXT_PUBLIC_SPONSOR_URL"),
     press: url("NEXT_PUBLIC_PRESS_URL"),
     contentCreator: url("NEXT_PUBLIC_CREATOR_URL"),
@@ -69,9 +70,8 @@ export const navigation: NavItem[] = [
   { label: "About", href: "#about", index: "01" },
   { label: "Program", href: "#program", index: "02" },
   { label: "Speakers", href: "#speakers", index: "03" },
-  { label: "Events", href: "#events", index: "04" },
-  { label: "Partners", href: "#partners", index: "05" },
-  { label: "FAQ", href: "#faq", index: "06" },
+  { label: "Partners", href: "#partners", index: "04" },
+  { label: "FAQ", href: "#faq", index: "05" },
 ];
 
 export const isConfirmed = (value: string) => value !== TBD;

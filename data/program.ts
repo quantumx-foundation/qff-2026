@@ -1,48 +1,98 @@
-import type { ProgramDay } from "@/types/event";
-import { TBD } from "@/types/event";
+import type { ProgramDay, ProgramSession } from "@/types/event";
 
 /**
  * Program / agenda.
  *
- * project.md section 14 permits mock placeholder data, clearly marked for
- * replacement. No session titles, speakers or tracks are invented: each row is
- * a structural placeholder that demonstrates the layout and is replaced
- * wholesale when the agenda is confirmed.
+ * All four events carry approved content; nothing here is placeholder copy.
+ * Speakers that are still open are declared on the event's `note` rather than
+ * invented into a session row.
+ *
+ * Every event publishes a running order rather than a timed schedule: `time` is
+ * null on every row, which drops the time column from the schedule grid.
  */
-const placeholderSessions = (count: number) =>
-  Array.from({ length: count }, () => ({
-    time: TBD,
-    title: "[SESSION TO BE ANNOUNCED]",
-    type: TBD,
-    speaker: null,
-    track: null,
-    detail: null,
-    confirmed: false,
-  }));
+const session = (title: string, speaker: string | null = null): ProgramSession => ({
+  time: null,
+  title,
+  type: null,
+  speaker,
+  track: null,
+  detail: null,
+  confirmed: true,
+});
 
 export const program: ProgramDay[] = [
   {
-    id: "day-1",
-    label: "Day 01",
-    dateLabel: TBD,
-    sessions: placeholderSessions(4),
+    id: "event-1",
+    label: "Event 1",
+    title: "Careers in Quantum",
+    dateLabel: "10 OCT",
+    location: "Startup Park, Bangalore",
+    description:
+      "A fireside conversation on careers in quantum computing, followed by an open Q&A and networking session with the Qx community.",
+    note: null,
+    sessions: [
+      session("Welcome Note"),
+      session("Fireside Chat: Careers in Quantum"),
+      session("Audience Q&A"),
+      session("Networking & Closing Remarks"),
+    ],
   },
   {
-    id: "day-2",
-    label: "Day 02",
-    dateLabel: TBD,
-    sessions: placeholderSessions(4),
+    id: "event-2",
+    label: "Event 2",
+    title: "Expert Talk",
+    dateLabel: "17 OCT",
+    location: "Online · Zoom",
+    description:
+      "A foundation-level expert session focused on developers exploring quantum computing, followed by an audience Q&A and an invitation to join the QFF26 community.",
+    note: null,
+    sessions: [
+      session("Welcome Note & Introduction"),
+      session("Expert Talk"),
+      session("Audience Q&A"),
+      session("Upcoming QFF26 Events & Community Invitation"),
+      session("Closing Remarks"),
+    ],
   },
   {
-    id: "day-3",
-    label: "Day 03",
-    dateLabel: TBD,
-    sessions: placeholderSessions(3),
+    id: "event-3",
+    label: "Event 3",
+    title: "Hands-on with Qiskit SDK",
+    dateLabel: "06 NOV 2026",
+    location: "Online · Zoom / IBM Quantum Platform",
+    description:
+      "A hands-on workshop introducing participants to the Qiskit SDK, quantum programming, and the IBM Quantum Platform. Participants will create and run simple quantum circuits and gain practical experience with quantum development.",
+    note: null,
+    sessions: [
+      session("Welcome & Introduction"),
+      session("Hands-on Workshop"),
+      session("Q&A Session"),
+      session("Community Invitation & Closing"),
+    ],
+  },
+  {
+    id: "event-4",
+    label: "Event 4",
+    title: "Advanced Expert Talk",
+    dateLabel: "28 NOV",
+    location: "Startup Park, Bangalore",
+    description:
+      "An advanced expert session exploring current quantum computing trends, industry challenges, research pathways, and opportunities across the growing quantum ecosystem.",
+    note: null,
+    sessions: [
+      session("Registration & Networking"),
+      session("Welcome Note"),
+      session("Advanced Expert Talk"),
+      session("Audience Q&A"),
+      session("Networking Session"),
+      session("Community Announcements & Upcoming QuantumX Activities"),
+      session("Closing Remarks"),
+    ],
   },
 ];
 
 export const programIntro = {
   label: "PROGRAM",
-  heading: ["Three days of", "research and build"],
+  heading: ["Research and build"],
   note: "FULL AGENDA TO BE ANNOUNCED",
 };

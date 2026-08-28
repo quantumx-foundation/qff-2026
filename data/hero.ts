@@ -28,7 +28,7 @@ export const statement = {
   /** First fragment renders in purple, matching the reference treatment. */
   lead: `${event.shortName}`,
   body: "brings researchers, builders, industry and institutions together around the technologies moving quantum computing from laboratory to infrastructure.",
-  confirmed: false,
+  confirmed: true,
 };
 
 /**

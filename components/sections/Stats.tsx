@@ -78,18 +78,15 @@ export function Stats() {
           {gallery.map((slot, i) => (
             <div
               key={i}
-              className="mr-5 shrink-0"
-              style={{
-                width: `clamp(190px, ${18 * slot.scale}vw, ${360 * slot.scale}px)`,
-                transform: `translateY(${slot.offset * 100}px)`,
-              }}
+              className="mr-5 h-[clamp(200px,24vw,420px)] shrink-0"
+              // One height for the whole row; each frame takes its own width.
+              style={{ aspectRatio: `${slot.media.width} / ${slot.media.height}` }}
             >
               <ImageTreatment
                 media={slot.media}
                 treatment={slot.treatment}
-                fill={false}
-                sizes="(max-width: 768px) 45vw, 20vw"
-                className="w-full"
+                sizes="(max-width: 768px) 60vw, 30vw"
+                className="h-full w-full"
               />
             </div>
           ))}

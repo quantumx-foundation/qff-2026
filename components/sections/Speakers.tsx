@@ -1,12 +1,13 @@
 "use client";
 
-import { SectionLabel, PendingNote } from "@/components/ui/SectionLabel";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowButton } from "@/components/ui/ArrowButton";
 import { Button } from "@/components/ui/Button";
 import { CarouselTrack } from "@/components/ui/CarouselTrack";
 import { useCarousel } from "@/components/ui/useCarousel";
 import { SpeakerCard } from "@/components/ui/SpeakerCard";
+import { SpeakerCtaCard } from "@/components/ui/SpeakerCtaCard";
 import { speakers, speakersIntro } from "@/data/speakers";
 import { event } from "@/data/event";
 import type { Treatment } from "@/types/event";
@@ -15,8 +16,8 @@ import type { Treatment } from "@/types/event";
  * Speakers rail.
  *
  * Horizontally scrolling on every breakpoint, with prev/next controls on
- * pointer devices and native swipe on touch. Names are explicit "to be
- * announced" slots: project.md forbids inventing speakers or affiliations.
+ * pointer devices and native swipe on touch. Only approved people are named;
+ * the rail closes on an open CTA card rather than on invented holding slots.
  */
 
 const TREATMENTS: Treatment[] = ["purple", "green", "blue", "mono"];
@@ -73,18 +74,24 @@ export function Speakers() {
             >
               <SpeakerCard
                 speaker={speaker}
-                treatment={TREATMENTS[i % TREATMENTS.length]}
+                treatment={speaker.treatment ?? TREATMENTS[i % TREATMENTS.length]}
               />
             </div>
           ))}
+
+          {/* Closing card: continues the positional treatment cycle. */}
+          <div className="w-[72vw] shrink-0 snap-start sm:w-[46vw] lg:w-[23vw] lg:max-w-[360px]">
+            <SpeakerCtaCard
+              treatment={TREATMENTS[speakers.length % TREATMENTS.length]}
+              note={speakersIntro.more}
+              cta={{
+                label: speakersIntro.cta.label,
+                href: event.urls[speakersIntro.cta.href],
+              }}
+            />
+          </div>
         </CarouselTrack>
       </div>
-
-      {speakers.some((s) => !s.confirmed) ? (
-        <div className="container-wide mt-10">
-          <PendingNote>Speakers to be announced</PendingNote>
-        </div>
-      ) : null}
     </section>
   );
 }

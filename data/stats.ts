@@ -1,12 +1,10 @@
 import type { Stat } from "@/types/event";
-import { TBD } from "@/types/event";
 
 /**
  * Statistics.
  *
- * project.md is explicit that figures must not be fabricated. The labels come
- * from the structure in style.md section 9; every value is a marked
- * placeholder until confirmed figures are supplied.
+ * Figures supplied for the three-up row. All confirmed, so the pending note
+ * does not render.
  */
 export const statsIntro = {
   heading: ["Bringing the quantum", "community together"],
@@ -15,7 +13,7 @@ export const statsIntro = {
 };
 
 export const stats: Stat[] = [
-  { value: TBD, label: "Participants", confirmed: false },
-  { value: TBD, label: "Speakers", confirmed: false },
-  { value: TBD, label: "Countries", confirmed: false },
+  { value: "1000+", label: "Participants", confirmed: true },
+  { value: "30+", label: "Speakers", confirmed: true },
+  { value: "10+", label: "Sessions", confirmed: true },
 ];

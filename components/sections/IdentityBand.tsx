@@ -28,6 +28,7 @@ export function IdentityBand() {
                 treatment="purple"
                 sizes="100vw"
                 className="h-full w-full"
+                showPlaceholderLabel={false}
               />
             </div>
             <div

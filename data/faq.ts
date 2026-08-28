@@ -13,7 +13,7 @@ export const faq: FaqItem[] = [
     id: "dates",
     category: "EVENT",
     question: "When does QFF26 take place?",
-    answer: "QFF26 takes place on Saturday 10 October 2026. The daily schedule is still to be announced.",
+    answer: "QFF26 starts on Saturday 10 October 2026. The full duration and daily schedule are still to be announced.",
     confirmed: false,
   },
   {

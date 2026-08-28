@@ -3,37 +3,109 @@ import type { MediaRef, Treatment } from "@/types/event";
 /**
  * Community image strip that runs full-bleed beneath the statistics.
  *
- * Mixed aspect ratios and vertical offsets, cycling the three treatment
- * colours, matching the reference. All slots are placeholders until QFF26
- * imagery is supplied; only the `src` values need to change.
+ * Photography from past QuantumX and partner events. Every tile is drawn at a
+ * single strip height and takes its width from its own aspect ratio, so the
+ * row keeps a flat top and bottom edge while the rhythm comes from the frames
+ * themselves — narrow portraits against long landscapes.
+ *
+ * Slots are ordered for that rhythm rather than chronology: the two portraits
+ * and the widest frame are spaced apart, and the treatments cycle so no two
+ * neighbours share a duotone, including across the marquee seam.
  */
 export type GallerySlot = {
   media: MediaRef;
   treatment: Treatment;
-  /** Relative height of the tile, as a multiplier of the strip height. */
-  scale: number;
-  /** Vertical offset, as a fraction of the strip height. */
-  offset: number;
 };
 
-const SPECS: Array<{ w: number; h: number; t: Treatment; scale: number; offset: number }> = [
-  { w: 900, h: 1200, t: "blue", scale: 1, offset: -0.04 },
-  { w: 1000, h: 1250, t: "green", scale: 1.06, offset: 0.02 },
-  { w: 1100, h: 900, t: "purple", scale: 0.84, offset: 0.08 },
-  { w: 900, h: 1100, t: "blue", scale: 0.95, offset: 0 },
-  { w: 1200, h: 900, t: "green", scale: 0.8, offset: 0.1 },
-  { w: 950, h: 1250, t: "purple", scale: 1.02, offset: 0.03 },
+type Spec = {
+  /** File under /public/images/community. */
+  file: string;
+  alt: string;
+  w: number;
+  h: number;
+  t: Treatment;
+};
+
+const SPECS: Spec[] = [
+  {
+    file: "1.jpg",
+    alt: "Keynote on real-world readiness for post-quantum cryptography",
+    w: 671,
+    h: 896,
+    t: "blue",
+  },
+  {
+    file: "4.jpg",
+    alt: "Speaker tracing the shrinking scale of quantum hardware on a main stage",
+    w: 1024,
+    h: 768,
+    t: "green",
+  },
+  {
+    file: "2.jpg",
+    alt: "Attendees gathered on stage for a group photograph at a deep tech summit",
+    w: 1024,
+    h: 550,
+    t: "purple",
+  },
+  {
+    file: "9.jpg",
+    alt: "Participants working together at shared tables between sessions",
+    w: 682,
+    h: 1024,
+    t: "blue",
+  },
+  {
+    file: "6.jpg",
+    alt: "Small-group quantum workshop session beneath a painted mural",
+    w: 1024,
+    h: 768,
+    t: "green",
+  },
+  {
+    file: "8.jpg",
+    alt: "Panel discussion on fibre-based quantum networks in a full auditorium",
+    w: 845,
+    h: 684,
+    t: "purple",
+  },
+  {
+    file: "5.jpg",
+    alt: "Team unveiling the QuantumX banner at a launch event",
+    w: 1200,
+    h: 848,
+    t: "blue",
+  },
+  {
+    file: "3.jpg",
+    alt: "Speaker presenting the migration challenge for post-quantum cryptography",
+    w: 1024,
+    h: 768,
+    t: "purple",
+  },
+  {
+    file: "7.jpg",
+    alt: "A packed session with an attendee raising a hand to ask a question",
+    w: 614,
+    h: 408,
+    t: "green",
+  },
+  {
+    file: "10.jpg",
+    alt: "Speaker addressing a seated circle of participants at a community meetup",
+    w: 1024,
+    h: 768,
+    t: "purple",
+  },
 ];
 
 export const gallery: GallerySlot[] = SPECS.map((spec, i) => ({
   media: {
-    src: null,
-    alt: "",
+    src: `/images/community/${spec.file}`,
+    alt: spec.alt,
     placeholderLabel: `COMMUNITY ${String(i + 1).padStart(2, "0")}`,
     width: spec.w,
     height: spec.h,
   },
   treatment: spec.t,
-  scale: spec.scale,
-  offset: spec.offset,
 }));

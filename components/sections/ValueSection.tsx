@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { GlitchImage } from "@/components/effects/GlitchImage";
 import { ImageTreatment } from "@/components/effects/ImageTreatment";
 import { PendingNote } from "@/components/ui/SectionLabel";
 import { values } from "@/data/values";
@@ -13,11 +14,12 @@ import { cn } from "@/lib/utils";
  * "Why QFF26".
  *
  * Centred heading over a two-column composition: editorial image on the left,
- * a list of value blocks on the right where the open item shows its body and
+ * a list of value blocks on the right. Every row carries its title and a one
+ * line summary; the open row additionally reveals its body and mono tag, and
  * the others sit dimmed behind thin rules. Selecting an item swaps the image.
  *
  * The image carries a stepped top-right edge, one of the recurring geometric
- * devices in the reference.
+ * devices in the reference, and the same occasional slice glitch as the hero.
  */
 
 const IMAGE_CLIP = topStaircase(CORNER_STEPS, "var(--corner-step)");
@@ -52,12 +54,21 @@ export function ValueSection() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: reduced ? 0.15 : 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
-                <ImageTreatment
-                  media={active.media}
-                  treatment={TREATMENTS[activeIndex % TREATMENTS.length]}
-                  sizes="(max-width: 1024px) 100vw, 44vw"
-                  className="h-full w-full"
-                />
+                {active.media?.src ? (
+                  <GlitchImage
+                    media={active.media}
+                    treatment={TREATMENTS[activeIndex % TREATMENTS.length]}
+                    sizes="(max-width: 1024px) 100vw, 44vw"
+                    className="h-full w-full"
+                  />
+                ) : (
+                  <ImageTreatment
+                    media={active.media}
+                    treatment={TREATMENTS[activeIndex % TREATMENTS.length]}
+                    sizes="(max-width: 1024px) 100vw, 44vw"
+                    className="h-full w-full"
+                  />
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -82,6 +93,9 @@ export function ValueSection() {
                       )}
                     >
                       <span className="text-h3 block">{block.title}</span>
+                      <span className="text-body mt-2 block max-w-[46ch] text-inherit opacity-70">
+                        {block.summary}
+                      </span>
                     </button>
                   </h3>
 
@@ -101,8 +115,11 @@ export function ValueSection() {
                       >
                         <div className="pb-7">
                           <p className="text-body max-w-[46ch]">{block.body}</p>
+                          <p className="label-mono-sm mt-5 text-qff-white/45">
+                            {block.tag}
+                          </p>
                           {!block.confirmed ? (
-                            <PendingNote className="mt-5">
+                            <PendingNote className="mt-3">
                               Copy pending approval
                             </PendingNote>
                           ) : null}

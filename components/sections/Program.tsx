@@ -15,7 +15,9 @@ import { cn } from "@/lib/utils";
  * vertical schedule on mobile rather than a squeezed table. Rows with detail
  * copy expand in place.
  *
- * All rows are marked placeholders until the agenda is confirmed.
+ * An event whose sessions carry no `time` is published as a running order: the
+ * time column is dropped for that event only and the remaining columns keep
+ * their widths. Events awaiting content stay marked placeholders.
  */
 export function Program() {
   const [dayId, setDayId] = useState(program[0]?.id);
@@ -24,6 +26,23 @@ export function Program() {
 
   if (!program.length) return null;
   const day = program.find((d) => d.id === dayId) ?? program[0];
+
+  /* The column template follows the metadata an event actually publishes, so a
+     bare running order is not padded out with dead tracks. Written as whole
+     literals for Tailwind's static class extraction. */
+  const timed = day.sessions.some((s) => s.time !== null);
+  const hasMeta = day.sessions.some(
+    (s) => s.type || s.speaker || s.track || !s.confirmed,
+  );
+  const gridCols = timed
+    ? "lg:grid-cols-[130px_1fr_180px_200px_48px]"
+    : hasMeta
+      ? "lg:grid-cols-[1fr_180px_200px_48px]"
+      : "lg:grid-cols-[1fr_48px]";
+  /* An event may have an approved running order while a detail is still open,
+     so a per-event note overrides the section-level one. */
+  const announced = day.sessions.every((s) => s.confirmed);
+  const note = day.note ?? (announced ? null : programIntro.note);
 
   return (
     <section id="program" aria-labelledby="program-heading" className="section bg-qff-black">
@@ -38,8 +57,8 @@ export function Program() {
             />
           </div>
 
-          {/* Day filter */}
-          <div role="tablist" aria-label="Program days" className="flex flex-wrap gap-2">
+          {/* Event filter */}
+          <div role="tablist" aria-label="Program events" className="flex flex-wrap gap-2">
             {program.map((d) => {
               const selected = d.id === day.id;
               return (
@@ -76,7 +95,16 @@ export function Program() {
         >
           <p className="label-mono-sm text-qff-white/45">
             {day.dateLabel.toUpperCase()}
+            {day.location ? ` · ${day.location.toUpperCase()}` : ""}
           </p>
+
+          {day.title ? (
+            <h3 className="text-h3 mt-4 text-qff-white">{day.title}</h3>
+          ) : null}
+
+          {day.description ? (
+            <p className="text-body mt-4 max-w-[62ch]">{day.description}</p>
+          ) : null}
 
           <ul className="mt-6 flex flex-col">
             {day.sessions.map((session, i) => {
@@ -92,25 +120,35 @@ export function Program() {
                   <div
                     className={cn(
                       "grid grid-cols-1 items-start gap-2 py-6",
-                      "lg:grid-cols-[130px_1fr_180px_200px_48px] lg:items-center lg:gap-6",
+                      "lg:items-center lg:gap-6",
+                      gridCols,
                     )}
                   >
-                    <span className="label-mono text-qff-white/55">
-                      {session.time.toUpperCase()}
-                    </span>
+                    {session.time ? (
+                      <span className="label-mono text-qff-white/55">
+                        {session.time.toUpperCase()}
+                      </span>
+                    ) : null}
 
                     <span className="text-card-title text-qff-white">
                       {session.title}
                     </span>
 
-                    <span className="label-mono-sm text-qff-white/45">
-                      {session.type.toUpperCase()}
-                    </span>
+                    {hasMeta ? (
+                      <>
+                        <span className="label-mono-sm text-qff-white/45">
+                          {session.type?.toUpperCase() ?? ""}
+                        </span>
 
-                    <span className="label-mono-sm text-qff-white/45">
-                      {session.speaker ?? "SPEAKER TBA"}
-                      {session.track ? ` · ${session.track.toUpperCase()}` : ""}
-                    </span>
+                        <span className="label-mono-sm text-qff-white/45">
+                          {session.speaker ??
+                            (session.confirmed ? "" : "SPEAKER TBA")}
+                          {session.track
+                            ? ` · ${session.track.toUpperCase()}`
+                            : ""}
+                        </span>
+                      </>
+                    ) : null}
 
                     {expandable ? (
                       <button
@@ -150,7 +188,12 @@ export function Program() {
                         }}
                         className="overflow-hidden"
                       >
-                        <p className="text-body max-w-[62ch] pb-6 lg:pl-[154px]">
+                        <p
+                          className={cn(
+                            "text-body max-w-[62ch] pb-6",
+                            timed && "lg:pl-[154px]",
+                          )}
+                        >
                           {session.detail}
                         </p>
                       </motion.div>
@@ -161,7 +204,7 @@ export function Program() {
             })}
           </ul>
 
-          <PendingNote className="mt-10">{programIntro.note}</PendingNote>
+          {note ? <PendingNote className="mt-10">{note}</PendingNote> : null}
         </div>
       </div>
     </section>

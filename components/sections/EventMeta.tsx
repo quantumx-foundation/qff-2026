@@ -8,7 +8,7 @@ import { Reveal } from "@/components/effects/Reveal";
  */
 
 const FIELDS = [
-  { label: "Date", value: event.dateLabel },
+  { label: "Starts", value: event.dateLabel },
   { label: "Location", value: event.venue },
   { label: "Event", value: event.shortName },
 ] as const;

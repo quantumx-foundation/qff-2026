@@ -99,15 +99,22 @@ export type Stat = {
 export type ValueBlock = {
   id: string;
   title: string;
+  /** One line held under the title in both the open and the closed state. */
+  summary: string;
+  /** Longer copy revealed when the block is opened. */
   body: string;
+  /** Mono metadata closing the open panel, e.g. "RESEARCH • FRONTIER TECHNOLOGY". */
+  tag: string;
   media: MediaRef | null;
   confirmed: boolean;
 };
 
 export type ProgramSession = {
-  time: string;
+  /** Null where the running order is published without clock times. */
+  time: string | null;
   title: string;
-  type: string;
+  /** Null where the session carries no session-type label. */
+  type: string | null;
   speaker: string | null;
   track: string | null;
   detail: string | null;
@@ -117,7 +124,15 @@ export type ProgramSession = {
 export type ProgramDay = {
   id: string;
   label: string;
+  /** Event title shown above the running order. Null while unannounced. */
+  title: string | null;
   dateLabel: string;
+  /** Venue and city. Null until confirmed. */
+  location: string | null;
+  /** Standfirst under the event title. Null while unannounced. */
+  description: string | null;
+  /** Overrides the section pending note, e.g. where only the speaker is open. */
+  note: string | null;
   sessions: ProgramSession[];
 };
 
@@ -129,6 +144,8 @@ export type Speaker = {
   topic: string | null;
   href: string | null;
   media: MediaRef | null;
+  /** Overrides the rail's positional duotone cycle. Null follows the cycle. */
+  treatment: Treatment | null;
   confirmed: boolean;
 };
 
@@ -161,6 +178,7 @@ export type Announcement = {
   title: string;
   dateLabel: string | null;
   href: string | null;
+  media: MediaRef | null;
   confirmed: boolean;
 };
 

@@ -3,32 +3,23 @@ import type { Announcement } from "@/types/event";
 /**
  * Latest updates.
  *
- * Categories are those listed in project.md section 18. Titles are marked
- * placeholders: no announcement is fabricated.
+ * Categories are those listed in project.md section 18. Only approved posts
+ * are listed; emptying this array hides the section.
  */
 export const announcements: Announcement[] = [
   {
-    id: "announcement-1",
-    category: "ANNOUNCEMENT",
-    title: "[ANNOUNCEMENT TO BE PUBLISHED]",
-    dateLabel: null,
-    href: null,
-    confirmed: false,
-  },
-  {
-    id: "announcement-2",
-    category: "EVENT",
-    title: "[ANNOUNCEMENT TO BE PUBLISHED]",
-    dateLabel: null,
-    href: null,
-    confirmed: false,
-  },
-  {
-    id: "announcement-3",
+    id: "qiskit-fall-fest-2026",
     category: "NEWS",
-    title: "[ANNOUNCEMENT TO BE PUBLISHED]",
+    title: "QuantumX selected as official host for Qiskit Fall Fest 2026",
     dateLabel: null,
-    href: null,
-    confirmed: false,
+    href: "https://www.linkedin.com/posts/quantumx-foundation_were-super-excited-to-announce-that-quantumx-activity-7490337968432414720-vhCV",
+    media: {
+      src: "/images/announcements/qiskit-fall-fest.jpg",
+      alt: "Students in an auditorium holding Qiskit Fall Fest flyers.",
+      placeholderLabel: "NEWS",
+      width: 800,
+      height: 533,
+    },
+    confirmed: true,
   },
 ];

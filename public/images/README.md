@@ -13,7 +13,7 @@ with clear subject separation duotone best.
 |---|---|---|---|---|
 | Hero background | `hero/` | `data/hero.ts` → `hero.media` | 12:7 | 2400×1400 |
 | Purple feature band | `hero/` | `data/hero.ts` → `identityBand.media` | 2:1 | 2400×1200 |
-| Why QFF26 blocks (×4) | `values/` | `data/values.ts` | 4:3 | 1200×900 |
+| Why QFF26 blocks (×4) | `values/` | `data/values.ts` | 3:2 | 1536×1024 |
 | Community strip (×6) | `community/` | `data/gallery.ts` | mixed | ~1000×1250 |
 | Speaker portraits | `speakers/` | `data/speakers.ts` | 3:4 | 900×1200 |
 | Ecosystem event posters | `events/` | `data/ecosystem.ts` | 4:5 | 1000×1250 |

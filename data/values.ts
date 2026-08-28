@@ -1,64 +1,72 @@
 import type { ValueBlock } from "@/types/event";
-import { CONTENT_PLACEHOLDER } from "@/types/event";
 
 /**
  * "Why QFF26" blocks.
  *
- * project.md section 12 defines these four as structural placeholders until
- * final approved copy is provided. Titles follow that structure; bodies are
- * explicit placeholders and are marked unconfirmed.
+ * project.md section 12 defines these four blocks; the copy below is the
+ * approved wording. `summary` is the line that stays visible under each title,
+ * `body` is revealed when the block is opened, and `tag` closes the open panel
+ * as mono metadata.
  */
 export const values: ValueBlock[] = [
   {
-    id: "research",
-    title: "Research",
-    body: CONTENT_PLACEHOLDER,
-    media: {
-      src: null,
-      alt: "",
-      placeholderLabel: "RESEARCH",
-      width: 1200,
-      height: 900,
-    },
-    confirmed: false,
-  },
-  {
     id: "builders",
     title: "Builders",
-    body: CONTENT_PLACEHOLDER,
+    summary: "For the people turning quantum into something real.",
+    body: "Engineers, founders, developers, and researchers building the next generation of quantum systems. Share what you're building, find collaborators, leave with ideas worth shipping.",
+    tag: "BUILDERS • BUILD • ITERATE",
     media: {
-      src: null,
-      alt: "",
+      src: "/images/values/builders.jpg",
+      alt: "An engineer in lab gloves adjusting the gold-plated wiring stages of a dilution refrigerator.",
       placeholderLabel: "BUILDERS",
-      width: 1200,
-      height: 900,
+      width: 1533,
+      height: 1026,
     },
-    confirmed: false,
+    confirmed: true,
+  },
+  {
+    id: "research",
+    title: "Research",
+    summary: "Where frontier ideas become working systems.",
+    body: "Researchers from across quantum computing, cryptography, hardware, software, networking, and emerging quantum technologies. Share new work, challenge assumptions, move research closer to reality.",
+    tag: "RESEARCH • FRONTIER TECHNOLOGY",
+    media: {
+      src: "/images/values/research.jpg",
+      alt: "Researchers at a shared table with laptops while a colleague works through equations on a whiteboard.",
+      placeholderLabel: "RESEARCH",
+      width: 1536,
+      height: 1024,
+    },
+    confirmed: true,
   },
   {
     id: "industry",
     title: "Industry",
-    body: CONTENT_PLACEHOLDER,
+    summary: "Research meeting the systems the world will actually use.",
+    body: "A meeting point between frontier research and industry. Technology leaders, companies, investors, and practitioners exploring where quantum creates real-world value.",
+    tag: "INDUSTRY • APPLICATIONS • OPPORTUNITY",
     media: {
-      src: null,
-      alt: "",
+      src: "/images/values/industry.jpg",
+      alt: "Three people talking over coffee at a standing table during a conference networking break.",
       placeholderLabel: "INDUSTRY",
-      width: 1200,
-      height: 900,
+      width: 1536,
+      height: 1024,
     },
-    confirmed: false,
+    confirmed: true,
   },
   {
     id: "community",
     title: "Community",
-    body: CONTENT_PLACEHOLDER,
+    summary: "A community forming around the quantum future.",
+    body: "More than a conference. A gathering of people who believe the quantum era should be built, not watched from the sidelines. Meet the people pushing the field forward.",
+    tag: "COMMUNITY • CONNECTION • FUTURE",
     media: {
-      src: null,
-      alt: "",
+      src: "/images/values/community.jpg",
+      alt: "A packed conference audience seen from behind, one attendee raising a hand to ask a question.",
       placeholderLabel: "COMMUNITY",
-      width: 1200,
-      height: 900,
+      width: 614,
+      height: 408,
     },
-    confirmed: false,
+    confirmed: true,
   },
 ];
