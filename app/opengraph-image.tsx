@@ -56,7 +56,7 @@ export default function OpengraphImage() {
             {event.organisation}
           </span>
           <span style={{ color: "#a16af3", fontSize: 26, letterSpacing: 3 }}>
-            {event.registrationStatus.toUpperCase()}
+            {event.dateLabel.toUpperCase()}
           </span>
         </div>
 

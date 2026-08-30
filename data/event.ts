@@ -36,7 +36,6 @@ export const event: EventConfig = {
   venue: "Bengaluru + Remote",
   city: "Bengaluru",
   country: "India",
-  registrationStatus: "Registration opening soon",
 
   urls: {
     site: process.env.NEXT_PUBLIC_SITE_URL ?? "https://qff26.quantumx.foundation",

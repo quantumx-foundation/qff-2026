@@ -3,7 +3,6 @@ import { GlitchImage } from "@/components/effects/GlitchImage";
 import { ImageTreatment } from "@/components/effects/ImageTreatment";
 import { SteppedMedia } from "@/components/effects/SteppedMedia";
 import { hero } from "@/data/hero";
-import { event } from "@/data/event";
 
 /**
  * Hero.
@@ -90,13 +89,6 @@ export function Hero() {
               </Button>
             ) : null}
           </div>
-
-          <p
-            className="rise label-mono-sm mt-6 text-qff-white/45"
-            style={{ animationDelay: `${180 + hero.headline.length * 90 + 140}ms` }}
-          >
-            {event.registrationStatus.toUpperCase()}
-          </p>
         </div>
       </div>
     </section>

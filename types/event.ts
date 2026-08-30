@@ -41,7 +41,6 @@ export type EventConfig = {
   venue: string;
   city: string;
   country: string | null;
-  registrationStatus: string;
   urls: {
     site: string;
     registration: string;
@@ -182,11 +181,23 @@ export type Announcement = {
   confirmed: boolean;
 };
 
+/**
+ * A partner mark. Intrinsic dimensions travel with the file so the tile can
+ * size by height without object-contain letterboxing a logo whose ratio
+ * differs from a hardcoded guess.
+ */
+export type PartnerLogo = {
+  /** White-on-transparent SVG/PNG/WebP under /public/images/partners. */
+  src: string;
+  width: number;
+  height: number;
+};
+
 export type Partner = {
   id: string;
   name: string;
-  /** White SVG/PNG under /public/images/partners. Null renders a marked tile. */
-  logo: string | null;
+  /** Null renders a marked tile in place of the mark. */
+  logo: PartnerLogo | null;
   href: string | null;
   tier: string;
   confirmed: boolean;

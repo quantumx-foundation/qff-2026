@@ -34,11 +34,11 @@ export const statement = {
 /**
  * Mid-page purple interruption. Carries the oversized sliced wordmark and the
  * primary conversion path. No past-edition recap is claimed: QFF26 has no
- * confirmed prior event, so the band states only the registration status.
+ * confirmed prior event, so the band states the confirmed start date.
  */
 export const identityBand = {
   eyebrow: `${event.shortName} / ${event.year}`,
-  status: event.registrationStatus,
+  status: event.dateLabel,
   cta: { label: "Register", href: event.urls.registration },
   media: {
     src: null,
