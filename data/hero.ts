@@ -9,7 +9,7 @@ import { event } from "./event";
  */
 export const hero: HeroContent = {
   eyebrow: `${event.shortName} / ${event.organisation.toUpperCase()}`,
-  headline: ["The future", "of quantum", "is being built", "here."],
+  headline: ["The future of quantum", "is being built here."],
   primaryCta: { label: "Register", href: event.urls.registration },
   secondaryCta: { label: "View program", href: event.urls.program },
   media: {

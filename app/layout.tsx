@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Oxanium } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Oxanium } from "next/font/google";
 import "./globals.css";
 import { DuotoneDefs } from "@/components/effects/DuotoneDefs";
 import { event } from "@/data/event";
@@ -21,6 +21,16 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+/**
+ * Hero face. A neo-grotesque with the tall x-height and angled ascender cuts of
+ * the Apple system font, which Geist's more geometric forms do not carry.
+ */
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -67,7 +77,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${oxanium.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${oxanium.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <DuotoneDefs />

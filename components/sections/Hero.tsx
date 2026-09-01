@@ -18,7 +18,7 @@ export function Hero() {
       id="top"
       aria-labelledby="hero-heading"
       className="relative isolate w-full bg-qff-black"
-      style={{ minHeight: "clamp(560px, 78vh, 900px)" }}
+      style={{ minHeight: "clamp(760px, 97vh, 1200px)" }}
     >
       {/* Media */}
       <SteppedMedia className="absolute inset-0">
@@ -65,7 +65,7 @@ export function Hero() {
 
           <h1
             id="hero-heading"
-            className="text-hero mt-5 max-w-[18ch] text-qff-white"
+            className="text-hero mt-5 max-w-[22ch] text-qff-white"
           >
             {hero.headline.map((line, i) => (
               <span
