@@ -121,7 +121,14 @@ export function Footer() {
 
       <div className="container-wide pb-8">
         <p className="label-mono-sm font-bold text-qff-black/70">
-          {event.organisation.toUpperCase()}
+          <Link
+            href={event.urls.organisation}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-qff-black/25 decoration-1 underline-offset-4 transition-colors duration-200 hover:text-qff-black"
+          >
+            {event.organisation.toUpperCase()}
+          </Link>
         </p>
       </div>
     </footer>
