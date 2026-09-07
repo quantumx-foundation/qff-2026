@@ -50,15 +50,12 @@ export type EventConfig = {
     registration: string;
     speakerApplication: string;
     sponsor: string;
-    press: string;
-    contentCreator: string;
     contact: string;
     codeOfConduct: string;
     privacy: string;
     terms: string;
-    communityEvents: string;
-    archive: string;
-    recap: string;
+    /** Null until a destination is published; nothing may render a null. */
+    communityEvents: string | null;
     program: string;
   };
   socials: SocialLink[];

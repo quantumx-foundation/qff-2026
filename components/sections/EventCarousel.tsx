@@ -21,20 +21,23 @@ export function EventCarousel() {
   const carousel = useCarousel();
   if (!ecosystemEvents.length) return null;
 
+  const ctaHref = event.urls[ecosystemIntro.cta.href];
+
   return (
     <section id="events" aria-labelledby="events-heading" className="section bg-qff-black">
       <div className="container-wide">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <SectionHeading id="events-heading" lines={ecosystemIntro.heading} />
-            <div className="mt-8">
-              <Button
-                href={event.urls[ecosystemIntro.cta.href]}
-                variant="secondary"
-              >
-                {ecosystemIntro.cta.label}
-              </Button>
-            </div>
+            {/* The CTA appears only once its destination is published; a
+                button that navigates nowhere is worse than none. */}
+            {ctaHref ? (
+              <div className="mt-8">
+                <Button href={ctaHref} variant="secondary">
+                  {ecosystemIntro.cta.label}
+                </Button>
+              </div>
+            ) : null}
           </div>
 
           <div className="hidden items-center gap-3 md:flex">

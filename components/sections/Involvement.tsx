@@ -27,15 +27,21 @@ export function Involvement() {
             </h2>
 
             <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-              {involvement.actions.map((action) => (
-                <Button
-                  key={action.label}
-                  href={event.urls[action.href as keyof EventConfig["urls"]]}
-                  variant={action.variant === "primary" ? "primary" : "secondary"}
-                >
-                  {action.label}
-                </Button>
-              ))}
+              {/* An action whose destination is not published yet is dropped
+                  rather than rendered as a link to nowhere. */}
+              {involvement.actions.map((action) => {
+                const href = event.urls[action.href as keyof EventConfig["urls"]];
+                if (!href) return null;
+                return (
+                  <Button
+                    key={action.label}
+                    href={href}
+                    variant={action.variant === "primary" ? "primary" : "secondary"}
+                  >
+                    {action.label}
+                  </Button>
+                );
+              })}
             </div>
           </div>
         </Reveal>
