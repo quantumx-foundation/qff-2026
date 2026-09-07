@@ -44,13 +44,16 @@ const oxanium = Oxanium({
 
 const siteUrl = event.urls.site;
 
+/** Shared by the Open Graph and Twitter cards, which show the same preview. */
+const SHARE_DESCRIPTION = `${event.expansion} ${event.year} by IBM Quantum, hosted by ${event.organisation}. Four events from 10 October, in ${event.city} and online.`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: `${event.shortName} | ${event.organisation}`,
     template: `%s | ${event.shortName}`,
   },
-  description: `${event.shortName} is the ${event.organisation} edition of the ${event.expansion}, running from 10 October 2026 in Bengaluru and online. Four events bringing research, builders, industry and community together around quantum technology.`,
+  description: `${event.organisation} hosts the ${event.expansion} ${event.year}, IBM Quantum's annual quantum computing festival. Four events from 10 October, in ${event.city} and online, bringing research, builders, industry and community together.`,
   applicationName: event.shortName,
   alternates: { canonical: siteUrl },
   openGraph: {
@@ -58,12 +61,15 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: `${event.shortName} | ${event.organisation}`,
     title: `${event.shortName} | ${event.organisation}`,
-    description: `The ${event.organisation} edition of the ${event.expansion}. From 10 October 2026, in Bengaluru and online.`,
+    // Kept to roughly two lines: WhatsApp, Slack and iMessage truncate a link
+    // preview well before the full description, so the host, the programme and
+    // the date have to land in the first sentence.
+    description: SHARE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
     title: `${event.shortName} | ${event.organisation}`,
-    description: `The ${event.organisation} edition of the ${event.expansion}. From 10 October 2026, in Bengaluru and online.`,
+    description: SHARE_DESCRIPTION,
   },
   robots: { index: true, follow: true },
 };
