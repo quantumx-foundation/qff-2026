@@ -18,8 +18,9 @@ export const event: EventConfig = {
   shortName: "QFF26",
   year: "2026",
   organisation: "QuantumX Foundation",
-  // "QFF" is deliberately not expanded: no approved expansion has been supplied.
-  expansion: null,
+  // QuantumX is the official host of the Qiskit Fall Fest 2026 edition, so the
+  // expansion is confirmed and carries the programme's own name.
+  expansion: "Qiskit Fall Fest",
 
   // Confirmed start: Saturday 10 October 2026, Bengaluru (IST, UTC+05:30).
   // This is when the festival begins, not the full duration. End date is not

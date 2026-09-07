@@ -30,7 +30,7 @@ export type EventConfig = {
   shortName: string;
   year: string;
   organisation: string;
-  /** Full expansion of "QFF". Null until supplied as approved content. */
+  /** Full expansion of "QFF", e.g. "Qiskit Fall Fest". Null until confirmed. */
   expansion: string | null;
   /** ISO 8601 with offset. Null until the date is confirmed; gates the countdown. */
   startsAt: string | null;

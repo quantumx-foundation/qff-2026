@@ -8,7 +8,11 @@ import { event } from "./event";
  * marked unconfirmed until approved event copy is supplied.
  */
 export const hero: HeroContent = {
-  eyebrow: `${event.shortName} / ${event.organisation.toUpperCase()}`,
+  // Named by the programme it belongs to; falls back to the house form while
+  // no approved expansion exists.
+  eyebrow: event.expansion
+    ? `${event.expansion.toUpperCase()} ${event.year}`
+    : `${event.shortName} / ${event.organisation.toUpperCase()}`,
   headline: ["The future of quantum", "is being built here."],
   primaryCta: { label: "Register", href: event.urls.registration },
   secondaryCta: { label: "View program", href: event.urls.program },
