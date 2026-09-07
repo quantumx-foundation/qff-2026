@@ -22,7 +22,7 @@ export type Confirmable<T> = {
 export type SocialLink = {
   label: string;
   href: string;
-  icon: "x" | "linkedin" | "youtube" | "github" | "discord";
+  icon: "x" | "linkedin" | "instagram" | "youtube" | "github" | "discord";
 };
 
 export type EventConfig = {
@@ -41,8 +41,12 @@ export type EventConfig = {
   venue: string;
   city: string;
   country: string | null;
+  /** Published address for organiser enquiries. */
+  contactEmail: string;
   urls: {
     site: string;
+    /** The hosting organisation's own site, not this event's. */
+    organisation: string;
     registration: string;
     speakerApplication: string;
     sponsor: string;
@@ -212,6 +216,21 @@ export type FaqItem = {
   answer: string;
   /** False while the answer is a placeholder awaiting approved copy. */
   confirmed: boolean;
+};
+
+/**
+ * A short standalone document — terms, privacy, code of conduct, contact.
+ *
+ * Deliberately small: a title and a couple of paragraphs. Prose stays plain
+ * text so it is readable in the data file, and every destination the prose
+ * refers to is listed in `links` and rendered as a row beneath it.
+ */
+export type LegalDocument = {
+  title: string;
+  /** Standfirst under the title, and the page's meta description. */
+  summary: string;
+  body: string[];
+  links: Array<{ label: string; href: string }>;
 };
 
 export type InvolvementAction = {

@@ -16,6 +16,13 @@ import { cn } from "@/lib/utils";
  * three depth levels.
  */
 
+/**
+ * Only handles with a resolved destination are shown. The rest fall back to "#"
+ * until their env var is set, and an icon that navigates nowhere is worse than
+ * an absent one — same convention the partner and testimonial lists follow.
+ */
+const SOCIALS = event.socials.filter((social) => social.href.startsWith("http"));
+
 const LEGAL: Array<{ label: string; href: string }> = [
   { label: "Contact", href: event.urls.contact },
   { label: "Code of conduct", href: event.urls.codeOfConduct },
@@ -50,14 +57,13 @@ export function Footer() {
         {/* Social / copyright / legal */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <ul className="flex items-center gap-6">
-            {event.socials.map((social) => (
+            {SOCIALS.map((social) => (
               <li key={social.label}>
                 <Link
                   href={social.href}
                   aria-label={social.label}
-                  {...(social.href.startsWith("http")
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block text-qff-black transition-opacity duration-200 hover:opacity-60"
                 >
                   <SocialIcon icon={social.icon} />
@@ -66,8 +72,19 @@ export function Footer() {
             ))}
           </ul>
 
+          {/* Only the organisation name is the link; the year and the copyright
+              mark stay plain so the target of the click is unambiguous. */}
           <p className="label-mono-sm font-bold text-qff-black lg:order-2">
-            &copy; {event.organisation.toUpperCase()} | {event.year}
+            &copy;{" "}
+            <Link
+              href={event.urls.organisation}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-qff-black/30 decoration-1 underline-offset-4 transition-opacity duration-200 hover:opacity-60"
+            >
+              {event.organisation.toUpperCase()}
+            </Link>{" "}
+            | {event.year}
           </p>
 
           <ul className="flex flex-wrap items-center gap-x-7 gap-y-3 lg:order-3">
