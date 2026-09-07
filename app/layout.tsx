@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     default: `${event.shortName} | ${event.organisation}`,
     template: `%s | ${event.shortName}`,
   },
-  description: `${event.shortName} is the ${event.organisation} event bringing research, builders, industry and community together around quantum technology. Dates and venue to be announced.`,
+  description: `${event.shortName} is the ${event.organisation} edition of the ${event.expansion}, running from 10 October 2026 in Bengaluru and online. Four events bringing research, builders, industry and community together around quantum technology.`,
   applicationName: event.shortName,
   alternates: { canonical: siteUrl },
   openGraph: {
@@ -58,12 +58,12 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: `${event.shortName} | ${event.organisation}`,
     title: `${event.shortName} | ${event.organisation}`,
-    description: `${event.shortName}. Dates and venue to be announced.`,
+    description: `The ${event.organisation} edition of the ${event.expansion}. From 10 October 2026, in Bengaluru and online.`,
   },
   twitter: {
     card: "summary_large_image",
     title: `${event.shortName} | ${event.organisation}`,
-    description: `${event.shortName}. Dates and venue to be announced.`,
+    description: `The ${event.organisation} edition of the ${event.expansion}. From 10 October 2026, in Bengaluru and online.`,
   },
   robots: { index: true, follow: true },
 };
