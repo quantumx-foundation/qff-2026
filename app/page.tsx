@@ -5,6 +5,7 @@ import { StructuredData } from "@/components/layout/StructuredData";
 
 import { Hero } from "@/components/sections/Hero";
 import { EventMeta } from "@/components/sections/EventMeta";
+import { HostBand } from "@/components/sections/HostBand";
 import { EditorialStatement } from "@/components/sections/EditorialStatement";
 import { Stats } from "@/components/sections/Stats";
 import { ValueSection } from "@/components/sections/ValueSection";
@@ -35,6 +36,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <EventMeta />
+        <HostBand />
         <EditorialStatement />
 
         <GlitchMarquee tokens={marqueeTop} duration={95} />

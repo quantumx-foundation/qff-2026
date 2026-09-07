@@ -39,7 +39,7 @@ export const event: EventConfig = {
 
   urls: {
     site: process.env.NEXT_PUBLIC_SITE_URL ?? "https://qff26.quantumx.foundation",
-    registration: url("NEXT_PUBLIC_REGISTRATION_URL", "https://luma.com/user/quantumx"),
+    registration: url("NEXT_PUBLIC_REGISTRATION_URL", "https://luma.com/qff26xquantumx"),
     speakerApplication: url("NEXT_PUBLIC_SPEAKER_URL", "https://tally.so/r/D46GER"),
     sponsor: url("NEXT_PUBLIC_SPONSOR_URL"),
     press: url("NEXT_PUBLIC_PRESS_URL"),
