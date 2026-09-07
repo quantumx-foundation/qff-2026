@@ -69,7 +69,7 @@ export const contact: LegalDocument = {
   title: "Contact",
   summary: `How to reach the ${event.organisation} team about QFF26.`,
   body: [
-    `QFF26 is organised by ${event.organisation}. Email ${event.contactEmail} and it reaches the organising team — questions about an event, speaking, partnering, press, or anything you have found on this site.`,
+    `QFF26 is organised by ${event.organisation}. Email ${event.contactEmail} and it reaches the organising team, whether that is a question about an event, speaking, partnering, press, or anything else you have found on this site.`,
     "Some things move faster elsewhere. Each event in the program takes its own registrations, speaking and partnership both have their own forms, and the community is on Discord day to day.",
   ],
   links: [
