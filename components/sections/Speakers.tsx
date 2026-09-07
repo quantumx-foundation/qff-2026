@@ -1,11 +1,7 @@
-"use client";
-
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ArrowButton } from "@/components/ui/ArrowButton";
 import { Button } from "@/components/ui/Button";
-import { CarouselTrack } from "@/components/ui/CarouselTrack";
-import { useCarousel } from "@/components/ui/useCarousel";
+import { Reveal } from "@/components/effects/Reveal";
 import { SpeakerCard } from "@/components/ui/SpeakerCard";
 import { SpeakerCtaCard } from "@/components/ui/SpeakerCtaCard";
 import { speakers, speakersIntro } from "@/data/speakers";
@@ -13,17 +9,18 @@ import { event } from "@/data/event";
 import type { Treatment } from "@/types/event";
 
 /**
- * Speakers rail.
+ * Speakers grid.
  *
- * Horizontally scrolling on every breakpoint, with prev/next controls on
- * pointer devices and native swipe on touch. Only approved people are named;
- * the rail closes on an open CTA card rather than on invented holding slots.
+ * The roster is laid out in full rather than on a rail: at this size every
+ * confirmed speaker is visible at once, with no horizontal scroll to discover.
+ * Only approved people are named; the grid closes on an open CTA card rather
+ * than on invented holding slots, so the last cell always reads as "more to
+ * come" instead of leaving a ragged row.
  */
 
 const TREATMENTS: Treatment[] = ["purple", "green", "blue", "mono"];
 
 export function Speakers() {
-  const carousel = useCarousel();
   if (!speakers.length) return null;
 
   return (
@@ -39,48 +36,25 @@ export function Speakers() {
             />
           </div>
 
-          <div className="flex items-center gap-3">
-            <Button href={event.urls[speakersIntro.cta.href]} variant="secondary">
-              {speakersIntro.cta.label}
-            </Button>
-            <div className="hidden items-center gap-3 md:flex">
-              <ArrowButton
-                direction="prev"
-                label="Previous speakers"
-                onClick={carousel.prev}
-                disabled={!carousel.canPrev}
-              />
-              <ArrowButton
-                direction="next"
-                label="More speakers"
-                onClick={carousel.next}
-                disabled={!carousel.canNext}
-              />
-            </div>
-          </div>
+          <Button href={event.urls[speakersIntro.cta.href]} variant="secondary">
+            {speakersIntro.cta.label}
+          </Button>
         </div>
-      </div>
 
-      <div className="mt-12 lg:mt-16">
-        <CarouselTrack
-          trackRef={carousel.ref}
-          label="Speakers"
-          className="px-[var(--pad)]"
-        >
+        {/* Cards top-align so the CTA panel, which carries no caption beneath
+            it, sits flush with the portraits in its row. */}
+        <ul className="mt-12 grid grid-cols-1 items-start gap-x-5 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:mt-16 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-14">
           {speakers.map((speaker, i) => (
-            <div
-              key={speaker.id}
-              className="w-[72vw] shrink-0 snap-start sm:w-[46vw] lg:w-[23vw] lg:max-w-[360px]"
-            >
+            <Reveal as="li" key={speaker.id} index={i}>
               <SpeakerCard
                 speaker={speaker}
                 treatment={speaker.treatment ?? TREATMENTS[i % TREATMENTS.length]}
               />
-            </div>
+            </Reveal>
           ))}
 
           {/* Closing card: continues the positional treatment cycle. */}
-          <div className="w-[72vw] shrink-0 snap-start sm:w-[46vw] lg:w-[23vw] lg:max-w-[360px]">
+          <Reveal as="li" index={speakers.length}>
             <SpeakerCtaCard
               treatment={TREATMENTS[speakers.length % TREATMENTS.length]}
               note={speakersIntro.more}
@@ -89,8 +63,8 @@ export function Speakers() {
                 href: event.urls[speakersIntro.cta.href],
               }}
             />
-          </div>
-        </CarouselTrack>
+          </Reveal>
+        </ul>
       </div>
     </section>
   );

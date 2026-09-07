@@ -39,7 +39,7 @@ export function SpeakerCtaCard({
         }}
       />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-7 p-8 text-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 p-6 text-center lg:gap-7 lg:p-8">
         <p className="text-h3 text-balance text-qff-white">{note}</p>
         <Button href={cta.href} variant="secondary">
           {cta.label}

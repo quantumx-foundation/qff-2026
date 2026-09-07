@@ -28,6 +28,22 @@ export const speakers: Speaker[] = [
     confirmed: true,
   },
   {
+    id: "kameshwari-avs",
+    name: "Dr. Kameshwari AVS",
+    role: "Assistant Professor",
+    organisation: "VIT Vellore",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/kameshwari-avs.webp",
+      alt: "Portrait of Dr. Kameshwari AVS",
+      placeholderLabel: "SPEAKER 02",
+      ...FRAME,
+    },
+    treatment: null,
+    confirmed: true,
+  },
+  {
     id: "muhammed-ameen",
     name: "Muhammed Ameen Sulaiman",
     role: "Director",
@@ -37,10 +53,28 @@ export const speakers: Speaker[] = [
     media: {
       src: "/images/speakers/ameen.webp",
       alt: "Portrait of Muhammed Ameen Sulaiman",
-      placeholderLabel: "SPEAKER 02",
+      placeholderLabel: "SPEAKER 03",
       ...FRAME,
     },
     treatment: "mono",
+    confirmed: true,
+  },
+  {
+    id: "amar-dixit",
+    name: "Amar Dixit",
+    role: "CEO",
+    organisation: "SwiftSeeds, Woi India",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/amar-dixit.webp",
+      alt: "Portrait of Amar Dixit",
+      placeholderLabel: "SPEAKER 04",
+      ...FRAME,
+    },
+    // Breaks the positional cycle, which would repeat the preceding card's
+    // mono and collide with Shreyansu's blue once the grid wraps to three up.
+    treatment: "green",
     confirmed: true,
   },
   {
@@ -53,10 +87,10 @@ export const speakers: Speaker[] = [
     media: {
       src: "/images/speakers/shreyansu-panda.webp",
       alt: "Portrait of Shreyansu Panda",
-      placeholderLabel: "SPEAKER 03",
+      placeholderLabel: "SPEAKER 05",
       ...FRAME,
     },
-    treatment: null,
+    treatment: "blue",
     confirmed: true,
   },
   {
@@ -69,10 +103,10 @@ export const speakers: Speaker[] = [
     media: {
       src: "/images/speakers/sampark-bhol.webp",
       alt: "Portrait of Sampark Bhol",
-      placeholderLabel: "SPEAKER 04",
+      placeholderLabel: "SPEAKER 06",
       ...FRAME,
     },
-    treatment: "green",
+    treatment: "purple",
     confirmed: true,
   },
 ];
