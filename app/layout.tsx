@@ -47,8 +47,8 @@ const siteUrl = event.urls.site;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${event.shortName} — ${event.organisation}`,
-    template: `%s — ${event.shortName}`,
+    default: `${event.shortName} | ${event.organisation}`,
+    template: `%s | ${event.shortName}`,
   },
   description: `${event.shortName} is the ${event.organisation} event bringing research, builders, industry and community together around quantum technology. Dates and venue to be announced.`,
   applicationName: event.shortName,
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    siteName: `${event.shortName} — ${event.organisation}`,
-    title: `${event.shortName} — ${event.organisation}`,
+    siteName: `${event.shortName} | ${event.organisation}`,
+    title: `${event.shortName} | ${event.organisation}`,
     description: `${event.shortName}. Dates and venue to be announced.`,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${event.shortName} — ${event.organisation}`,
+    title: `${event.shortName} | ${event.organisation}`,
     description: `${event.shortName}. Dates and venue to be announced.`,
   },
   robots: { index: true, follow: true },

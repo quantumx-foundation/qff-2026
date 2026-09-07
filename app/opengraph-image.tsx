@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { event } from "@/data/event";
 
-export const alt = `${event.shortName} — ${event.organisation}`;
+export const alt = `${event.shortName} | ${event.organisation}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
