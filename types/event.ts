@@ -132,6 +132,8 @@ export type ProgramDay = {
   description: string | null;
   /** Overrides the section pending note, e.g. where only the speaker is open. */
   note: string | null;
+  /** The event's own registration page. Null hides the CTA for that event. */
+  registrationUrl: string | null;
   sessions: ProgramSession[];
 };
 

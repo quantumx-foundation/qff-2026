@@ -11,6 +11,10 @@ import type { Partner } from "@/types/event";
  *
  * Websites and tiers are not yet supplied; each tile renders unlinked until a
  * partner's own URL is confirmed.
+ *
+ * TinkerHub Foundation is held off the roster for now; its processed mark is
+ * kept at /images/partners/tinkerhub.png (800x155) so restoring it is a matter
+ * of putting the entry back.
  */
 export const partners: Partner[] = [
   {
@@ -41,14 +45,6 @@ export const partners: Partner[] = [
     id: "appetite",
     name: "Appetite",
     logo: { src: "/images/partners/appetite.png", width: 800, height: 192 },
-    href: null,
-    tier: "TBC",
-    confirmed: true,
-  },
-  {
-    id: "tinkerhub",
-    name: "TinkerHub Foundation",
-    logo: { src: "/images/partners/tinkerhub.png", width: 800, height: 155 },
     href: null,
     tier: "TBC",
     confirmed: true,

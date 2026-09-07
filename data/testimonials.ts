@@ -1,30 +1,15 @@
 import type { Testimonial } from "@/types/event";
-import { CONTENT_PLACEHOLDER } from "@/types/event";
 
 /**
  * Community quotes.
  *
- * project.md section 17 forbids inventing testimonials. A single explicitly
- * marked placeholder panel holds the composition until approved quotes exist;
- * emptying this array hides the section entirely.
+ * Hidden until approved quotes exist: an empty list keeps the section off the
+ * page (see Testimonials). project.md section 17 forbids inventing
+ * testimonials, so the section stays off rather than running a marked
+ * placeholder panel. Restore the placeholder from git when real quotes are
+ * approved.
  */
-export const testimonials: Testimonial[] = [
-  {
-    id: "placeholder-1",
-    quote: CONTENT_PLACEHOLDER,
-    handle: null,
-    name: "Awaiting approved quote",
-    role: null,
-    media: {
-      src: null,
-      alt: "",
-      placeholderLabel: "COMMUNITY",
-      width: 1400,
-      height: 1000,
-    },
-    confirmed: false,
-  },
-];
+export const testimonials: Testimonial[] = [];
 
 export const testimonialsIntro = {
   label: "FROM THE COMMUNITY",

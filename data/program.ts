@@ -9,6 +9,10 @@ import type { ProgramDay, ProgramSession } from "@/types/event";
  *
  * Every event publishes a running order rather than a timed schedule: `time` is
  * null on every row, which drops the time column from the schedule grid.
+ *
+ * Each event registers on its own Luma page rather than through the shared
+ * event.urls.registration hub, so the CTA sends people to the event they are
+ * actually looking at.
  */
 const session = (title: string, speaker: string | null = null): ProgramSession => ({
   time: null,
@@ -30,6 +34,7 @@ export const program: ProgramDay[] = [
     description:
       "A fireside conversation on careers in quantum computing, followed by an open Q&A and networking session with the Qx community.",
     note: null,
+    registrationUrl: "https://luma.com/1sxdwrff",
     sessions: [
       session("Welcome Note"),
       session("Fireside Chat: Careers in Quantum"),
@@ -46,6 +51,7 @@ export const program: ProgramDay[] = [
     description:
       "A foundation-level expert session focused on developers exploring quantum computing, followed by an audience Q&A and an invitation to join the QFF26 community.",
     note: null,
+    registrationUrl: "https://luma.com/8jpgnkcg",
     sessions: [
       session("Welcome Note & Introduction"),
       session("Expert Talk"),
@@ -63,6 +69,7 @@ export const program: ProgramDay[] = [
     description:
       "A hands-on workshop introducing participants to the Qiskit SDK, quantum programming, and the IBM Quantum Platform. Participants will create and run simple quantum circuits and gain practical experience with quantum development.",
     note: null,
+    registrationUrl: "https://luma.com/79i0vamg",
     sessions: [
       session("Welcome & Introduction"),
       session("Hands-on Workshop"),
@@ -79,6 +86,7 @@ export const program: ProgramDay[] = [
     description:
       "An advanced expert session exploring current quantum computing trends, industry challenges, research pathways, and opportunities across the growing quantum ecosystem.",
     note: null,
+    registrationUrl: "https://luma.com/rzpptnuq",
     sessions: [
       session("Registration & Networking"),
       session("Welcome Note"),

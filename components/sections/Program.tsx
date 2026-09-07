@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { Button } from "@/components/ui/Button";
 import { SectionLabel, PendingNote } from "@/components/ui/SectionLabel";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { program, programIntro } from "@/data/program";
@@ -106,7 +107,15 @@ export function Program() {
             <p className="text-body mt-4 max-w-[62ch]">{day.description}</p>
           ) : null}
 
-          <ul className="mt-6 flex flex-col">
+          {/* Registration is per event, so the CTA sits inside the panel rather
+              than at the section head where it could only point at one of them. */}
+          {day.registrationUrl ? (
+            <Button href={day.registrationUrl} className="mt-7">
+              Register for {day.label}
+            </Button>
+          ) : null}
+
+          <ul className="mt-10 flex flex-col">
             {day.sessions.map((session, i) => {
               const rowId = `${day.id}-${i}`;
               const open = openRow === rowId;
