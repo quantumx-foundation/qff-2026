@@ -22,7 +22,9 @@ export function SpeakerCard({
           media={speaker.media}
           treatment={treatment}
           fill={false}
-          sizes="(max-width: 640px) 92vw, (max-width: 768px) 46vw, (max-width: 1024px) 31vw, 23vw"
+          // Two columns from the smallest width, so a card is never wider
+          // than about half the viewport until the md breakpoint.
+          sizes="(max-width: 768px) 46vw, (max-width: 1024px) 31vw, 23vw"
           className="w-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
         />
       </div>

@@ -43,7 +43,10 @@ export function Speakers() {
 
         {/* Cards top-align so the CTA panel, which carries no caption beneath
             it, sits flush with the portraits in its row. */}
-        <ul className="mt-12 grid grid-cols-1 items-start gap-x-5 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:mt-16 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-14">
+        {/* Two up from the smallest width: a single column turned six cards
+            plus the CTA into an unreasonably long scroll on a phone. Gutters
+            are tighter below sm so the narrower cards keep their image ratio. */}
+        <ul className="mt-12 grid grid-cols-2 items-start gap-x-4 gap-y-8 sm:gap-x-5 sm:gap-y-10 md:grid-cols-3 lg:mt-16 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-14">
           {speakers.map((speaker, i) => (
             <Reveal as="li" key={speaker.id} index={i}>
               <SpeakerCard
