@@ -4,8 +4,9 @@ import { event } from "./event";
 /**
  * Hero copy.
  *
- * The headline is the example wording carried in style.md section 6. It is
- * marked unconfirmed until approved event copy is supplied.
+ * The headline is supplied event copy, split into the lines it should break
+ * on: each renders as its own block and carries its own entrance delay, so the
+ * break is a design decision rather than whatever the container width gives.
  */
 export const hero: HeroContent = {
   // Named by the programme it belongs to; falls back to the house form while
@@ -13,7 +14,7 @@ export const hero: HeroContent = {
   eyebrow: event.expansion
     ? `${event.expansion.toUpperCase()} ${event.year}`
     : `${event.shortName} / ${event.organisation.toUpperCase()}`,
-  headline: ["The future of quantum", "is being built here."],
+  headline: ["Welcome to the", "quantum frontier."],
   primaryCta: { label: "Register", href: event.urls.registration },
   secondaryCta: { label: "View program", href: event.urls.program },
   media: {
@@ -23,7 +24,7 @@ export const hero: HeroContent = {
     width: 1641,
     height: 958,
   },
-  confirmed: false,
+  confirmed: true,
 };
 
 /** Editorial statement following the event meta strip. */
