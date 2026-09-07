@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter, Oxanium } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { DuotoneDefs } from "@/components/effects/DuotoneDefs";
-import { event } from "@/data/event";
+import { event, GA_MEASUREMENT_ID } from "@/data/event";
 
 /**
  * Typography.
@@ -95,6 +96,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         {children}
       </body>
+      {/* Loads gtag.js after hydration rather than blocking first paint, which
+          is what the raw snippet in the <head> would do. Placed outside <body>
+          as the Next guide specifies. Note this sets Google's _ga cookies and
+          fetches from a third party, which is why the privacy page says so. */}
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }

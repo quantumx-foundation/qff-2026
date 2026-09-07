@@ -75,6 +75,16 @@ export const event: EventConfig = {
   ],
 };
 
+/**
+ * Google Analytics 4 measurement ID.
+ *
+ * Held here with the other published constants rather than in an environment
+ * variable, for the reason given above: this site takes no configuration.
+ * Loading this is what makes the privacy page's analytics and cookie wording
+ * true, so the two are changed together.
+ */
+export const GA_MEASUREMENT_ID = "G-LSY11T1E61";
+
 /** Only destinations that exist on the implemented page. */
 export const navigation: NavItem[] = [
   { label: "About", href: "#about", index: "01" },

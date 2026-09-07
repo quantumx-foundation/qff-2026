@@ -40,9 +40,10 @@ export const terms: LegalDocument = {
 
 export const privacy: LegalDocument = {
   title: "Privacy",
-  summary: "What this site collects, which is nothing, and who holds what you send elsewhere.",
+  summary: "What this site measures, and who holds what you send elsewhere.",
   body: [
-    "This site collects nothing about you. It sets no cookies, runs no analytics and stores nothing in your browser; the fonts and images are served from this domain rather than fetched from a third party, and there is no form here to fill in and no account to make.",
+    "This site uses Google Analytics to count visits and see which pages get read. That sets Google's analytics cookies in your browser and loads a script from Google's servers, which receive your IP address along with basic details about your device and browser. We use it to understand how far the event is reaching, not to identify anyone, and there is no form here to fill in and no account to make.",
+    "Everything else on the page comes from this domain: the fonts and images are not fetched from anywhere else. If you would rather not be counted, blocking trackers in your browser, or Google's own opt-out add-on, stops the analytics script from loading.",
     `Registration, speaker applications and partnership enquiries all happen on external platforms: Luma and Tally. Anything you enter there is held by those companies under their own privacy policies rather than ours. If you have registered for a QFF26 event or written to us and want to know what we hold, or want it removed, email ${event.contactEmail}.`,
   ],
   links: [
