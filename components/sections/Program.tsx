@@ -124,7 +124,7 @@ export function Program() {
               return (
                 <li
                   key={rowId}
-                  className="hairline-t last:border-b last:border-[var(--border)]"
+                  className="hairline-t relative last:border-b last:border-[var(--border)]"
                 >
                   <div
                     className={cn(
@@ -139,7 +139,14 @@ export function Program() {
                       </span>
                     ) : null}
 
-                    <span className="text-card-title text-qff-white">
+                    {/* Room for the toggle, which is pinned to the row's top
+                        right below lg rather than taking a column of its own. */}
+                    <span
+                      className={cn(
+                        "text-card-title text-qff-white",
+                        expandable && "pr-11 lg:pr-0",
+                      )}
+                    >
                       {session.title}
                     </span>
 
@@ -170,7 +177,7 @@ export function Program() {
                             ? `Hide details for ${session.title}`
                             : `Show details for ${session.title}`
                         }
-                        className="hidden h-8 w-8 items-center justify-center border border-[var(--border)] text-qff-white transition-colors duration-200 hover:border-qff-white hover:bg-qff-white hover:text-qff-black lg:flex"
+                        className="absolute right-0 top-5 flex h-8 w-8 items-center justify-center border border-[var(--border)] text-qff-white transition-colors duration-200 hover:border-qff-white hover:bg-qff-white hover:text-qff-black lg:static lg:top-auto lg:right-auto"
                       >
                         <span aria-hidden="true" className="relative block h-3 w-3">
                           <span className="absolute left-0 top-1/2 h-[1.5px] w-3 -translate-y-1/2 bg-current" />

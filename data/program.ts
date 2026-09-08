@@ -14,13 +14,17 @@ import type { ProgramDay, ProgramSession } from "@/types/event";
  * event.urls.registration hub, so the CTA sends people to the event they are
  * actually looking at.
  */
-const session = (title: string, speaker: string | null = null): ProgramSession => ({
+const session = (
+  title: string,
+  detail: string | null = null,
+  speaker: string | null = null,
+): ProgramSession => ({
   time: null,
   title,
   type: null,
   speaker,
   track: null,
-  detail: null,
+  detail,
   confirmed: true,
 });
 
@@ -28,18 +32,34 @@ export const program: ProgramDay[] = [
   {
     id: "event-1",
     label: "Event 1",
-    title: "Careers in Quantum",
+    title: "Qiskit Fall Fest 2026: Quantum Community Connect",
     dateLabel: "10 OCT",
     location: "Startup Park, Bangalore",
     description:
-      "A fireside conversation on careers in quantum computing, followed by an open Q&A and networking session with the Qx community.",
+      "A community meetup bringing together students, researchers, developers, and professionals interested in quantum computing and the rapidly growing quantum technology ecosystem.",
     note: null,
     registrationUrl: "https://luma.com/1sxdwrff",
     sessions: [
-      session("Welcome Note"),
-      session("Fireside Chat: Careers in Quantum"),
-      session("Audience Q&A"),
-      session("Networking & Closing Remarks"),
+      session(
+        "Welcome Note",
+        "An introduction to QuantumX's Qiskit Fall Fest 2026 and the community, workshops, expert talks, and flagship events planned throughout the festival.",
+      ),
+      session(
+        "Introduction to Qiskit",
+        "An introduction to Qiskit and the IBM Quantum ecosystem, with insights into how to get started learning and building with quantum computing.",
+      ),
+      session(
+        "Fireside Chat: Careers in Quantum",
+        "A conversation on career pathways in quantum computing and quantum programming, followed by insights into skills, opportunities, and getting started in the field.",
+      ),
+      session(
+        "Audience Q&A",
+        "An open Q&A with speakers and members of the quantum community.",
+      ),
+      session(
+        "Networking & Community Connect",
+        "Connect with students, researchers, developers, industry professionals, mentors, collaborators, and future teammates from the growing quantum ecosystem.",
+      ),
     ],
   },
   {
