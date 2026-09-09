@@ -19,7 +19,7 @@ export function Announcements() {
   if (!announcements.length) return null;
 
   return (
-    <section aria-labelledby="announcements-heading" className="section bg-qff-black">
+    <section aria-labelledby="announcements-heading" className="section bg-ground">
       <div className="container-wide">
         <div className="flex items-end justify-between gap-6">
           <SectionHeading

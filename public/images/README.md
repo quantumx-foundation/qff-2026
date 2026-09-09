@@ -6,7 +6,7 @@ matching data file. **No component changes are required.**
 
 Images are processed through `<ImageTreatment />`, which applies a duotone in
 one of four treatments (`purple`, `green`, `blue`, `mono`) plus grain and
-contrast — so supply plain, unstyled photography. High-contrast source images
+contrast, so supply plain, unstyled photography. High-contrast source images
 with clear subject separation duotone best.
 
 | Section | Folder | Data file | Ratio | Suggested size |
@@ -17,10 +17,11 @@ with clear subject separation duotone best.
 | Community strip (×6) | `community/` | `data/gallery.ts` | mixed | ~1000×1250 |
 | Speaker portraits | `speakers/` | `data/speakers.ts` | 3:4 | 900×1200 |
 | Ecosystem event posters | `events/` | `data/ecosystem.ts` | 4:5 | 1000×1250 |
+| Program event key art | `program/` | `data/program.ts` → `media` | 16:10 | 1600×1000 |
 | Community quote backdrop | `community/` | `data/testimonials.ts` | 7:5 | 1400×1000 |
-| Partner logos | `partners/` | `data/partners.ts` | — | white SVG preferred |
+| Partner logos | `partners/` | `data/partners.ts` | n/a | white SVG preferred |
 
-Example — replacing the hero image:
+Example, replacing the hero image:
 
 ```ts
 // data/hero.ts
@@ -32,6 +33,10 @@ media: {
   height: 1400,
 }
 ```
+
+Program key art is the one exception to the duotone: those banners already
+carry the IBM Quantum and Qiskit marks, so `ProgramCard` renders them
+`untreated` and they must be supplied finished, in their own colours.
 
 Partner logos should be white-on-transparent SVGs. Setting `logo` on a partner
 replaces its bordered placeholder tile with the mark.

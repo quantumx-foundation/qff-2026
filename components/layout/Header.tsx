@@ -75,22 +75,25 @@ export function Header() {
         layout={reduced ? false : "size"}
         transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "pointer-events-auto flex flex-col bg-qff-black",
+          "pointer-events-auto flex flex-col bg-raised",
           open && "w-[min(92vw,29rem)] border border-[var(--border)] p-2",
         )}
       >
         <div className="flex items-stretch justify-between gap-2">
-          <Link
+          {/* Plain anchor, not next/link: the router ignores a click on the
+              hash we are already at, which would leave the wordmark dead at
+              the top of the page. */}
+          <a
             href="#top"
             aria-label={`${event.shortName} home`}
             onClick={close}
-            className="flex items-center px-4 text-qff-white sm:px-5"
+            className="flex items-center px-4 text-ink sm:px-5"
           >
             <Wordmark
               markClassName="h-[0.95em]"
               textClassName="text-[1.25rem] sm:text-[1.4rem]"
             />
-          </Link>
+          </a>
 
           <div className="flex items-stretch gap-2">
             <AnimatePresence initial={false}>
@@ -108,7 +111,7 @@ export function Header() {
                     target={externalRegistration ? "_blank" : undefined}
                     rel={externalRegistration ? "noopener noreferrer" : undefined}
                     className={cn(
-                      "group items-center gap-2 bg-qff-white px-4 label-mono font-bold text-qff-black transition-colors duration-200 hover:bg-qff-purple",
+                      "group items-center gap-2 bg-inverse px-4 label-mono font-bold text-on-inverse transition-colors duration-200 hover:bg-accent",
                       open ? "flex" : "hidden sm:flex",
                     )}
                   >
@@ -126,7 +129,7 @@ export function Header() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls={PANEL_ID}
-              className="flex h-12 w-12 shrink-0 items-center justify-center bg-qff-surface text-qff-white transition-colors duration-200 hover:bg-qff-white hover:text-qff-black"
+              className="flex h-12 w-12 shrink-0 items-center justify-center bg-surface text-ink transition-colors duration-200 hover:bg-inverse hover:text-on-inverse"
             >
               {open ? (
                 <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">

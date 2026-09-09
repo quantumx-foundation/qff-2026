@@ -7,12 +7,16 @@
  */
 
 const RAMPS: Array<{ id: string; shadow: [number, number, number]; light: [number, number, number] }> = [
-  // #1a0e2e -> #c39bfa
-  { id: "purple", shadow: [0.102, 0.055, 0.18], light: [0.765, 0.608, 0.98] },
-  // #04140c -> #8ff5b4
-  { id: "green", shadow: [0.016, 0.078, 0.047], light: [0.561, 0.961, 0.706] },
-  // #08111f -> #6e9ee8
-  { id: "blue", shadow: [0.031, 0.067, 0.122], light: [0.431, 0.62, 0.91] },
+  // Each ramp runs from a dark plum shadow to one of the three brand colours,
+  // so a rail of portraits reads as one family rather than three unrelated
+  // tints. The old green and blue ramps came from the reference imagery, not
+  // from anything QuantumX supplied, and are retired with the palette.
+  // #1d0f38 -> #f9a6cd
+  { id: "pink", shadow: [0.114, 0.059, 0.22], light: [0.976, 0.651, 0.804] },
+  // #1d0f38 -> #9ba1ee
+  { id: "indigo", shadow: [0.114, 0.059, 0.22], light: [0.608, 0.631, 0.933] },
+  // #150a29 -> #d7e4ff
+  { id: "plum", shadow: [0.082, 0.039, 0.161], light: [0.843, 0.894, 1.0] },
 ];
 
 const LUMINANCE = [

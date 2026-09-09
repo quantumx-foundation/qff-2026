@@ -87,7 +87,7 @@ export const HERO_STEPS: StepSegment[] = [
 
 /**
  * Footer top edge, measured from the reference: eight runs across three depth
- * levels — an irregular skyline rather than a regular saw-tooth.
+ * levels, an irregular skyline rather than a regular saw-tooth.
  */
 export const FOOTER_STEPS: StepSegment[] = [
   { w: 0.063, level: 1 },

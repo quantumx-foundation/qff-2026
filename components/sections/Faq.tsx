@@ -2,15 +2,18 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import Link from "next/link";
+import { Arrow } from "@/components/ui/Arrow";
 import { PendingNote } from "@/components/ui/SectionLabel";
 import { faq } from "@/data/faq";
+import { event } from "@/data/event";
 import { cn } from "@/lib/utils";
 
 /**
  * FAQ.
  *
  * Large title in the left column, accordion in the right, separated by thin
- * rules with a square plus/minus control — the reference layout exactly. One
+ * rules with a square plus/minus control, the reference layout exactly. One
  * item open at a time; the first opens by default.
  *
  * Answers state the current position rather than asserting unconfirmed facts,
@@ -23,8 +26,8 @@ export function Faq() {
   if (!faq.length) return null;
 
   return (
-    <section id="faq" aria-labelledby="faq-heading" className="section bg-qff-black">
-      <div className="container-wide grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
+    <section id="faq" aria-labelledby="faq-heading" className="section bg-ground">
+      <div className="container-wide grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,14rem)_1fr] lg:gap-16">
         <h2 id="faq-heading" className="text-h2">
           FAQ
         </h2>
@@ -46,7 +49,7 @@ export function Faq() {
                     id={`faq-trigger-${item.id}`}
                     className="group flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                   >
-                    <span className="text-faq text-qff-white">
+                    <span className="text-faq text-ink">
                       {item.question}
                     </span>
 
@@ -55,8 +58,8 @@ export function Faq() {
                       className={cn(
                         "mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border transition-colors duration-200",
                         open
-                          ? "border-transparent bg-qff-surface-2 text-qff-white"
-                          : "border-[var(--border)] text-qff-white group-hover:border-qff-white",
+                          ? "border-transparent bg-surface-2 text-ink"
+                          : "border-[var(--border)] text-ink group-hover:border-ink",
                       )}
                     >
                       <span className="relative block h-3 w-3">
@@ -90,6 +93,36 @@ export function Faq() {
                     >
                       <div className="pb-7 pr-14">
                         <p className="text-body max-w-[62ch]">{item.answer}</p>
+
+                        {/* Destinations the answer names, so the reader can act
+                            without hunting for the section it describes. A key
+                            whose URL is null is skipped, not rendered dead. */}
+                        {item.links?.length ? (
+                          <ul className="mt-5 flex flex-wrap items-center gap-x-7 gap-y-3">
+                            {item.links.map((link) => {
+                              const href = event.urls[link.href];
+                              if (!href) return null;
+                              const external = href.startsWith("http");
+                              return (
+                                <li key={link.label}>
+                                  <Link
+                                    href={href}
+                                    {...(external
+                                      ? {
+                                          target: "_blank",
+                                          rel: "noopener noreferrer",
+                                        }
+                                      : {})}
+                                    className="group inline-flex items-center gap-1.5 label-mono-sm font-bold text-ink transition-opacity duration-200 hover:opacity-60"
+                                  >
+                                    {link.label.toUpperCase()}
+                                    <Arrow className="transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        ) : null}
                       </div>
                     </motion.div>
                   ) : null}

@@ -24,7 +24,7 @@ import { cn } from "@/lib/utils";
 
 const IMAGE_CLIP = topStaircase(CORNER_STEPS, "var(--corner-step)");
 
-const TREATMENTS = ["blue", "purple", "green", "blue"] as const;
+const TREATMENTS = ["indigo", "plum", "pink", "indigo"] as const;
 
 export function ValueSection() {
   const [activeId, setActiveId] = useState(values[0]?.id);
@@ -35,7 +35,7 @@ export function ValueSection() {
   if (!values.length) return null;
 
   return (
-    <section aria-labelledby="values-heading" className="section bg-qff-black">
+    <section aria-labelledby="values-heading" className="section bg-ground">
       <div className="container-editorial">
         <h2 id="values-heading" className="text-h2 text-center">
           Why {event.shortName}
@@ -88,8 +88,8 @@ export function ValueSection() {
                       className={cn(
                         "w-full py-6 text-left transition-colors duration-200",
                         open
-                          ? "text-qff-white"
-                          : "text-qff-white/45 hover:text-qff-white/80",
+                          ? "text-ink"
+                          : "text-dim hover:text-muted",
                       )}
                     >
                       <span className="text-h3 block">{block.title}</span>
@@ -115,7 +115,7 @@ export function ValueSection() {
                       >
                         <div className="pb-7">
                           <p className="text-body max-w-[46ch]">{block.body}</p>
-                          <p className="label-mono-sm mt-5 text-qff-white/45">
+                          <p className="label-mono-sm mt-5 text-dim">
                             {block.tag}
                           </p>
                           {!block.confirmed ? (

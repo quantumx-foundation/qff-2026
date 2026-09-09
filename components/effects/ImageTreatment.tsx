@@ -16,16 +16,16 @@ import type { MediaRef, Treatment } from "@/types/event";
  * section composition and contrast read correctly before real imagery lands.
  */
 export const PLACEHOLDER_TONE: Record<Treatment, string> = {
-  purple: "linear-gradient(148deg, #4b2f78 0%, #2a1747 46%, #170c27 100%)",
-  green: "linear-gradient(148deg, #1d5a3a 0%, #0e2e1e 46%, #04140c 100%)",
-  blue: "linear-gradient(148deg, #26497f 0%, #142a4c 46%, #08111f 100%)",
+  pink: "linear-gradient(148deg, #8d3f68 0%, #4b2447 46%, #22112f 100%)",
+  indigo: "linear-gradient(148deg, #3f45ad 0%, #2b2570 46%, #180f38 100%)",
+  plum: "linear-gradient(148deg, #4d2c8f 0%, #30195b 46%, #1a0e33 100%)",
   mono: "linear-gradient(148deg, #3a3a3a 0%, #1d1d1d 46%, #0b0b0b 100%)",
 };
 
 export const PLACEHOLDER_EDGE: Record<Treatment, string> = {
-  purple: "rgba(161,106,243,0.34)",
-  green: "rgba(112,238,157,0.28)",
-  blue: "rgba(74,128,216,0.30)",
+  pink: "rgba(243,126,181,0.34)",
+  indigo: "rgba(80,87,214,0.34)",
+  plum: "rgba(215,228,255,0.24)",
   mono: "rgba(255,255,255,0.16)",
 };
 
@@ -40,17 +40,24 @@ type Props = {
   fill?: boolean;
   /** Hide the placeholder label and size (e.g. when the panel is a design surface). */
   showPlaceholderLabel?: boolean;
+  /**
+   * Skip the duotone. For supplied key art that is already designed — an event
+   * banner carrying the IBM Quantum and Qiskit marks must keep its own colour,
+   * since greyscaling a partner's logo misrepresents their brand.
+   */
+  untreated?: boolean;
 };
 
 export function ImageTreatment({
   media,
-  treatment = "purple",
+  treatment = "plum",
   className,
   imageClassName,
   sizes = "100vw",
   priority = false,
   fill = true,
   showPlaceholderLabel = true,
+  untreated = false,
 }: Props) {
   if (!media) return null;
 
@@ -111,7 +118,7 @@ export function ImageTreatment({
         loading={priority ? undefined : "lazy"}
         className={cn(
           "h-full w-full object-cover",
-          `duotone-${treatment}`,
+          !untreated && `duotone-${treatment}`,
           imageClassName,
         )}
       />

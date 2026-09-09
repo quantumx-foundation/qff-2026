@@ -9,12 +9,13 @@ import { event } from "./event";
  * break is a design decision rather than whatever the container width gives.
  */
 export const hero: HeroContent = {
-  // Named by the programme it belongs to; falls back to the house form while
-  // no approved expansion exists.
-  eyebrow: event.expansion
-    ? `${event.expansion.toUpperCase()} ${event.year}`
-    : `${event.shortName} / ${event.organisation.toUpperCase()}`,
-  headline: ["Welcome to the", "quantum frontier."],
+  // Switched off on 9 Sep 2026 at the user's request: the headline already
+  // names the event, so the eyebrow only repeated it. Restore by building the
+  // string from `event.expansion` and `event.year` again.
+  eyebrow: null,
+  // Names the event rather than the theme: a visitor landing here should read
+  // what this is in the first line, not a mood. Supplied by marketing.
+  headline: ["Qiskit Fall Fest '26", "x QuantumX."],
   primaryCta: { label: "Register", href: event.urls.registration },
   secondaryCta: { label: "View program", href: event.urls.program },
   media: {

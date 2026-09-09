@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
  */
 
 const TONE = {
-  purple: "text-qff-purple",
-  green: "text-qff-green",
-  blue: "text-[#6e9ee8]",
+  pink: "text-qff-pink",
+  indigo: "text-qff-indigo",
+  plum: "text-qff-plum",
 } as const;
 
 type Props = {
@@ -34,7 +34,7 @@ export function GlitchMarquee({
       className={cn("relative w-full select-none overflow-hidden py-3", className)}
     >
       <Marquee duration={duration} reverse={reverse}>
-        <span className="whitespace-pre font-mono text-[13px] leading-none tracking-[0.02em] text-white/28">
+        <span className="whitespace-pre font-mono text-[13px] leading-none tracking-[0.02em] text-ink/25">
           {tokens.map((token, i) =>
             token.kind === "noise" ? (
               <span key={i}>{token.text}</span>

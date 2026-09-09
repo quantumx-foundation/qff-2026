@@ -24,7 +24,7 @@ export function EventCarousel() {
   const ctaHref = event.urls[ecosystemIntro.cta.href];
 
   return (
-    <section id="events" aria-labelledby="events-heading" className="section bg-qff-black">
+    <section id="events" aria-labelledby="events-heading" className="section bg-ground">
       <div className="container-wide">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>

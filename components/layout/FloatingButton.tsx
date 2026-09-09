@@ -32,8 +32,8 @@ export function FloatingButton() {
       }
       className={cn(
         "fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full",
-        "border border-[var(--border)] bg-qff-black text-qff-white",
-        "transition-all duration-300 hover:bg-qff-white hover:text-qff-black",
+        "border border-[var(--border)] bg-raised text-ink",
+        "transition-all duration-300 hover:bg-inverse hover:text-on-inverse",
         visible
           ? "pointer-events-auto opacity-100"
           : "pointer-events-none opacity-0",

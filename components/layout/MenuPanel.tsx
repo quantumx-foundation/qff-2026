@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { event, navigation } from "@/data/event";
 
@@ -67,20 +66,22 @@ export function MenuPanel({
                   key={item.href}
                   className={i === 0 ? undefined : "border-t border-[var(--border)]"}
                 >
-                  <Link
+                  {/* In-page jumps stay plain anchors: next/link would no-op
+                      on the section you are already parked at. */}
+                  <a
                     href={item.href}
                     onClick={onNavigate}
-                    className="group flex items-center gap-3 py-[1.15rem] label-mono text-[0.8125rem] text-qff-white transition-colors duration-200 hover:text-qff-purple"
+                    className="group flex items-center gap-3 py-[1.15rem] label-mono text-[0.8125rem] text-ink transition-colors duration-200 hover:text-accent"
                   >
                     {item.label.toUpperCase()}
                     <RowArrow />
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
 
             {/* Utility row closing the stack, mirroring the reference. */}
-            <p className="border-t border-[var(--border)] py-[1.15rem] label-mono text-[0.8125rem] text-qff-white/40">
+            <p className="border-t border-[var(--border)] py-[1.15rem] label-mono text-[0.8125rem] text-dim">
               {event.organisation.toUpperCase()}
             </p>
           </div>

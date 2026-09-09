@@ -9,16 +9,16 @@ import type { EventConfig } from "@/types/event";
  * Primary conversion block.
  *
  * A raised #1e1e1e panel inset within the page, centred label, heading and a
- * single row of controls where only the first is filled — the reference's
+ * single row of controls where only the first is filled, the reference's
  * button hierarchy. Every destination resolves through the config layer.
  */
 export function Involvement() {
   return (
-    <section aria-labelledby="involvement-heading" className="bg-qff-black pb-[var(--space-section)]">
+    <section aria-labelledby="involvement-heading" className="bg-ground pb-[var(--space-section)]">
       <div className="container-wide">
         <Reveal>
-          <div className="bg-qff-surface px-6 py-16 text-center sm:px-10 lg:py-24">
-            <SectionLabel className="text-qff-white/70">
+          <div className="bg-surface px-6 py-16 text-center sm:px-10 lg:py-24">
+            <SectionLabel className="text-muted">
               {involvement.label}
             </SectionLabel>
 

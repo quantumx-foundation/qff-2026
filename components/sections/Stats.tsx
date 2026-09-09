@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
  * Statistics.
  *
  * Centred statement and CTA over three oversized figures set in the techno
- * display face with small mono labels beneath — the number dominates its label,
+ * display face with small mono labels beneath, the number dominates its label,
  * as in the reference. Figures are marked placeholders: project.md forbids
  * fabricating statistics.
  *
@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
  */
 export function Stats() {
   return (
-    <section aria-labelledby="stats-heading" className="bg-qff-black pb-0">
+    <section aria-labelledby="stats-heading" className="bg-ground pb-0">
       <div className="container-editorial pt-[var(--space-section)] text-center">
         <Reveal>
           <h2 id="stats-heading" className="text-h2 mx-auto max-w-[20ch]">
@@ -54,10 +54,10 @@ export function Stats() {
               )}
             >
               <div className="flex flex-col items-center gap-3 text-center">
-                <span className="num-display text-stat text-qff-white">
+                <span className="num-display text-stat text-ink">
                   {stat.value}
                 </span>
-                <span className="label-mono max-w-[18ch] text-qff-white/85">
+                <span className="label-mono max-w-[18ch] text-muted">
                   {stat.label.toUpperCase()}
                 </span>
               </div>

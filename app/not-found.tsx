@@ -9,7 +9,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
  * 404.
  *
  * Deliberately the sparsest page on the site: the gif, one line, one way out.
- * Someone who lands here wants to leave, so anything past that is in the way —
+ * Someone who lands here wants to leave, so anything past that is in the way -
  * the header already carries a second route back, and the footer carries the
  * rest of the site.
  */
@@ -25,7 +25,7 @@ export default function NotFound() {
     <>
       <SubpageHeader />
 
-      <main id="main" className="bg-qff-black">
+      <main id="main" className="bg-ground">
         <div className="container-editorial flex flex-col items-center py-24 text-center sm:py-32 lg:py-40">
           <SectionLabel>404</SectionLabel>
 

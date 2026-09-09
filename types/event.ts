@@ -49,6 +49,8 @@ export type EventConfig = {
     organisation: string;
     registration: string;
     speakerApplication: string;
+    /** Past speakers on the Foundation's own site, not this event's roster. */
+    pastSpeakers: string;
     sponsor: string;
     contact: string;
     codeOfConduct: string;
@@ -69,7 +71,8 @@ export type NavItem = {
 };
 
 export type HeroContent = {
-  eyebrow: string;
+  /** Small line above the headline. Null renders no eyebrow at all. */
+  eyebrow: string | null;
   /** Rendered as separate lines to control the break points. */
   headline: string[];
   primaryCta: { label: string; href: string };
@@ -88,7 +91,14 @@ export type MediaRef = {
   height: number;
 };
 
-export type Treatment = "purple" | "green" | "blue" | "mono";
+export type Treatment = "pink" | "indigo" | "plum" | "mono";
+
+/**
+ * Brand accent roles for flat surfaces. `Treatment` drives the photographic
+ * duotone filters and shares these names on purpose: a card tinted `pink` and
+ * a portrait treated `pink` land on the same brand colour.
+ */
+export type Accent = "pink" | "indigo" | "plum";
 
 export type Stat = {
   value: string;
@@ -123,6 +133,11 @@ export type ProgramSession = {
 
 export type ProgramDay = {
   id: string;
+  /**
+   * Ordinal name ("Event 1"). No longer drawn on the card: the events are
+   * identified by title and date instead. It survives as the screen-reader
+   * name for an event whose `title` is still null.
+   */
   label: string;
   /** Event title shown above the running order. Null while unannounced. */
   title: string | null;
@@ -133,8 +148,23 @@ export type ProgramDay = {
   description: string | null;
   /** Overrides the section pending note, e.g. where only the speaker is open. */
   note: string | null;
+  /**
+   * Marks an event that is not open to general registration, e.g. one hosted
+   * on a partner campus for its own students. Draws a PRIVATE EVENT tag on the
+   * card. Optional: absent means public, so only closed events declare it.
+   */
+  isPrivate?: boolean;
   /** The event's own registration page. Null hides the CTA for that event. */
   registrationUrl: string | null;
+  /**
+   * The event's own key art. Null draws the generated brand tile instead, so
+   * the board is final-size before artwork lands, dropping in a file path is
+   * the only change needed. Never point this at art whose date or title
+   * contradicts the fields above.
+   */
+  media: MediaRef | null;
+  /** Positional brand accent for the generated tile and the card rule. */
+  accent: Accent;
   sessions: ProgramSession[];
 };
 
@@ -206,17 +236,25 @@ export type Partner = {
   confirmed: boolean;
 };
 
+/** Key into `event.urls`, so an answer can never link somewhere undeclared. */
+export type EventUrlKey = keyof EventConfig["urls"];
+
 export type FaqItem = {
   id: string;
   category: string;
   question: string;
   answer: string;
+  /**
+   * Destinations the answer names, rendered under it. Optional: an answer that
+   * points nowhere declares none. A key whose URL is null renders no link.
+   */
+  links?: Array<{ label: string; href: EventUrlKey }>;
   /** False while the answer is a placeholder awaiting approved copy. */
   confirmed: boolean;
 };
 
 /**
- * A short standalone document — terms, privacy, code of conduct, contact.
+ * A short standalone document, terms, privacy, code of conduct, contact.
  *
  * Deliberately small: a title and a couple of paragraphs. Prose stays plain
  * text so it is readable in the data file, and every destination the prose

@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
  *
  * Traced from the official App-Icon artwork as vector geometry rather than
  * shipped as a raster, so it stays crisp at every size and inherits
- * `currentColor` — white in the header, black on the purple footer.
+ * `currentColor`, white in the header, black on the purple footer.
  *
  * Four straight-edged polygons with 180-degree rotational symmetry.
  * Source artwork is kept at /public/logos/quantumx-icon-black.png.

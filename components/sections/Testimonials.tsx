@@ -13,7 +13,7 @@ import { testimonials, testimonialsIntro } from "@/data/testimonials";
  * Community quotes.
  *
  * Heading and controls occupy the left column; the right carries a treated
- * image with a white quote panel laid over it — a printed editorial card on a
+ * image with a white quote panel laid over it, a printed editorial card on a
  * digital background, as in the reference. Quotes are placeholders: project.md
  * forbids inventing testimonials.
  */
@@ -29,7 +29,7 @@ export function Testimonials() {
     setIndex((i) => (i + delta + testimonials.length) % testimonials.length);
 
   return (
-    <section aria-labelledby="community-heading" className="section bg-qff-black">
+    <section aria-labelledby="community-heading" className="section bg-ground">
       <div className="container-wide grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-10">
         {/* Left column */}
         <div>
@@ -68,7 +68,7 @@ export function Testimonials() {
             <div className="absolute inset-0">
               <ImageTreatment
                 media={current.media}
-                treatment="purple"
+                treatment="plum"
                 sizes="(max-width: 1024px) 100vw, 52vw"
                 className="h-full w-full"
               />
@@ -81,7 +81,7 @@ export function Testimonials() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={reduced ? { opacity: 0 } : { opacity: 0, y: -10 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-x-4 top-8 flex min-h-[300px] flex-col justify-between bg-qff-white p-6 text-qff-black sm:top-14 sm:right-10 sm:left-16 sm:p-9 lg:min-h-[360px]"
+                className="absolute inset-x-4 top-8 flex min-h-[300px] flex-col justify-between bg-inverse p-6 text-on-inverse sm:top-14 sm:right-10 sm:left-16 sm:p-9 lg:min-h-[360px]"
               >
                 <blockquote className="text-quote">
                   &ldquo;{current.quote}&rdquo;
@@ -97,7 +97,7 @@ export function Testimonials() {
                         {current.handle}
                       </p>
                     ) : null}
-                    <p className="label-mono-sm mt-1 text-qff-black/70">
+                    <p className="label-mono-sm mt-1 text-on-inverse/70">
                       {current.name.toUpperCase()}
                       {current.role ? ` · ${current.role.toUpperCase()}` : ""}
                     </p>

@@ -18,13 +18,13 @@ import type { Treatment } from "@/types/event";
  * come" instead of leaving a ragged row.
  */
 
-const TREATMENTS: Treatment[] = ["purple", "green", "blue", "mono"];
+const TREATMENTS: Treatment[] = ["plum", "pink", "indigo", "mono"];
 
 export function Speakers() {
   if (!speakers.length) return null;
 
   return (
-    <section id="speakers" aria-labelledby="speakers-heading" className="section bg-qff-black">
+    <section id="speakers" aria-labelledby="speakers-heading" className="section bg-ground">
       <div className="container-wide">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -36,9 +36,17 @@ export function Speakers() {
             />
           </div>
 
-          <Button href={event.urls[speakersIntro.cta.href]} variant="secondary">
-            {speakersIntro.cta.label}
-          </Button>
+          <div className="flex flex-wrap items-center gap-3">
+            <Button
+              href={event.urls[speakersIntro.pastCta.href]}
+              variant="secondary"
+            >
+              {speakersIntro.pastCta.label}
+            </Button>
+            <Button href={event.urls[speakersIntro.cta.href]} variant="secondary">
+              {speakersIntro.cta.label}
+            </Button>
+          </div>
         </div>
 
         {/* Cards top-align so the CTA panel, which carries no caption beneath

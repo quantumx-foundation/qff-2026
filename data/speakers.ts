@@ -30,8 +30,8 @@ export const speakers: Speaker[] = [
   {
     id: "kameshwari-avs",
     name: "Dr. Kameshwari AVS",
-    role: "Assistant Professor",
-    organisation: "VIT Vellore",
+    role: "Quantum Game Theory",
+    organisation: "Researcher",
     topic: null,
     href: null,
     media: {
@@ -46,7 +46,7 @@ export const speakers: Speaker[] = [
   {
     id: "muhammed-ameen",
     name: "Muhammed Ameen Sulaiman",
-    role: "Director",
+    role: "Co-founder & CTO",
     organisation: "QuantumX Foundation",
     topic: null,
     href: null,
@@ -74,7 +74,7 @@ export const speakers: Speaker[] = [
     },
     // Breaks the positional cycle, which would repeat the preceding card's
     // mono and collide with Shreyansu's blue once the grid wraps to three up.
-    treatment: "green",
+    treatment: "pink",
     confirmed: true,
   },
   {
@@ -90,7 +90,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 05",
       ...FRAME,
     },
-    treatment: "blue",
+    treatment: "indigo",
     confirmed: true,
   },
   {
@@ -106,7 +106,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 06",
       ...FRAME,
     },
-    treatment: "purple",
+    treatment: "plum",
     confirmed: true,
   },
 ];
@@ -115,6 +115,8 @@ export const speakersIntro = {
   label: "SPEAKERS",
   heading: ["The speakers"],
   cta: { label: "Apply to speak", href: "speakerApplication" as const },
+  /** Sends people to the Foundation's roster of speakers from past events. */
+  pastCta: { label: "Past speakers", href: "pastSpeakers" as const },
   /** Copy on the closing card of the rail. */
   more: "More speakers to be announced soon",
 };

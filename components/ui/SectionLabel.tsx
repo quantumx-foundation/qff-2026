@@ -9,7 +9,7 @@ export function SectionLabel({
   className?: string;
 }) {
   return (
-    <p className={cn("label-mono text-qff-white/70", className)}>{children}</p>
+    <p className={cn("label-mono text-muted", className)}>{children}</p>
   );
 }
 
@@ -24,11 +24,11 @@ export function PendingNote({
   return (
     <p
       className={cn(
-        "label-mono-sm inline-flex items-center gap-2 text-qff-white/40",
+        "label-mono-sm inline-flex items-center gap-2 text-dim",
         className,
       )}
     >
-      <span aria-hidden="true" className="inline-block h-1.5 w-1.5 bg-qff-purple" />
+      <span aria-hidden="true" className="inline-block h-1.5 w-1.5 bg-accent" />
       {children}
     </p>
   );

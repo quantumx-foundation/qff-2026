@@ -102,7 +102,7 @@ export function Countdown() {
             <Cell key={unit} value={unit === "Days" ? "–––" : "––"} label={unit} />
           ))}
         </div>
-        <p className="label-mono-sm mt-8 text-center font-bold text-qff-black/55">
+        <p className="label-mono-sm mt-8 text-center font-bold text-on-inverse/70">
           Event date to be announced
         </p>
       </div>

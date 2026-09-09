@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Inter, Oxanium } from "next/font/google";
+import { Fira_Code, Geist } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { DuotoneDefs } from "@/components/effects/DuotoneDefs";
@@ -8,11 +8,13 @@ import { event, GA_MEASUREMENT_ID } from "@/data/event";
 /**
  * Typography.
  *
- * Two voices from style.md — a modern grotesk for display and body, a
- * monospace for technical metadata — plus a squared techno face used only for
- * the wordmark, statistics and countdown, matching the reference's numerals.
- * All three are self-hosted through next/font, so no external font CSS is
- * fetched at runtime.
+ * Two voices, matching the Qiskit Fall Fest 2026 material: Fira Code carries
+ * every display line, the hero, section headings, statistics and all
+ * technical metadata, and a grotesk carries body copy only, because
+ * monospace is markedly slower to read at paragraph length.
+ *
+ * Both are self-hosted through next/font, so no external font CSS is fetched
+ * at runtime.
  */
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,33 +22,17 @@ const geistSans = Geist({
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const firaCode = Fira_Code({
+  variable: "--font-fira-code",
   subsets: ["latin"],
-  display: "swap",
-});
-
-/**
- * Hero face. A neo-grotesque with the tall x-height and angled ascender cuts of
- * the Apple system font, which Geist's more geometric forms do not carry.
- */
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const oxanium = Oxanium({
-  variable: "--font-oxanium",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const siteUrl = event.urls.site;
 
 /** Shared by the Open Graph and Twitter cards, which show the same preview. */
-const SHARE_DESCRIPTION = `${event.expansion} ${event.year} by IBM Quantum, hosted by ${event.organisation}. Four events from 10 October, in ${event.city} and online.`;
+const SHARE_DESCRIPTION = `${event.expansion} ${event.year} by IBM Quantum, hosted by ${event.organisation}. Five events from 10 October, in ${event.city}, Kochi and online.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -54,7 +40,7 @@ export const metadata: Metadata = {
     default: `${event.shortName} | ${event.organisation}`,
     template: `%s | ${event.shortName}`,
   },
-  description: `${event.organisation} hosts the ${event.expansion} ${event.year}, IBM Quantum's annual quantum computing festival. Four events from 10 October, in ${event.city} and online, bringing research, builders, industry and community together.`,
+  description: `${event.organisation} hosts the ${event.expansion} ${event.year}, IBM Quantum's annual quantum computing festival. Five events from 10 October, in ${event.city}, Kochi and online, bringing research, builders, industry and community together.`,
   applicationName: event.shortName,
   alternates: { canonical: siteUrl },
   openGraph: {
@@ -84,13 +70,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${oxanium.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${firaCode.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <DuotoneDefs />
         <a
           href="#main"
-          className="label-mono sr-only font-bold focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:bg-qff-white focus:px-4 focus:py-3 focus:text-qff-black"
+          className="label-mono sr-only font-bold focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:bg-inverse focus:px-4 focus:py-3 focus:text-on-inverse"
         >
           Skip to content
         </a>

@@ -7,8 +7,8 @@ import { hostBand } from "@/data/host";
  * Host band.
  *
  * The three elements are centred as one group rather than pushed to the
- * container's edges, so the composition reads as a lockup — IBM's programme on
- * the left, the host on the right — rather than as two marks with a gap. The
+ * container's edges, so the composition reads as a lockup, IBM's programme on
+ * the left, the host on the right, rather than as two marks with a gap. The
  * line is given room for a single row at this size. Both marks are wide
  * wordmarks of near-identical aspect, so one shared height sets them at
  * matching optical weight without the per-mark sizing the partner roster needs.
@@ -34,7 +34,7 @@ function Mark({ name, logo }: (typeof marks)["host"]) {
 
 export function HostBand() {
   return (
-    <section aria-labelledby="host-heading" className="section-tight bg-qff-black">
+    <section aria-labelledby="host-heading" className="on-dark section-tight bg-ground">
       <div className="container-wide">
         <Reveal>
           <SectionLabel className="text-center">{label}</SectionLabel>
@@ -46,9 +46,9 @@ export function HostBand() {
 
             <h2
               id="host-heading"
-              className="text-card-title order-last w-full text-balance text-center text-qff-white md:order-none md:w-auto md:max-w-[42ch]"
+              className="text-card-title order-last w-full text-balance text-center text-ink md:order-none md:w-auto md:max-w-[42ch]"
             >
-              {lead} <span className="text-qff-purple">{accent}</span>
+              {lead} <span className="text-accent">{accent}</span>
             </h2>
 
             <Mark {...marks.host} />

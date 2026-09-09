@@ -35,6 +35,6 @@ console.log(`\n${total} placeholder marker(s) still present:\n`);
 console.log(report.join("\n"));
 console.log(
   "\nThese are expected during development. Replace them with approved event\n" +
-    "content before launch — no component changes are required.\n",
+    "content before launch, no component changes are required.\n",
 );
 process.exit(0);

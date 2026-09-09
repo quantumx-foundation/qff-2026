@@ -17,7 +17,7 @@ export function Hero() {
     <section
       id="top"
       aria-labelledby="hero-heading"
-      className="relative isolate w-full bg-qff-black"
+      className="on-dark relative isolate w-full bg-ground"
       style={{ minHeight: "clamp(760px, 97vh, 1200px)" }}
     >
       {/* Media */}
@@ -27,7 +27,7 @@ export function Hero() {
             {hero.media?.src ? (
               <GlitchImage
                 media={hero.media}
-                treatment="purple"
+                treatment="plum"
                 priority
                 sizes="100vw"
                 className="h-full w-full"
@@ -35,7 +35,7 @@ export function Hero() {
             ) : (
               <ImageTreatment
                 media={hero.media}
-                treatment="purple"
+                treatment="plum"
                 priority
                 sizes="100vw"
                 className="h-full w-full"
@@ -53,19 +53,28 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative flex min-h-[inherit] flex-col justify-end">
+        {/* The media's bottom edge is cut up by four step units across the left
+            60% of the width, exactly the run the content column sits in, so
+            the padding clears four units plus a gap. It used to sit 2.25rem
+            BELOW that line, which was invisible while the page under the hero
+            was black on black; against the plum ground it cut the CTA row in
+            half. */}
         <div
-          className="container-wide pb-[calc(var(--hero-step)*4-2.25rem)] pt-32"
+          className="container-wide pb-[calc(var(--hero-step)*4+2rem)] pt-32"
         >
-          <p
-            className="rise label-mono text-qff-white/75"
-            style={{ animationDelay: "80ms" }}
-          >
-            {hero.eyebrow}
-          </p>
+          {hero.eyebrow ? (
+            <p
+              className="rise label-mono text-muted"
+              style={{ animationDelay: "80ms" }}
+            >
+              {hero.eyebrow}
+            </p>
+          ) : null}
 
           <h1
             id="hero-heading"
-            className="text-hero mt-5 max-w-[22ch] text-qff-white"
+            /* mt-5 only clears the eyebrow; without one there is nothing above. */
+            className={`text-hero max-w-[22ch] text-ink${hero.eyebrow ? " mt-5" : ""}`}
           >
             {hero.headline.map((line, i) => (
               <span

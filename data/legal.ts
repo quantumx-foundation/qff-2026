@@ -6,7 +6,7 @@ import { event } from "@/data/event";
  *
  * Short by intent: a title and a couple of paragraphs each, no clause
  * numbering. That is also what keeps them honest under project.md's rule
- * against invented content — every sentence here either describes how this
+ * against invented content, every sentence here either describes how this
  * site and this event actually work, or points at a document someone else
  * has published. Nothing commits QuantumX Foundation to a policy it has not
  * adopted, so there is no placeholder wording to replace later.

@@ -1,4 +1,4 @@
-# QFF26 — Technical Specification
+# QFF26, Technical Specification
 
 ## 1. Project Overview
 
@@ -899,7 +899,7 @@ The architecture should, however, make future CMS integration straightforward.
 
 Implementation order:
 
-### Phase 1 — Foundation
+### Phase 1, Foundation
 
 - Initialize Next.js
 - Configure TypeScript
@@ -909,7 +909,7 @@ Implementation order:
 - Configure metadata
 - Establish layout/container system
 
-### Phase 2 — Core Layout
+### Phase 2, Core Layout
 
 - Header
 - Navigation
@@ -918,7 +918,7 @@ Implementation order:
 - Base buttons
 - Typography system
 
-### Phase 3 — Main Sections
+### Phase 3, Main Sections
 
 - Event introduction
 - Statistics
@@ -930,7 +930,7 @@ Implementation order:
 - FAQ
 - Countdown
 
-### Phase 4 — Motion
+### Phase 4, Motion
 
 - Reveal animations
 - Glitch effects
@@ -939,14 +939,14 @@ Implementation order:
 - Parallax
 - Hover states
 
-### Phase 5 — Responsive
+### Phase 5, Responsive
 
 - Tablet layout
 - Mobile layout
 - Touch interactions
 - Mobile navigation
 
-### Phase 6 — Polish
+### Phase 6, Polish
 
 - Typography refinement
 - Spacing
@@ -955,7 +955,7 @@ Implementation order:
 - Micro-interactions
 - Loading behavior
 
-### Phase 7 — QA
+### Phase 7, QA
 
 - Build
 - Lint
@@ -966,7 +966,7 @@ Implementation order:
 - SEO
 - Link verification
 
-### Phase 8 — Deployment
+### Phase 8, Deployment
 
 - Vercel
 - Environment variables

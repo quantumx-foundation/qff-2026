@@ -22,10 +22,10 @@ function noise(length: number, seed: number): string {
 
 export type MarqueeToken =
   | { kind: "noise"; text: string }
-  | { kind: "keyword"; text: string; tone: "purple" | "green" | "blue" };
+  | { kind: "keyword"; text: string; tone: "plum" | "pink" | "indigo" };
 
 function build(
-  keywords: Array<{ text: string; tone: "purple" | "green" | "blue" }>,
+  keywords: Array<{ text: string; tone: "plum" | "pink" | "indigo" }>,
   seed: number,
 ): MarqueeToken[] {
   const tokens: MarqueeToken[] = [];
@@ -39,20 +39,20 @@ function build(
 
 export const marqueeTop: MarqueeToken[] = build(
   [
-    { text: "QFF//2026", tone: "purple" },
-    { text: "QUBIT::01", tone: "green" },
-    { text: "SUPERPOSITION", tone: "purple" },
-    { text: "QUANTUM_FIELD", tone: "blue" },
+    { text: "QFF//2026", tone: "plum" },
+    { text: "QUBIT::01", tone: "pink" },
+    { text: "SUPERPOSITION", tone: "plum" },
+    { text: "QUANTUM_FIELD", tone: "indigo" },
   ],
   20260101,
 );
 
 export const marqueeMid: MarqueeToken[] = build(
   [
-    { text: "ENTANGLE", tone: "purple" },
-    { text: "DECOHERE", tone: "blue" },
-    { text: "00 11 01 10", tone: "green" },
-    { text: "QUANTUMX", tone: "purple" },
+    { text: "ENTANGLE", tone: "plum" },
+    { text: "DECOHERE", tone: "indigo" },
+    { text: "00 11 01 10", tone: "pink" },
+    { text: "QUANTUMX", tone: "plum" },
   ],
   73310219,
 );

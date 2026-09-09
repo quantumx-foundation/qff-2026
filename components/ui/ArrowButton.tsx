@@ -26,9 +26,9 @@ export function ArrowButton({
       disabled={disabled}
       aria-label={label}
       className={cn(
-        "inline-flex h-12 w-12 shrink-0 items-center justify-center border border-[var(--border)] text-qff-white transition-colors duration-200",
-        "hover:border-qff-white hover:bg-qff-white hover:text-qff-black",
-        "disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-transparent disabled:hover:text-qff-white disabled:hover:border-[var(--border)]",
+        "inline-flex h-12 w-12 shrink-0 items-center justify-center border border-[var(--border)] text-ink transition-colors duration-200",
+        "hover:border-ink hover:bg-inverse hover:text-on-inverse",
+        "disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-transparent disabled:hover:text-ink disabled:hover:border-[var(--border)]",
         className,
       )}
     >

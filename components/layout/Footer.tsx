@@ -12,14 +12,14 @@ import { cn } from "@/lib/utils";
  * The closing visual statement rather than a utility strip: a full-bleed purple
  * block entered through an irregular stepped skyline, carrying the social row,
  * legal links, the countdown and an oversized wordmark that runs the full width
- * of the page. Geometry is measured from the reference — eight runs across
+ * of the page. Geometry is measured from the reference, eight runs across
  * three depth levels.
  */
 
 /**
  * Only handles with a resolved destination are shown. The rest fall back to "#"
  * until their env var is set, and an icon that navigates nowhere is worse than
- * an absent one — same convention the partner and testimonial lists follow.
+ * an absent one, same convention the partner and testimonial lists follow.
  */
 const SOCIALS = event.socials.filter((social) => social.href.startsWith("http"));
 
@@ -36,7 +36,7 @@ function FooterLink({ label, href }: { label: string; href: string }) {
     <Link
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className="group inline-flex items-center gap-1.5 label-mono-sm font-bold text-qff-black transition-opacity duration-200 hover:opacity-60"
+      className="group inline-flex items-center gap-1.5 label-mono-sm font-bold text-ink transition-opacity duration-200 hover:opacity-60"
     >
       {label.toUpperCase()}
       <Arrow className="transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
@@ -49,7 +49,7 @@ export function Footer() {
 
   return (
     <footer
-      className="on-purple relative bg-qff-purple text-qff-black"
+      className="on-dark relative bg-ground text-ink"
       style={{ clipPath, marginTop: "-1px" }}
     >
       {/* Clear the stepped edge before content begins. */}
@@ -64,7 +64,7 @@ export function Footer() {
                   aria-label={social.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-qff-black transition-opacity duration-200 hover:opacity-60"
+                  className="block text-ink transition-opacity duration-200 hover:opacity-60"
                 >
                   <SocialIcon icon={social.icon} />
                 </Link>
@@ -74,13 +74,13 @@ export function Footer() {
 
           {/* Only the organisation name is the link; the year and the copyright
               mark stay plain so the target of the click is unambiguous. */}
-          <p className="label-mono-sm font-bold text-qff-black lg:order-2">
+          <p className="label-mono-sm font-bold text-ink lg:order-2">
             &copy;{" "}
             <Link
               href={event.urls.organisation}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-qff-black/30 decoration-1 underline-offset-4 transition-opacity duration-200 hover:opacity-60"
+              className="underline decoration-ink/30 decoration-1 underline-offset-4 transition-opacity duration-200 hover:opacity-60"
             >
               {event.organisation.toUpperCase()}
             </Link>{" "}
@@ -110,7 +110,7 @@ export function Footer() {
         <span
           aria-hidden="true"
           className={cn(
-            "num-display block w-full whitespace-nowrap text-qff-black",
+            "num-display block w-full whitespace-nowrap text-ink",
             "-ml-[0.062em] text-[34vw] leading-[0.84] tracking-[-0.045em]",
           )}
         >
@@ -120,12 +120,12 @@ export function Footer() {
       </div>
 
       <div className="container-wide pb-8">
-        <p className="label-mono-sm font-bold text-qff-black/70">
+        <p className="label-mono-sm font-bold text-muted">
           <Link
             href={event.urls.organisation}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-qff-black/25 decoration-1 underline-offset-4 transition-colors duration-200 hover:text-qff-black"
+            className="underline decoration-ink/30 decoration-1 underline-offset-4 transition-colors duration-200 hover:text-ink"
           >
             {event.organisation.toUpperCase()}
           </Link>

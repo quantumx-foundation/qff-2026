@@ -13,12 +13,12 @@ import { event } from "@/data/event";
  */
 export function SubpageHeader() {
   return (
-    <header className="hairline-b bg-qff-black">
+    <header className="hairline-b bg-ground">
       <div className="container-wide flex items-center justify-between gap-4 py-5">
         <Link
           href="/"
           aria-label={`${event.shortName} home`}
-          className="flex items-center text-qff-white transition-opacity duration-200 hover:opacity-70"
+          className="flex items-center text-ink transition-opacity duration-200 hover:opacity-70"
         >
           <Wordmark
             markClassName="h-[0.95em]"
@@ -28,7 +28,7 @@ export function SubpageHeader() {
 
         <Link
           href="/"
-          className="group inline-flex items-center gap-2 label-mono font-bold text-qff-white/70 transition-colors duration-200 hover:text-qff-white"
+          className="group inline-flex items-center gap-2 label-mono font-bold text-muted transition-colors duration-200 hover:text-ink"
         >
           Back to site
           <Arrow className="rotate-[-135deg] transition-transform duration-200 group-hover:-translate-x-[2px]" />

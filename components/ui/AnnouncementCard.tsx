@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
  * Announcement card.
  *
  * Black tile with a hairline border, category pinned to the top and the title
- * anchored to the bottom with the arrow set inline after the text — the
+ * anchored to the bottom with the arrow set inline after the text, the
  * reference's exact hierarchy. Optional treated photography sits behind as an
  * image background; text stays dominant. Aspect ratio matches the measured
  * 532x332.
@@ -19,9 +19,9 @@ export function AnnouncementCard({ item }: { item: Announcement }) {
   const inner = (
     <article
       className={cn(
-        "group relative isolate flex h-full min-h-[248px] flex-col justify-between overflow-hidden bg-qff-black p-6 transition-colors duration-200 lg:min-h-[300px] lg:p-8",
+        "group relative isolate flex h-full min-h-[248px] flex-col justify-between overflow-hidden bg-raised p-6 transition-colors duration-200 lg:min-h-[300px] lg:p-8",
         "hairline",
-        interactive && "hover:border-qff-white/45",
+        interactive && "hover:border-[var(--border-strong)]",
       )}
     >
       {item.media ? (
@@ -29,7 +29,7 @@ export function AnnouncementCard({ item }: { item: Announcement }) {
           <div className="absolute inset-0">
             <ImageTreatment
               media={item.media}
-              treatment="purple"
+              treatment="plum"
               sizes="(max-width: 640px) 80vw, (max-width: 1024px) 46vw, 32vw"
               className="h-full w-full"
               showPlaceholderLabel={false}
@@ -43,15 +43,15 @@ export function AnnouncementCard({ item }: { item: Announcement }) {
       ) : null}
 
       <div className="relative flex items-start justify-between gap-4">
-        <span className="label-mono-sm text-qff-white/55">{item.category}</span>
+        <span className="label-mono-sm text-dim">{item.category}</span>
         {item.dateLabel ? (
-          <span className="label-mono-sm text-qff-white/35">
+          <span className="label-mono-sm text-dim">
             {item.dateLabel.toUpperCase()}
           </span>
         ) : null}
       </div>
 
-      <h3 className="text-card-title relative mt-12 text-qff-white">
+      <h3 className="text-card-title relative mt-12 text-ink">
         {item.title}
         {interactive ? (
           <Arrow className="ml-2 inline-block translate-y-[0.05em] transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />

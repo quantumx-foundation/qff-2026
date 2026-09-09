@@ -11,10 +11,6 @@ import type { Partner } from "@/types/event";
  *
  * Websites and tiers are not yet supplied; each tile renders unlinked until a
  * partner's own URL is confirmed.
- *
- * TinkerHub Foundation is held off the roster for now; its processed mark is
- * kept at /images/partners/tinkerhub.png (800x155) so restoring it is a matter
- * of putting the entry back.
  */
 export const partners: Partner[] = [
   {
@@ -50,6 +46,14 @@ export const partners: Partner[] = [
     confirmed: true,
   },
   {
+    id: "tinkerhub",
+    name: "TinkerHub Foundation",
+    logo: { src: "/images/partners/tinkerhub.png", width: 800, height: 155 },
+    href: null,
+    tier: "TBC",
+    confirmed: true,
+  },
+  {
     id: "hkbk",
     name: "HKBK College of Engineering",
     logo: { src: "/images/partners/hkbk.png", width: 256, height: 249 },
@@ -73,7 +77,11 @@ export const partnersIntro = {
   heading: "Become a QFF26 partner",
   primaryCta: { label: "Contact us", href: "contact" as const },
   secondaryCta: { label: "Partner with us", href: "sponsor" as const },
-  /** The roster is still open, so the note stands even though each listed partner is confirmed. */
-  rosterOpen: true,
+  /**
+   * Switched off on 9 Sep 2026 at the user's request: every listed partner is
+   * confirmed, so this false also stops the note from returning via the
+   * unconfirmed-partner branch. Set true to bring `note` back.
+   */
+  rosterOpen: false,
   note: "MORE PARTNERS TO BE ANNOUNCED",
 };

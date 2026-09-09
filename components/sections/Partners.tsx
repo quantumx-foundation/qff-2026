@@ -15,10 +15,14 @@ import { event } from "@/data/event";
  * Centred label, heading and two CTAs, then the confirmed marks.
  *
  * The mark layout follows the roster size: a short roster sits still in a
+ * The roster keeps a dark ground on an otherwise light page: every mark here
+ * is the partner's own white-on-transparent artwork, which would vanish on
+ * white, and recolouring a partner's mark is not a change we get to make.
+ *
  * centred row, because a marquee carrying two or three logos reads as the same
  * logo cycling past rather than as a partner list. Once there are enough marks
  * to fill the width, they run as alternating marquees so the grid reads as
- * continuing past both edges — the reference's treatment.
+ * continuing past both edges, the reference's treatment.
  */
 
 /**
@@ -32,7 +36,7 @@ const MARQUEE_THRESHOLD = 12;
  * Logo rows read as lopsided when every mark is set to one height: a 7:1
  * wordmark then carries several times the ink of a square badge, and the badge
  * shrinks until it is unreadable. Each mark is sized to a constant optical
- * area instead — height = sqrt(AREA / aspect) — so wide lockups sit shorter
+ * area instead, height = sqrt(AREA / aspect), so wide lockups sit shorter
  * and square marks taller, and all of them weigh the same in the row.
  */
 const OPTICAL_AREA = 4536;
@@ -72,7 +76,7 @@ function PartnerMark({ partner }: { partner: Partner }) {
       {mark}
     </span>
   ) : (
-    <span className="label-mono-sm flex h-12 min-w-[150px] items-center justify-center border border-[var(--border)] px-6 text-qff-white/35 lg:min-w-[180px]">
+    <span className="label-mono-sm flex h-12 min-w-[150px] items-center justify-center border border-[var(--border)] px-6 text-dim lg:min-w-[180px]">
       {name.toUpperCase()}
     </span>
   );
@@ -84,7 +88,7 @@ function PartnerMark({ partner }: { partner: Partner }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${name} — opens in a new tab`}
+      aria-label={`${name} (opens in a new tab)`}
     >
       {inner}
     </Link>
@@ -101,10 +105,10 @@ export function Partners() {
     : [];
 
   return (
-    <section id="partners" aria-labelledby="partners-heading" className="section bg-qff-black">
+    <section id="partners" aria-labelledby="partners-heading" className="on-dark section bg-ground">
       <div className="container-editorial text-center">
         <Reveal>
-          <SectionLabel className="text-qff-white/70">
+          <SectionLabel className="text-muted">
             {partnersIntro.label}
           </SectionLabel>
         </Reveal>

@@ -17,7 +17,7 @@ export function EventCard({ item }: { item: EcosystemEvent }) {
   const content = (
     <article
       className={cn(
-        "group relative isolate h-full w-full overflow-hidden bg-qff-black",
+        "group relative isolate h-full w-full overflow-hidden bg-raised",
         "hairline",
       )}
     >
@@ -36,20 +36,20 @@ export function EventCard({ item }: { item: EcosystemEvent }) {
         />
 
         <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-3 p-5">
-          <span className="label-mono-sm bg-qff-black px-2.5 py-1.5 text-qff-white">
+          <span className="label-mono-sm bg-raised px-2.5 py-1.5 text-ink">
             {item.category}
           </span>
           {interactive ? (
-            <Arrow className="mt-1 text-qff-white transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
+            <Arrow className="mt-1 text-ink transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
           ) : null}
         </div>
 
         <div className="absolute inset-x-0 bottom-0 p-5">
-          <h3 className="text-card-title text-qff-white">{item.name}</h3>
+          <h3 className="text-card-title text-ink">{item.name}</h3>
           {item.description ? (
             <p className="text-body mt-2.5 max-w-[34ch]">{item.description}</p>
           ) : null}
-          <p className="label-mono-sm mt-4 text-qff-white/60">
+          <p className="label-mono-sm mt-4 text-muted">
             {item.dateLabel.toUpperCase()} · {item.location.toUpperCase()}
           </p>
         </div>

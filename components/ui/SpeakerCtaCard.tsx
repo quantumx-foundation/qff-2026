@@ -13,7 +13,7 @@ import type { Treatment } from "@/types/event";
  * inside the panel instead of a portrait.
  */
 export function SpeakerCtaCard({
-  treatment = "purple",
+  treatment = "plum",
   note,
   cta,
 }: {
@@ -23,7 +23,7 @@ export function SpeakerCtaCard({
 }) {
   return (
     <article
-      className="relative overflow-hidden noise"
+      className="on-dark relative overflow-hidden noise"
       style={{
         backgroundImage: PLACEHOLDER_TONE[treatment],
         aspectRatio: "3 / 4",
@@ -40,7 +40,7 @@ export function SpeakerCtaCard({
       />
 
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 p-6 text-center lg:gap-7 lg:p-8">
-        <p className="text-h3 text-balance text-qff-white">{note}</p>
+        <p className="text-h3 text-balance text-ink">{note}</p>
         <Button href={cta.href} variant="secondary">
           {cta.label}
         </Button>

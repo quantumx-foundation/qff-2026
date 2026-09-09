@@ -9,7 +9,7 @@ import type { LegalDocument } from "@/types/event";
  *
  * Black, quiet and deliberately plain: title, prose, and a row of the
  * destinations the prose names. None of the homepage's duotones, tickers or
- * stepped geometry — those belong to the event, not to a page someone opens to
+ * stepped geometry, those belong to the event, not to a page someone opens to
  * check one thing. The purple footer still closes it so the page reads as part
  * of the same site.
  */
@@ -18,13 +18,13 @@ export function LegalPage({ doc }: { doc: LegalDocument }) {
     <>
       <SubpageHeader />
 
-      <main id="main" className="bg-qff-black">
+      <main id="main" className="bg-ground">
         <div className="container-editorial py-20 sm:py-28 lg:py-36">
           <h1 className="text-hero max-w-[16ch]">{doc.title}</h1>
 
           <div className="mt-10 flex max-w-[68ch] flex-col gap-6 lg:mt-12">
             {doc.body.map((paragraph, i) => (
-              <p key={i} className="text-faq text-qff-white/85">
+              <p key={i} className="text-faq text-muted">
                 {paragraph}
               </p>
             ))}
@@ -40,7 +40,7 @@ export function LegalPage({ doc }: { doc: LegalDocument }) {
                     {...(external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="group inline-flex items-center gap-2 label-mono font-bold text-qff-white/70 transition-colors duration-200 hover:text-qff-white"
+                    className="group inline-flex items-center gap-2 label-mono font-bold text-muted transition-colors duration-200 hover:text-ink"
                   >
                     {link.label}
                     <Arrow className="transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />

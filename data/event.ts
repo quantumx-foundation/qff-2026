@@ -26,9 +26,10 @@ export const event: EventConfig = {
   timeZone: "Asia/Kolkata",
 
   dateLabel: "10 October – 28 November 2026",
-  // Hybrid event: in person in Bengaluru plus remote participation. The
-  // specific venue is still to be announced.
-  venue: "Bengaluru + Remote",
+  // Hybrid event: in person in Bengaluru and Kochi plus remote participation.
+  // `city` stays the primary hub, since it is a single-value field feeding the
+  // structured data address; the venue strip names both in-person locations.
+  venue: "Bengaluru + Kochi + Remote",
   city: "Bengaluru",
   country: "India",
 
@@ -40,6 +41,9 @@ export const event: EventConfig = {
     organisation: "https://quantumx.foundation",
     registration: "https://luma.com/qff26xquantumx",
     speakerApplication: "https://tally.so/r/D46GER",
+    // People who have spoken at QuantumX events before QFF26. Lives on the
+    // Foundation site, so it is never confused with this event's own roster.
+    pastSpeakers: "https://quantumx.foundation/speakers/",
     sponsor: "https://tally.so/r/kdoOkZ",
     // The four footer documents live on this site.
     contact: "/contact",

@@ -28,7 +28,7 @@ const SLICES: Slice[] = [
 
 export function GlitchImage({
   media,
-  treatment = "purple",
+  treatment = "plum",
   className,
   sizes = "100vw",
   priority = false,

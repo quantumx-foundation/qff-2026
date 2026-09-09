@@ -16,16 +16,16 @@ export function IdentityBand() {
   return (
     <section
       aria-labelledby="identity-band-heading"
-      className="bg-qff-black py-[calc(var(--space-section)*0.5)]"
+      className="bg-ground py-[calc(var(--space-section)*0.5)]"
     >
       <div className="container-wide">
-        <div className="relative isolate w-full overflow-hidden">
+        <div className="on-dark relative isolate w-full overflow-hidden">
           {/* Treated media */}
           <div className="relative min-h-[440px] lg:min-h-[70vh]">
             <div className="absolute inset-0">
               <ImageTreatment
                 media={identityBand.media}
-                treatment="purple"
+                treatment="plum"
                 sizes="100vw"
                 className="h-full w-full"
                 showPlaceholderLabel={false}
@@ -42,7 +42,7 @@ export function IdentityBand() {
                 text={event.shortName}
                 bands={9}
                 className="w-full text-center"
-                textClassName="num-display text-[26vw] leading-[0.8] tracking-[-0.04em] text-qff-purple-lift/25"
+                textClassName="num-display text-[26vw] leading-[0.8] tracking-[-0.04em] text-accent/25"
               />
             </div>
 
@@ -50,12 +50,12 @@ export function IdentityBand() {
 
             {/* Content */}
             <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10 lg:p-14">
-              <p className="label-mono text-qff-white/75">
+              <p className="label-mono text-muted">
                 {identityBand.eyebrow}
               </p>
               <h2
                 id="identity-band-heading"
-                className="text-h2 mt-4 max-w-[16ch] text-qff-white"
+                className="text-h2 mt-4 max-w-[16ch] text-ink"
               >
                 {identityBand.status}
               </h2>
