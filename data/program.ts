@@ -43,7 +43,7 @@ export const program: ProgramDay[] = [
     // Supplied key art. Rendered untreated: it already carries the IBM Quantum
     // and Qiskit marks in their own colours.
     media: {
-      src: "/images/program/event-1.png",
+      src: "/images/program/event-1.webp",
       alt: "Qiskit Fall Fest 2026 #1, Quantum Community Connect, October 10th",
       placeholderLabel: "EVENT 1 KEY ART",
       width: 1573,
@@ -68,7 +68,7 @@ export const program: ProgramDay[] = [
     registrationUrl: "https://luma.com/8jpgnkcg",
     // Supplied key art, untreated for the same reason as event 1.
     media: {
-      src: "/images/program/event-2.png",
+      src: "/images/program/event-2.webp",
       alt: "Qiskit Fall Fest 2026 #2, Foundations of Quantum Computing, October 17th",
       placeholderLabel: "EVENT 2 KEY ART",
       width: 1573,
@@ -99,7 +99,7 @@ export const program: ProgramDay[] = [
     registrationUrl: "https://luma.com/ndjvmw7w",
     // Supplied key art, untreated for the same reason as event 1.
     media: {
-      src: "/images/program/event-3.png",
+      src: "/images/program/event-3.webp",
       alt: "Qiskit Fall Fest 2026 #3, Quantum Hack Day Kochi, 1st November",
       placeholderLabel: "EVENT 3 KEY ART",
       width: 1573,
@@ -129,7 +129,7 @@ export const program: ProgramDay[] = [
     registrationUrl: "https://luma.com/79i0vamg",
     // Supplied key art, untreated for the same reason as event 1.
     media: {
-      src: "/images/program/event-4.png",
+      src: "/images/program/event-4.webp",
       alt: "Qiskit Fall Fest 2026 #4, Hands-On Quantum Programming with Qiskit, 16th November",
       placeholderLabel: "EVENT 4 KEY ART",
       width: 1573,
@@ -153,7 +153,7 @@ export const program: ProgramDay[] = [
     registrationUrl: "https://luma.com/rzpptnuq",
     // Supplied key art, untreated for the same reason as event 1.
     media: {
-      src: "/images/program/event-5.png",
+      src: "/images/program/event-5.webp",
       alt: "Qiskit Fall Fest 2026 #5, QuantumX Summit, 28th November",
       placeholderLabel: "EVENT 5 KEY ART",
       width: 1573,

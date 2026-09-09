@@ -34,6 +34,11 @@ media: {
 }
 ```
 
+Program key art ships as WebP, quality 95: the source banners are flat gradient
+graphics whose PNGs ran ~2 MB each, and re-encoding drops them to ~220 KB with
+no visible difference at 1:1. Convert new banners the same way before
+committing them.
+
 Program key art is the one exception to the duotone: those banners already
 carry the IBM Quantum and Qiskit marks, so `ProgramCard` renders them
 `untreated` and they must be supplied finished, in their own colours.
