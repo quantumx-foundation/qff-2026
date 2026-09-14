@@ -151,7 +151,8 @@ export type ProgramDay = {
   /**
    * Marks an event that is not open to general registration, e.g. one hosted
    * on a partner campus for its own students. Draws a PRIVATE EVENT tag on the
-   * card. Optional: absent means public, so only closed events declare it.
+   * card, and every other card a PUBLIC EVENT tag. Optional: absent means
+   * public, so only closed events declare it.
    */
   isPrivate?: boolean;
   /** The event's own registration page. Null hides the CTA for that event. */

@@ -89,12 +89,11 @@ export function ProgramCard({ day }: { day: ProgramDay }) {
         </p>
 
         {/* Sits in the card body rather than on the tile so it survives an
-            event supplying its own key art. */}
-        {day.isPrivate ? (
-          <span className="label-mono-sm hairline mt-3 w-fit px-2 py-1 font-bold text-dim">
-            PRIVATE EVENT
-          </span>
-        ) : null}
+            event supplying its own key art. Every card carries one, so the
+            titles below line up across the board. */}
+        <span className="label-mono-sm hairline mt-3 w-fit px-2 py-1 font-bold text-dim">
+          {day.isPrivate ? "PRIVATE EVENT" : "PUBLIC EVENT"}
+        </span>
 
         {day.title ? (
           <h3 id={headingId} className="text-card-title mt-3 text-ink">

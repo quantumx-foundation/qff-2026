@@ -12,6 +12,27 @@ const FRAME = { width: 900, height: 1200 } as const;
 
 export const speakers: Speaker[] = [
   {
+    // Guest speaker at event 4, Quantum and Qiskit 101. The source portrait is
+    // only 200x200, well under FRAME, so it renders soft until a larger one
+    // is supplied.
+    id: "subarna-roy",
+    name: "Dr. Subarna Roy",
+    role: "Chief Data Scientist & Quantum Ambassador",
+    organisation: "IBM",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/subarna-roy.webp",
+      alt: "Portrait of Dr. Subarna Roy",
+      placeholderLabel: "SPEAKER 07",
+      ...FRAME,
+    },
+    // Pinned rather than positional: moving her to the front would otherwise
+    // recolour every unpinned card behind her.
+    treatment: "indigo",
+    confirmed: true,
+  },
+  {
     id: "ajmal-ibn-mohammed-althaf",
     name: "Ajmal Ibn Mohammed Althaf",
     role: "Founder, CEO & Scientific Lead",
@@ -24,7 +45,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 01",
       ...FRAME,
     },
-    treatment: null,
+    treatment: "plum",
     confirmed: true,
   },
   {
@@ -40,23 +61,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 02",
       ...FRAME,
     },
-    treatment: null,
-    confirmed: true,
-  },
-  {
-    id: "muhammed-ameen",
-    name: "Muhammed Ameen Sulaiman",
-    role: "Co-founder & CTO",
-    organisation: "QuantumX Foundation",
-    topic: null,
-    href: null,
-    media: {
-      src: "/images/speakers/ameen.webp",
-      alt: "Portrait of Muhammed Ameen Sulaiman",
-      placeholderLabel: "SPEAKER 03",
-      ...FRAME,
-    },
-    treatment: "mono",
+    treatment: "pink",
     confirmed: true,
   },
   {
@@ -110,22 +115,19 @@ export const speakers: Speaker[] = [
     confirmed: true,
   },
   {
-    // Guest speaker at event 4, Quantum and Qiskit 101. The source portrait is
-    // only 200x200, well under FRAME, so it renders soft until a larger one
-    // is supplied.
-    id: "subarna-roy",
-    name: "Dr. Subarna Roy",
-    role: "Chief Data Scientist & Quantum Ambassador",
-    organisation: "IBM",
+    id: "muhammed-ameen",
+    name: "Muhammed Ameen Sulaiman",
+    role: "Co-founder & CTO",
+    organisation: "QuantumX Foundation",
     topic: null,
     href: null,
     media: {
-      src: "/images/speakers/subarna-roy.webp",
-      alt: "Portrait of Dr. Subarna Roy",
-      placeholderLabel: "SPEAKER 07",
+      src: "/images/speakers/ameen.webp",
+      alt: "Portrait of Muhammed Ameen Sulaiman",
+      placeholderLabel: "SPEAKER 03",
       ...FRAME,
     },
-    treatment: null,
+    treatment: "mono",
     confirmed: true,
   },
 ];
