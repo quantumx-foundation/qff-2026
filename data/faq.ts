@@ -5,7 +5,7 @@ import type { FaqItem, InvolvementAction } from "@/types/event";
  *
  * project.md section 20 allows only questions for which approved answers
  * exist. Every answer here restates something the site already publishes -
- * the confirmed dates, the program's five events, the live registration and
+ * the confirmed dates, the program's six events, the live registration and
  * speaker routes, so the FAQ cannot drift from the rest of the page.
  *
  * The partnership answer names the Partner with us CTA, which resolves through
@@ -20,7 +20,7 @@ export const faq: FaqItem[] = [
     id: "dates",
     category: "EVENT",
     question: "When does QFF26 take place?",
-    answer: "QFF26 runs from Saturday 10 October to Saturday 28 November 2026, across five events. Each event lists its own date in the program.",
+    answer: "QFF26 runs from Saturday 10 October to Saturday 28 November 2026, across six events. Each event lists its own date in the program.",
     confirmed: true,
   },
   {
@@ -42,7 +42,7 @@ export const faq: FaqItem[] = [
     id: "program",
     category: "PROGRAM",
     question: "What is on the program?",
-    answer: "Five events between October and November 2026: a careers fireside, a foundations expert talk, a hackathon in Kochi, a hands-on Qiskit workshop and an advanced expert session. Each publishes its agenda in the program.",
+    answer: "Six events between October and November 2026: a careers fireside, a foundations expert talk, a hackathon in Kochi, a Quantum and Qiskit 101 session, a hands-on Qiskit workshop and an advanced expert session. Each publishes its agenda in the program.",
     links: [{ label: "See the program", href: "program" }],
     confirmed: true,
   },

@@ -109,6 +109,25 @@ export const speakers: Speaker[] = [
     treatment: "plum",
     confirmed: true,
   },
+  {
+    // Guest speaker at event 4, Quantum and Qiskit 101. The source portrait is
+    // only 200x200, well under FRAME, so it renders soft until a larger one
+    // is supplied.
+    id: "subarna-roy",
+    name: "Dr. Subarna Roy",
+    role: "Chief Data Scientist & Quantum Ambassador",
+    organisation: "IBM",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/subarna-roy.webp",
+      alt: "Portrait of Dr. Subarna Roy",
+      placeholderLabel: "SPEAKER 07",
+      ...FRAME,
+    },
+    treatment: null,
+    confirmed: true,
+  },
 ];
 
 export const speakersIntro = {

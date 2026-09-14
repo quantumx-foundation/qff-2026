@@ -10,7 +10,7 @@ import { program, programIntro } from "@/data/program";
  * Replaced the tabbed schedule table on 9 September 2026: with five events on
  * separate dates and separate Luma pages, tabs hid four fifths of the program
  * behind a click and left one shared CTA that could only point at whichever
- * event happened to be selected. A board shows all five at once and gives each
+ * event happened to be selected. A board shows every event at once and gives each
  * its own Register button, which is the click that matters.
  *
  * The section is a server component; only the per-card running-order toggle is

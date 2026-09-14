@@ -3,11 +3,12 @@ import type { ProgramDay, ProgramSession } from "@/types/event";
 /**
  * Program / agenda.
  *
- * All five events carry approved content; nothing here is placeholder copy.
+ * All six events carry approved content; nothing here is placeholder copy.
  * Speakers that are still open are declared on the event's `note` rather than
  * invented into a session row. An event whose running order has not been
  * published carries no sessions at all rather than a guessed agenda, with one
- * deliberate exception: event 3's order is assumed, and says so in its `note`.
+ * deliberate exceptions: the orders for events 3 and 4 are assumed, and each
+ * says so in a comment beside its sessions.
  *
  * Every event publishes a running order rather than a timed schedule: `time` is
  * null on every row, which drops the time column from the schedule grid.
@@ -119,6 +120,37 @@ export const program: ProgramDay[] = [
   {
     id: "event-4",
     label: "Event 4",
+    title: "Qiskit Fall Fest 2026: Quantum and Qiskit 101",
+    dateLabel: "06 NOV",
+    location: "Startup Park, Bengaluru",
+    description: null,
+    note: null,
+    registrationUrl: "https://luma.com/hczdve5y",
+    // Supplied key art, untreated for the same reason as event 1.
+    media: {
+      src: "/images/program/event-4.webp",
+      alt: "Qiskit Fall Fest 2026 #4, Quantum and Qiskit 101, 6th November",
+      placeholderLabel: "EVENT 4 KEY ART",
+      width: 1574,
+      height: 999,
+    },
+    accent: "indigo",
+    // The running order below is ASSUMED, not published: added at the user's
+    // request on 14 Sep 2026, modelled on the other expert-talk events (2 and
+    // 6) and the Luma page, which describes an expert talk by Dr. Subarna Roy
+    // with Q&A, networking and a look at upcoming Fall Fest events. Nothing on
+    // the page marks it as provisional. Replace it once the real order lands.
+    sessions: [
+      session("Expert Talk: Quantum and Qiskit 101", null, "Dr. Subarna Roy"),
+      session("Audience Q&A"),
+      session("Networking & Community Connect"),
+      session("Upcoming QFF26 Events & Community Invitation"),
+      session("Closing Remarks"),
+    ],
+  },
+  {
+    id: "event-5",
+    label: "Event 5",
     title: "Qiskit Fall Fest 2026: Hands-On Quantum Programming with Qiskit",
     dateLabel: "16 NOV",
     location: "HKBK College of Engineering, Bengaluru",
@@ -129,13 +161,14 @@ export const program: ProgramDay[] = [
     registrationUrl: "https://luma.com/79i0vamg",
     // Supplied key art, untreated for the same reason as event 1.
     media: {
-      src: "/images/program/event-4.webp",
-      alt: "Qiskit Fall Fest 2026 #4, Hands-On Quantum Programming with Qiskit, 16th November",
-      placeholderLabel: "EVENT 4 KEY ART",
+      // The artwork still reads #4: it was drawn before this slot moved to 5.
+      src: "/images/program/event-5.webp",
+      alt: "Qiskit Fall Fest 2026, Hands-On Quantum Programming with Qiskit, 16th November",
+      placeholderLabel: "EVENT 5 KEY ART",
       width: 1573,
       height: 1000,
     },
-    accent: "indigo",
+    accent: "pink",
     sessions: [
       session("Hands-on Workshop"),
       session("Q&A Session"),
@@ -143,8 +176,8 @@ export const program: ProgramDay[] = [
     ],
   },
   {
-    id: "event-5",
-    label: "Event 5",
+    id: "event-6",
+    label: "Event 6",
     title: "Qiskit Fall Fest: QuantumX Summit",
     dateLabel: "28 NOV",
     location: "Startup Park, Bengaluru",
@@ -153,13 +186,14 @@ export const program: ProgramDay[] = [
     registrationUrl: "https://luma.com/rzpptnuq",
     // Supplied key art, untreated for the same reason as event 1.
     media: {
-      src: "/images/program/event-5.webp",
-      alt: "Qiskit Fall Fest 2026 #5, QuantumX Summit, 28th November",
-      placeholderLabel: "EVENT 5 KEY ART",
+      // The artwork still reads #5: it was drawn before event 4 was added.
+      src: "/images/program/event-6.webp",
+      alt: "Qiskit Fall Fest 2026, QuantumX Summit, 28th November",
+      placeholderLabel: "EVENT 6 KEY ART",
       width: 1573,
       height: 1000,
     },
-    accent: "pink",
+    accent: "plum",
     sessions: [
       session("Advanced Expert Talk"),
       session("Audience Q&A"),
@@ -172,7 +206,7 @@ export const program: ProgramDay[] = [
 
 export const programIntro = {
   label: "PROGRAM",
-  heading: ["Five events.", "October to November."],
+  heading: ["Six events.", "October to November."],
   /** Sits opposite the heading; states the shape of the program, nothing new. */
   standfirst:
     "Each event registers separately. Open the one you want and take its own registration link.",

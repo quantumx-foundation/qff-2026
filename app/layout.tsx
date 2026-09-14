@@ -32,7 +32,7 @@ const firaCode = Fira_Code({
 const siteUrl = event.urls.site;
 
 /** Shared by the Open Graph and Twitter cards, which show the same preview. */
-const SHARE_DESCRIPTION = `${event.expansion} ${event.year} by IBM Quantum, hosted by ${event.organisation}. Five events from 10 October, in ${event.city}, Kochi and online.`;
+const SHARE_DESCRIPTION = `${event.expansion} ${event.year} by IBM Quantum, hosted by ${event.organisation}. Six events from 10 October, in ${event.city}, Kochi and online.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     default: `${event.shortName} | ${event.organisation}`,
     template: `%s | ${event.shortName}`,
   },
-  description: `${event.organisation} hosts the ${event.expansion} ${event.year}, IBM Quantum's annual quantum computing festival. Five events from 10 October, in ${event.city}, Kochi and online, bringing research, builders, industry and community together.`,
+  description: `${event.organisation} hosts the ${event.expansion} ${event.year}, IBM Quantum's annual quantum computing festival. Six events from 10 October, in ${event.city}, Kochi and online, bringing research, builders, industry and community together.`,
   applicationName: event.shortName,
   alternates: { canonical: siteUrl },
   openGraph: {
