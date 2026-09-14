@@ -34,7 +34,7 @@ export const event: EventConfig = {
   country: "India",
 
   // Reaches the organising team.
-  contactEmail: "hi.quantumx@gmail.com",
+  contactEmail: "events@quantumx.community",
 
   urls: {
     site: "https://qff26.quantumx.foundation",
