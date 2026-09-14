@@ -12,9 +12,7 @@ const FRAME = { width: 900, height: 1200 } as const;
 
 export const speakers: Speaker[] = [
   {
-    // Guest speaker at event 4, Quantum and Qiskit 101. The source portrait is
-    // only 200x200, well under FRAME, so it renders soft until a larger one
-    // is supplied.
+    // Guest speaker at event 4, Quantum and Qiskit 101.
     id: "subarna-roy",
     name: "Dr. Subarna Roy",
     role: "Chief Data Scientist & Quantum Ambassador",
