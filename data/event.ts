@@ -73,7 +73,7 @@ export const event: EventConfig = {
     },
     {
       label: "Discord",
-      href: "https://discord.gg/hjtdgYbGk",
+      href: "https://discord.com/invite/2w3pgqTQY",
       icon: "discord",
     },
   ],
