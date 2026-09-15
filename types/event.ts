@@ -158,6 +158,12 @@ export type ProgramDay = {
   /** The event's own registration page. Null hides the CTA for that event. */
   registrationUrl: string | null;
   /**
+   * An open call attached to one event, e.g. short presentation slots at the
+   * Summit. Drawn beneath the agenda, above Register. Optional: absent on every
+   * event without one.
+   */
+  openCall?: { description: string; label: string; href: string };
+  /**
    * The event's own key art. Null draws the generated brand tile instead, so
    * the board is final-size before artwork lands, dropping in a file path is
    * the only change needed. Never point this at art whose date or title

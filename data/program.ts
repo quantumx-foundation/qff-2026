@@ -161,9 +161,8 @@ export const program: ProgramDay[] = [
     registrationUrl: "https://luma.com/79i0vamg",
     // Supplied key art, untreated for the same reason as event 1.
     media: {
-      // The artwork still reads #4: it was drawn before this slot moved to 5.
       src: "/images/program/event-5.webp",
-      alt: "Qiskit Fall Fest 2026, Hands-On Quantum Programming with Qiskit, 16th November",
+      alt: "Qiskit Fall Fest 2026 #5, Hands-On Quantum Programming with Qiskit, 16th November",
       placeholderLabel: "EVENT 5 KEY ART",
       width: 1573,
       height: 1000,
@@ -184,11 +183,16 @@ export const program: ProgramDay[] = [
     description: null,
     note: null,
     registrationUrl: "https://luma.com/rzpptnuq",
+    // The QuantumX Speaker Interest Form, taking 5-minute presentation slots.
+    openCall: {
+      description: "Present a paper, your work, or a side project in a 5-minute slot.",
+      label: "Apply to present",
+      href: "https://tally.so/r/XxpNLY",
+    },
     // Supplied key art, untreated for the same reason as event 1.
     media: {
-      // The artwork still reads #5: it was drawn before event 4 was added.
       src: "/images/program/event-6.webp",
-      alt: "Qiskit Fall Fest 2026, QuantumX Summit, 28th November",
+      alt: "Qiskit Fall Fest 2026 #6, QuantumX Summit, 28th November",
       placeholderLabel: "EVENT 6 KEY ART",
       width: 1573,
       height: 1000,

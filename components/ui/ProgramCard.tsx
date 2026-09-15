@@ -180,6 +180,19 @@ export function ProgramCard({ day }: { day: ProgramDay }) {
             </div>
           ) : null}
 
+          {day.openCall ? (
+            <div className="hairline-t pt-4">
+              <p className="text-body">{day.openCall.description}</p>
+              <Button
+                href={day.openCall.href}
+                variant="secondary"
+                className="mt-3 w-full"
+              >
+                {day.openCall.label}
+              </Button>
+            </div>
+          ) : null}
+
           {/* Shown beside an agenda too, not only in place of one, so an
               event can publish its rows and still flag them as provisional. */}
           {day.note ? <PendingNote>{day.note}</PendingNote> : null}
