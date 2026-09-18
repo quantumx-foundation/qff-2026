@@ -13,14 +13,14 @@ const FRAME = { width: 900, height: 1200 } as const;
 export const speakers: Speaker[] = [
   {
     id: "yogesh-prasad",
-    name: "Yogesh Prasad",
+    name: "Dr. Yogesh Prasad",
     role: "Group Director",
     organisation: "URSC, ISRO",
     topic: null,
     href: null,
     media: {
       src: "/images/speakers/yogesh-prasad.webp",
-      alt: "Portrait of Yogesh Prasad",
+      alt: "Portrait of Dr. Yogesh Prasad",
       placeholderLabel: "SPEAKER 08",
       ...FRAME,
     },
