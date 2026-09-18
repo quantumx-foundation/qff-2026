@@ -33,14 +33,14 @@ export function SpeakerCard({
         <div>
           <p className="text-h3 text-ink">{speaker.name}</p>
           {speaker.role || speaker.organisation ? (
-            <p className="label-mono-sm mt-2 text-dim">
+            <p className="label-mono mt-2 text-muted">
               {[speaker.role, speaker.organisation]
                 .filter(Boolean)
                 .join(" · ")
                 .toUpperCase()}
             </p>
           ) : (
-            <p className="label-mono-sm mt-2 text-dim">
+            <p className="label-mono mt-2 text-muted">
               ROLE &amp; ORGANISATION TBA
             </p>
           )}
