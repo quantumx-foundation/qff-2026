@@ -101,7 +101,7 @@ export const speakers: Speaker[] = [
   {
     id: "abdul-samad",
     name: "Abdul Samad",
-    role: "Partner",
+    role: "Director",
     organisation: "QuantumX Ventures",
     topic: null,
     href: null,
