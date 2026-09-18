@@ -7,7 +7,7 @@ import { Wordmark } from "@/components/ui/Wordmark";
 import { Arrow } from "@/components/ui/Arrow";
 import { MenuPanel } from "./MenuPanel";
 import { event } from "@/data/event";
-import { cn } from "@/lib/utils";
+import { cn, jumpAfterClose } from "@/lib/utils";
 
 const PANEL_ID = "qff-menu-panel";
 
@@ -86,7 +86,7 @@ export function Header() {
           <a
             href="#top"
             aria-label={`${event.shortName} home`}
-            onClick={close}
+            onClick={(e) => jumpAfterClose(e, "#top", close)}
             className="flex items-center px-4 text-ink sm:px-5"
           >
             <Wordmark

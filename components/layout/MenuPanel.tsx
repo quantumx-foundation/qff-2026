@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { event, navigation } from "@/data/event";
+import { jumpAfterClose } from "@/lib/utils";
 
 /**
  * The folding half of the header.
@@ -70,7 +71,7 @@ export function MenuPanel({
                       on the section you are already parked at. */}
                   <a
                     href={item.href}
-                    onClick={onNavigate}
+                    onClick={(e) => jumpAfterClose(e, item.href, onNavigate)}
                     className="group flex items-center gap-3 py-[1.15rem] label-mono text-[0.8125rem] text-ink transition-colors duration-200 hover:text-accent"
                   >
                     {item.label.toUpperCase()}
