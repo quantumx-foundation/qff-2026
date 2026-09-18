@@ -14,7 +14,7 @@ export const speakers: Speaker[] = [
   {
     id: "yogesh-prasad",
     name: "Yogesh Prasad",
-    role: "Group Director, Communication Systems Group",
+    role: "Group Director",
     organisation: "URSC, ISRO",
     topic: null,
     href: null,
