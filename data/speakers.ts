@@ -99,6 +99,24 @@ export const speakers: Speaker[] = [
     confirmed: true,
   },
   {
+    id: "abdul-samad",
+    name: "Abdul Samad",
+    role: "Partner",
+    organisation: "QuantumX Ventures",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/abdul-samad.webp",
+      alt: "Portrait of Abdul Samad",
+      placeholderLabel: "SPEAKER 09",
+      ...FRAME,
+    },
+    // Pinned: the positional pink would repeat Amar's beside it once the grid
+    // wraps to three up.
+    treatment: "indigo",
+    confirmed: true,
+  },
+  {
     id: "shreyansu-panda",
     name: "Shreyansu Panda",
     role: "Research Engineer",
