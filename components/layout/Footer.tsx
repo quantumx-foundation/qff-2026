@@ -24,6 +24,8 @@ import { cn } from "@/lib/utils";
 const SOCIALS = event.socials.filter((social) => social.href.startsWith("http"));
 
 const LEGAL: Array<{ label: string; href: string }> = [
+  { label: "Resources", href: event.urls.resources },
+  { label: "Why Qiskit", href: event.urls.whyQiskit },
   { label: "Contact", href: event.urls.contact },
   { label: "Code of conduct", href: event.urls.codeOfConduct },
   { label: "Privacy", href: event.urls.privacy },

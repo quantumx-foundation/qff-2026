@@ -50,6 +50,8 @@ export const event: EventConfig = {
     codeOfConduct: "/code-of-conduct",
     privacy: "/privacy",
     terms: "/terms",
+    resources: "/resources",
+    whyQiskit: "/why-qiskit",
     // No destination yet. The section that would link this is hidden while
     // `ecosystemEvents` is empty, so nothing renders it; give it a real URL
     // before restoring that rail.

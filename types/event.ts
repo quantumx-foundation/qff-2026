@@ -56,6 +56,8 @@ export type EventConfig = {
     codeOfConduct: string;
     privacy: string;
     terms: string;
+    resources: string;
+    whyQiskit: string;
     /** Null until a destination is published; nothing may render a null. */
     communityEvents: string | null;
     program: string;
@@ -279,4 +281,21 @@ export type InvolvementAction = {
   label: string;
   href: string;
   variant: "primary" | "secondary";
+};
+
+/** A titled block on a guide page: prose, a list of destinations, or both. */
+export type GuideSection = {
+  heading: string;
+  body?: string[];
+  links?: Array<{ label: string; href: string }>;
+};
+
+/** The longer footer pages, Resources and Why Qiskit. */
+export type GuideDocument = {
+  title: string;
+  /** Standfirst under the title, and the page's meta description. */
+  summary: string;
+  sections: GuideSection[];
+  /** Closing row, same treatment as the legal documents' link row. */
+  links: Array<{ label: string; href: string }>;
 };

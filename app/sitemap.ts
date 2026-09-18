@@ -2,7 +2,14 @@ import type { MetadataRoute } from "next";
 import { event } from "@/data/event";
 
 /** The footer documents change rarely; the homepage carries the event news. */
-const DOCUMENT_PATHS = ["/terms", "/privacy", "/code-of-conduct", "/contact"];
+const DOCUMENT_PATHS = [
+  "/resources",
+  "/why-qiskit",
+  "/terms",
+  "/privacy",
+  "/code-of-conduct",
+  "/contact",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
