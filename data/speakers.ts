@@ -12,6 +12,24 @@ const FRAME = { width: 900, height: 1200 } as const;
 
 export const speakers: Speaker[] = [
   {
+    id: "yogesh-prasad",
+    name: "Yogesh Prasad",
+    role: "Group Director, Communication Systems Group",
+    organisation: "URSC, ISRO",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/yogesh-prasad.webp",
+      alt: "Portrait of Yogesh Prasad",
+      placeholderLabel: "SPEAKER 08",
+      ...FRAME,
+    },
+    // Pinned: the positional plum would repeat Ajmal's in the same row once
+    // the grid wraps to three up.
+    treatment: "mono",
+    confirmed: true,
+  },
+  {
     // Guest speaker at event 4, Quantum and Qiskit 101.
     id: "subarna-roy",
     name: "Dr. Subarna Roy",
