@@ -101,8 +101,8 @@ export const speakers: Speaker[] = [
   {
     id: "abdul-samad",
     name: "Abdul Samad",
-    role: "Director",
-    organisation: "QuantumX Ventures",
+    role: "Co-Founder & Venture Creation Lead",
+    organisation: "QuantumX",
     topic: null,
     href: null,
     media: {
