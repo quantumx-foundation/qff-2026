@@ -11,24 +11,29 @@ import type { Speaker } from "@/types/event";
 const FRAME = { width: 900, height: 1200 } as const;
 
 export const speakers: Speaker[] = [
-  {
-    id: "yogesh-prasad",
-    name: "Dr. Yogesh Prasad",
-    role: "Group Director",
-    organisation: "URSC, ISRO",
-    topic: null,
-    href: null,
-    media: {
-      src: "/images/speakers/yogesh-prasad.webp",
-      alt: "Portrait of Dr. Yogesh Prasad",
-      placeholderLabel: "SPEAKER 08",
-      ...FRAME,
-    },
-    // Pinned: the positional plum would repeat Ajmal's in the same row once
-    // the grid wraps to three up.
-    treatment: "mono",
-    confirmed: true,
-  },
+  // Hidden on 21 September 2026 at the user's request. Kept commented rather
+  // than deleted, same convention as the other switched-off content: the
+  // portrait stays at /images/speakers/yogesh-prasad.webp, so restoring him is
+  // uncommenting this block. His SPEAKER 08 placeholder label and pinned mono
+  // treatment are preserved as they were.
+  // {
+  //   id: "yogesh-prasad",
+  //   name: "Dr. Yogesh Prasad",
+  //   role: "Group Director",
+  //   organisation: "URSC, ISRO",
+  //   topic: null,
+  //   href: null,
+  //   media: {
+  //     src: "/images/speakers/yogesh-prasad.webp",
+  //     alt: "Portrait of Dr. Yogesh Prasad",
+  //     placeholderLabel: "SPEAKER 08",
+  //     ...FRAME,
+  //   },
+  //   // Pinned: the positional plum would repeat Ajmal's in the same row once
+  //   // the grid wraps to three up.
+  //   treatment: "mono",
+  //   confirmed: true,
+  // },
   {
     // Guest speaker at event 4, Quantum and Qiskit 101.
     id: "subarna-roy",
