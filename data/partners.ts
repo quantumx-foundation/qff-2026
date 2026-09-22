@@ -22,6 +22,14 @@ export const partners: Partner[] = [
     confirmed: true,
   },
   {
+    id: "girls-in-quantum",
+    name: "Girls in Quantum",
+    logo: { src: "/images/partners/girls-in-quantum.png", width: 800, height: 212 },
+    href: null,
+    tier: "TBC",
+    confirmed: true,
+  },
+  {
     id: "startup-park",
     name: "Startup Park",
     logo: { src: "/images/partners/startup-park.png", width: 800, height: 209 },
@@ -66,14 +74,6 @@ export const partners: Partner[] = [
     name: "Skill Univ",
     // Supplied at 96x80 — the smallest mark here, and soft on dense displays.
     logo: { src: "/images/partners/skill-univ.png", width: 96, height: 80 },
-    href: null,
-    tier: "TBC",
-    confirmed: true,
-  },
-  {
-    id: "girls-in-quantum",
-    name: "Girls in Quantum",
-    logo: { src: "/images/partners/girls-in-quantum.png", width: 800, height: 212 },
     href: null,
     tier: "TBC",
     confirmed: true,

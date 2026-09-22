@@ -14,15 +14,16 @@ import { event } from "@/data/event";
  *
  * Centred label, heading and two CTAs, then the confirmed marks.
  *
- * The mark layout follows the roster size: a short roster sits still in a
  * The roster keeps a dark ground on an otherwise light page: every mark here
  * is the partner's own white-on-transparent artwork, which would vanish on
  * white, and recolouring a partner's mark is not a change we get to make.
  *
- * centred row, because a marquee carrying two or three logos reads as the same
- * logo cycling past rather than as a partner list. Once there are enough marks
- * to fill the width, they run as alternating marquees so the grid reads as
- * continuing past both edges, the reference's treatment.
+ * The mark layout follows the roster size, but always as two lines. A short
+ * roster sits still in two centred rows, split in half, because a marquee
+ * carrying a handful of logos reads as the same logo cycling past rather than
+ * as a partner list. Once there are enough marks to fill the width, the same
+ * two halves run as alternating marquees so the grid reads as continuing past
+ * both edges, the reference's treatment.
  */
 
 /**
@@ -100,9 +101,9 @@ export function Partners() {
 
   const scrolls = partners.length >= MARQUEE_THRESHOLD;
   const half = Math.ceil(partners.length / 2);
-  const rows = scrolls
-    ? [partners.slice(0, half), partners.slice(half)].filter((row) => row.length)
-    : [];
+  const rows = [partners.slice(0, half), partners.slice(half)].filter(
+    (row) => row.length,
+  );
 
   return (
     <section id="partners" aria-labelledby="partners-heading" className="on-dark section bg-ground">
@@ -155,13 +156,22 @@ export function Partners() {
         </div>
       ) : (
         <Reveal index={3}>
-          <ul className="container-wide mt-16 flex flex-wrap items-center justify-center gap-x-12 gap-y-10 lg:mt-24 lg:gap-x-14">
-            {partners.map((partner) => (
-              <li key={partner.id} className="flex items-center">
-                <PartnerMark partner={partner} />
-              </li>
+          {/* Each half is its own centred row, so the roster sets as two lines
+              wherever the width allows; narrower viewports wrap within a row. */}
+          <div className="container-wide mt-16 flex flex-col gap-y-10 lg:mt-24 lg:gap-y-14">
+            {rows.map((row, rowIndex) => (
+              <ul
+                key={rowIndex}
+                className="flex flex-wrap items-center justify-center gap-x-12 gap-y-10 lg:gap-x-14"
+              >
+                {row.map((partner) => (
+                  <li key={partner.id} className="flex items-center">
+                    <PartnerMark partner={partner} />
+                  </li>
+                ))}
+              </ul>
             ))}
-          </ul>
+          </div>
         </Reveal>
       )}
 
