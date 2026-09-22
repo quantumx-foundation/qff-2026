@@ -70,6 +70,14 @@ export const partners: Partner[] = [
     tier: "TBC",
     confirmed: true,
   },
+  {
+    id: "girls-in-quantum",
+    name: "Girls in Quantum",
+    logo: { src: "/images/partners/girls-in-quantum.png", width: 800, height: 212 },
+    href: null,
+    tier: "TBC",
+    confirmed: true,
+  },
 ];
 
 export const partnersIntro = {
