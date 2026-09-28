@@ -35,6 +35,24 @@ export const speakers: Speaker[] = [
   //   confirmed: true,
   // },
   {
+    id: "zachary-pederson",
+    name: "Zachary Pederson",
+    role: "Management Team Member",
+    organisation: "Girls in Quantum",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/zachary-pederson.webp",
+      alt: "Portrait of Zachary Pederson",
+      placeholderLabel: "SPEAKER 10",
+      ...FRAME,
+    },
+    // Pinned: pink would sit directly above Kameshwari's once the grid wraps
+    // to three up, and plum would repeat Ajmal's in the same row.
+    treatment: "mono",
+    confirmed: true,
+  },
+  {
     // Guest speaker at event 4, Quantum and Qiskit 101.
     id: "subarna-roy",
     name: "Dr. Subarna Roy",
