@@ -172,6 +172,26 @@ export const speakers: Speaker[] = [
     confirmed: true,
   },
   {
+    id: "dhruv-sachdeva",
+    name: "Dhruv Sachdeva",
+    // Holds both of his titles: the card joins role and organisation with a
+    // middle dot, so a third segment would read as a separate organisation.
+    role: "Quantum Content Lead, tomorrowmensch",
+    organisation: "IBM Qiskit Advocate",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/dhruv-sachdeva.webp",
+      alt: "Portrait of Dhruv Sachdeva",
+      placeholderLabel: "SPEAKER 11",
+      ...FRAME,
+    },
+    // Pinned: the only accent missing from his row once the grid wraps to
+    // three up, beside Shreyansu's indigo and Sampark's plum.
+    treatment: "pink",
+    confirmed: true,
+  },
+  {
     id: "muhammed-ameen",
     name: "Muhammed Ameen Sulaiman",
     role: "Co-founder & CTO",
