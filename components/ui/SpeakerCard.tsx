@@ -3,6 +3,13 @@ import { ImageTreatment } from "@/components/effects/ImageTreatment";
 import { Arrow } from "./Arrow";
 import type { Speaker, Treatment } from "@/types/event";
 
+/** "Dr. Subarna Roy" -> "SR", "Astha" -> "A": first and last name, title dropped. */
+function initials(name: string) {
+  const words = name.replace(/^Dr\.?\s+/i, "").trim().split(/\s+/);
+  const picked = words.length > 1 ? [words[0], words[words.length - 1]] : words;
+  return picked.map((w) => w[0]).join("").toUpperCase();
+}
+
 /**
  * Speaker card: large editorial portrait under a duotone treatment, minimal
  * text beneath, hover lift on the image. Wraps in a link only when a profile
@@ -22,6 +29,7 @@ export function SpeakerCard({
           media={speaker.media}
           treatment={treatment}
           fill={false}
+          monogram={initials(speaker.name)}
           // Two columns from the smallest width, so a card is never wider
           // than about half the viewport until the md breakpoint.
           sizes="(max-width: 768px) 46vw, (max-width: 1024px) 31vw, 23vw"

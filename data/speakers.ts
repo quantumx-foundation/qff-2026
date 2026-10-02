@@ -22,7 +22,7 @@ export const speakers: Speaker[] = [
   //   role: "Group Director",
   //   organisation: "URSC, ISRO",
   //   topic: null,
-  //   href: null,
+  //   href: "https://www.linkedin.com/in/yogesh-prasad-a10abb5/",
   //   media: {
   //     src: "/images/speakers/yogesh-prasad.webp",
   //     alt: "Portrait of Dr. Yogesh Prasad",
@@ -40,7 +40,7 @@ export const speakers: Speaker[] = [
     role: "Management Team Member",
     organisation: "Girls in Quantum",
     topic: null,
-    href: null,
+    href: "https://www.linkedin.com/in/zacharypederson/",
     media: {
       src: "/images/speakers/zachary-pederson.webp",
       alt: "Portrait of Zachary Pederson",
@@ -59,7 +59,7 @@ export const speakers: Speaker[] = [
     role: "Chief Data Scientist & Quantum Ambassador",
     organisation: "IBM",
     topic: null,
-    href: null,
+    href: "https://www.linkedin.com/in/dr-subarna-roy-1224057/",
     media: {
       src: "/images/speakers/subarna-roy.webp",
       alt: "Portrait of Dr. Subarna Roy",
@@ -77,7 +77,7 @@ export const speakers: Speaker[] = [
     role: "Founder, CEO & Scientific Lead",
     organisation: null,
     topic: null,
-    href: null,
+    href: "https://www.linkedin.com/in/ajmal-ima/",
     media: {
       src: "/images/speakers/ajmal.webp",
       alt: "Ajmal Ibn Mohammed Althaf speaking on stage",
@@ -93,7 +93,7 @@ export const speakers: Speaker[] = [
     role: "Quantum Game Theory",
     organisation: "Researcher",
     topic: null,
-    href: null,
+    href: "https://www.linkedin.com/in/a-v-s-kameshwari-505ab5147/",
     media: {
       src: "/images/speakers/kameshwari-avs.webp",
       alt: "Portrait of Dr. Kameshwari AVS",
@@ -109,7 +109,7 @@ export const speakers: Speaker[] = [
     role: "CEO",
     organisation: "SwiftSeeds, Woi India",
     topic: null,
-    href: null,
+    href: "https://www.linkedin.com/in/amar-dixit/",
     media: {
       src: "/images/speakers/amar-dixit.webp",
       alt: "Portrait of Amar Dixit",
@@ -147,7 +147,7 @@ export const speakers: Speaker[] = [
     role: "Quantum Content Lead, tomorrowmensch",
     organisation: "IBM Qiskit Advocate",
     topic: null,
-    href: null,
+    href: "https://www.linkedin.com/in/dhruv-sachdeva-1515bb308/",
     media: {
       src: "/images/speakers/dhruv-sachdeva.webp",
       alt: "Portrait of Dhruv Sachdeva",
@@ -165,7 +165,7 @@ export const speakers: Speaker[] = [
     role: "Research Engineer",
     organisation: "QuantumX Foundation",
     topic: null,
-    href: null,
+    href: "https://www.linkedin.com/in/shreyansu-panda/",
     media: {
       src: "/images/speakers/shreyansu-panda.webp",
       alt: "Portrait of Shreyansu Panda",
@@ -213,12 +213,9 @@ export const speakers: Speaker[] = [
     role: "Research",
     organisation: "Girls in Quantum",
     topic: null,
-    href: null,
-    // No portrait yet: a null src draws the marked placeholder panel at the
-    // card's frame. Drop the file at /images/speakers/vyahriti-vootla.webp
-    // and set src to it once it arrives.
+    href: "https://www.linkedin.com/in/vyahriti-vootla-5b134b374/",
     media: {
-      src: null,
+      src: "/images/speakers/vyahriti-vootla.webp",
       alt: "Portrait of Vyahriti Vootla",
       placeholderLabel: "SPEAKER 12",
       ...FRAME,
@@ -234,9 +231,9 @@ export const speakers: Speaker[] = [
     role: "Project and Team Management",
     organisation: "Girls in Quantum",
     topic: null,
-    href: null,
-    // No portrait yet, same as Vyahriti: set src to
-    // /images/speakers/ishita-anand.webp once the file arrives.
+    href: "https://www.linkedin.com/in/ishita-a-6353632a7/",
+    // No portrait yet: a null src draws the initials panel at the card's
+    // frame. Set src to /images/speakers/ishita-anand.webp once it arrives.
     media: {
       src: null,
       alt: "Portrait of Ishita Anand",
@@ -256,7 +253,7 @@ export const speakers: Speaker[] = [
     role: "Content and Design",
     organisation: "Girls in Quantum",
     topic: null,
-    href: null,
+    href: "https://www.linkedin.com/in/asthaashray/",
     // No portrait yet: set src to /images/speakers/astha.webp once it arrives.
     media: {
       src: null,

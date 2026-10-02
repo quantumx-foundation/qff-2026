@@ -46,6 +46,12 @@ type Props = {
    * since greyscaling a partner's logo misrepresents their brand.
    */
   untreated?: boolean;
+  /**
+   * Initials set large on the placeholder panel in place of the mono label,
+   * for a person whose portrait has not arrived. Never a stand-in photograph:
+   * a stock face would read as theirs.
+   */
+  monogram?: string;
 };
 
 export function ImageTreatment({
@@ -58,6 +64,7 @@ export function ImageTreatment({
   fill = true,
   showPlaceholderLabel = true,
   untreated = false,
+  monogram,
 }: Props) {
   if (!media) return null;
 
@@ -68,9 +75,11 @@ export function ImageTreatment({
         style={{
           backgroundImage: PLACEHOLDER_TONE[treatment],
           ...(fill ? {} : { aspectRatio: `${media.width} / ${media.height}` }),
+          // Lets the monogram size against the card rather than the viewport.
+          ...(monogram ? { containerType: "inline-size" as const } : {}),
         }}
         role="img"
-        aria-label={`Placeholder: ${media.placeholderLabel}`}
+        aria-label={monogram ? media.alt : `Placeholder: ${media.placeholderLabel}`}
       >
         {/* Diagonal rule pattern reads as an intentional holding panel. */}
         <div
@@ -81,7 +90,15 @@ export function ImageTreatment({
             opacity: 0.5,
           }}
         />
-        {showPlaceholderLabel ? (
+        {monogram ? (
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 flex items-center justify-center font-display font-semibold text-white/80"
+            style={{ fontSize: "32cqw", letterSpacing: "-0.04em", lineHeight: 1 }}
+          >
+            {monogram}
+          </span>
+        ) : showPlaceholderLabel ? (
           <div
             aria-hidden="true"
             className="absolute right-0 top-0 flex flex-col items-end gap-1 p-3 text-right"
