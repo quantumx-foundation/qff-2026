@@ -160,54 +160,6 @@ export const speakers: Speaker[] = [
     confirmed: true,
   },
   {
-    id: "shreyansu-panda",
-    name: "Shreyansu Panda",
-    role: "Research Engineer",
-    organisation: "QuantumX Foundation",
-    topic: null,
-    href: "https://www.linkedin.com/in/shreyansu-panda/",
-    media: {
-      src: "/images/speakers/shreyansu-panda.webp",
-      alt: "Portrait of Shreyansu Panda",
-      placeholderLabel: "SPEAKER 05",
-      ...FRAME,
-    },
-    treatment: "indigo",
-    confirmed: true,
-  },
-  {
-    id: "sampark-bhol",
-    name: "Sampark Bhol",
-    role: "Research Engineer",
-    organisation: "QuantumX Foundation",
-    topic: null,
-    href: null,
-    media: {
-      src: "/images/speakers/sampark-bhol.webp",
-      alt: "Portrait of Sampark Bhol",
-      placeholderLabel: "SPEAKER 06",
-      ...FRAME,
-    },
-    treatment: "plum",
-    confirmed: true,
-  },
-  {
-    id: "muhammed-ameen",
-    name: "Muhammed Ameen Sulaiman",
-    role: "Co-founder & CTO",
-    organisation: "QuantumX Foundation",
-    topic: null,
-    href: null,
-    media: {
-      src: "/images/speakers/ameen.webp",
-      alt: "Portrait of Muhammed Ameen Sulaiman",
-      placeholderLabel: "SPEAKER 03",
-      ...FRAME,
-    },
-    treatment: "mono",
-    confirmed: true,
-  },
-  {
     id: "vyahriti-vootla",
     name: "Vyahriti Vootla",
     role: "Research",
@@ -220,9 +172,10 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 12",
       ...FRAME,
     },
-    // Pinned: the positional indigo would sit under Shreyansu's once the grid
-    // wraps to three up.
-    treatment: "pink",
+    // Pinned, as is every card from here to the end: the tail was solved as
+    // one set at two, three and four up. Plum is the only accent that meets
+    // neither Dhruv's mono beside her nor the pink and indigo above.
+    treatment: "plum",
     confirmed: true,
   },
   {
@@ -238,10 +191,9 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 13",
       ...FRAME,
     },
-    // Pinned: the positional mono would sit under Ameen's at two up, and
-    // indigo under Shreyansu's at four up. Plum only meets Sampark's at three
-    // up, the least used width.
-    treatment: "plum",
+    // No accent is clear at every width here; mono's one meeting is Dhruv's
+    // card above hers at two up.
+    treatment: "mono",
     confirmed: true,
   },
   {
@@ -258,10 +210,61 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 14",
       ...FRAME,
     },
-    // Pinned: she opens a new row at every width, under Sampark's plum, Ameen's
-    // mono or Vyahriti's pink, beside the closing card's pink. Indigo meets
-    // none of them.
+    // The only accent clear of Vyahriti's plum, Dhruv's mono, Abdul's indigo
+    // and Ishita's mono, above or beside her at each width.
+    treatment: "pink",
+    confirmed: true,
+  },
+  {
+    id: "shreyansu-panda",
+    name: "Shreyansu Panda",
+    role: "Research Engineer",
+    organisation: "QuantumX Foundation",
+    topic: null,
+    href: "https://www.linkedin.com/in/shreyansu-panda/",
+    media: {
+      src: "/images/speakers/shreyansu-panda.webp",
+      alt: "Portrait of Shreyansu Panda",
+      placeholderLabel: "SPEAKER 05",
+      ...FRAME,
+    },
+    // Clear of Astha's pink beside him and the mono and plum above.
     treatment: "indigo",
+    confirmed: true,
+  },
+  {
+    id: "sampark-bhol",
+    name: "Sampark Bhol",
+    role: "Research Engineer",
+    organisation: "QuantumX Foundation",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/sampark-bhol.webp",
+      alt: "Portrait of Sampark Bhol",
+      placeholderLabel: "SPEAKER 06",
+      ...FRAME,
+    },
+    // No accent is clear at every width here; mono's one meeting is Ishita's
+    // card above his at three up, the least used width.
+    treatment: "mono",
+    confirmed: true,
+  },
+  {
+    id: "muhammed-ameen",
+    name: "Muhammed Ameen Sulaiman",
+    role: "Co-founder & CTO",
+    organisation: "QuantumX Foundation",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/ameen.webp",
+      alt: "Portrait of Muhammed Ameen Sulaiman",
+      placeholderLabel: "SPEAKER 03",
+      ...FRAME,
+    },
+    // Plum: mono would sit under Ishita's at four up.
+    treatment: "plum",
     confirmed: true,
   },
 ];
