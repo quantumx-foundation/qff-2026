@@ -232,10 +232,8 @@ export const speakers: Speaker[] = [
     organisation: "Girls in Quantum",
     topic: null,
     href: "https://www.linkedin.com/in/ishita-a-6353632a7/",
-    // No portrait yet: a null src draws the initials panel at the card's
-    // frame. Set src to /images/speakers/ishita-anand.webp once it arrives.
     media: {
-      src: null,
+      src: "/images/speakers/ishita-anand.webp",
       alt: "Portrait of Ishita Anand",
       placeholderLabel: "SPEAKER 13",
       ...FRAME,
