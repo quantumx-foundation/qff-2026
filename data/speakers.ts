@@ -207,6 +207,69 @@ export const speakers: Speaker[] = [
     treatment: "mono",
     confirmed: true,
   },
+  {
+    id: "vyahriti-vootla",
+    name: "Vyahriti Vootla",
+    role: "Research",
+    organisation: "Girls in Quantum",
+    topic: null,
+    href: null,
+    // No portrait yet: a null src draws the marked placeholder panel at the
+    // card's frame. Drop the file at /images/speakers/vyahriti-vootla.webp
+    // and set src to it once it arrives.
+    media: {
+      src: null,
+      alt: "Portrait of Vyahriti Vootla",
+      placeholderLabel: "SPEAKER 12",
+      ...FRAME,
+    },
+    // Pinned: the positional indigo would sit under Shreyansu's once the grid
+    // wraps to three up.
+    treatment: "pink",
+    confirmed: true,
+  },
+  {
+    id: "ishita-anand",
+    name: "Ishita Anand",
+    role: "Project and Team Management",
+    organisation: "Girls in Quantum",
+    topic: null,
+    href: null,
+    // No portrait yet, same as Vyahriti: set src to
+    // /images/speakers/ishita-anand.webp once the file arrives.
+    media: {
+      src: null,
+      alt: "Portrait of Ishita Anand",
+      placeholderLabel: "SPEAKER 13",
+      ...FRAME,
+    },
+    // Pinned: the positional mono would sit under Ameen's at two up, and
+    // indigo under Shreyansu's at four up. Plum only meets Sampark's at three
+    // up, the least used width.
+    treatment: "plum",
+    confirmed: true,
+  },
+  {
+    id: "astha",
+    // Single name as supplied; add a surname here if one is confirmed.
+    name: "Astha",
+    role: "Content and Design",
+    organisation: "Girls in Quantum",
+    topic: null,
+    href: null,
+    // No portrait yet: set src to /images/speakers/astha.webp once it arrives.
+    media: {
+      src: null,
+      alt: "Portrait of Astha",
+      placeholderLabel: "SPEAKER 14",
+      ...FRAME,
+    },
+    // Pinned: she opens a new row at every width, under Sampark's plum, Ameen's
+    // mono or Vyahriti's pink, beside the closing card's pink. Indigo meets
+    // none of them.
+    treatment: "indigo",
+    confirmed: true,
+  },
 ];
 
 export const speakersIntro = {
