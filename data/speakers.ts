@@ -7,6 +7,11 @@ import type { Speaker } from "@/types/event";
  * approved people are named, and the rail closes on an open CTA card rather
  * than on invented or numbered holding slots. Cards share one 900x1200 frame so
  * the rail stays aligned whatever the source photograph's aspect ratio is.
+ *
+ * Every visible card pins its duotone. The set was solved as a whole for the
+ * two-, three- and five-up grids, closing card included, so no card shares an
+ * accent with the one beside or above it at any width. Reordering means
+ * re-solving the set, not adjusting one card.
  */
 const FRAME = { width: 900, height: 1200 } as const;
 
@@ -35,24 +40,6 @@ export const speakers: Speaker[] = [
   //   confirmed: true,
   // },
   {
-    id: "zachary-pederson",
-    name: "Zachary Pederson",
-    role: "Management Team Member",
-    organisation: "Girls in Quantum",
-    topic: null,
-    href: "https://www.linkedin.com/in/zacharypederson/",
-    media: {
-      src: "/images/speakers/zachary-pederson.webp",
-      alt: "Portrait of Zachary Pederson",
-      placeholderLabel: "SPEAKER 10",
-      ...FRAME,
-    },
-    // Pinned: pink would sit directly above Kameshwari's once the grid wraps
-    // to three up, and plum would repeat Ajmal's in the same row.
-    treatment: "mono",
-    confirmed: true,
-  },
-  {
     // Guest speaker at event 4, Quantum and Qiskit 101.
     id: "subarna-roy",
     name: "Dr. Subarna Roy",
@@ -66,8 +53,6 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 07",
       ...FRAME,
     },
-    // Pinned rather than positional: moving her to the front would otherwise
-    // recolour every unpinned card behind her.
     treatment: "indigo",
     confirmed: true,
   },
@@ -84,7 +69,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 01",
       ...FRAME,
     },
-    treatment: "plum",
+    treatment: "pink",
     confirmed: true,
   },
   {
@@ -100,7 +85,23 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 02",
       ...FRAME,
     },
-    treatment: "pink",
+    treatment: "plum",
+    confirmed: true,
+  },
+  {
+    id: "zachary-pederson",
+    name: "Zachary Pederson",
+    role: "Management Team Member",
+    organisation: "Girls in Quantum",
+    topic: null,
+    href: "https://www.linkedin.com/in/zacharypederson/",
+    media: {
+      src: "/images/speakers/zachary-pederson.webp",
+      alt: "Portrait of Zachary Pederson",
+      placeholderLabel: "SPEAKER 10",
+      ...FRAME,
+    },
+    treatment: "mono",
     confirmed: true,
   },
   {
@@ -116,26 +117,6 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 04",
       ...FRAME,
     },
-    // Breaks the positional cycle, which would repeat the preceding card's
-    // mono and collide with Shreyansu's blue once the grid wraps to three up.
-    treatment: "pink",
-    confirmed: true,
-  },
-  {
-    id: "abdul-samad",
-    name: "Abdul Samad",
-    role: "Co-Founder & Venture Creation Lead",
-    organisation: "QuantumX",
-    topic: null,
-    href: null,
-    media: {
-      src: "/images/speakers/abdul-samad.webp",
-      alt: "Portrait of Abdul Samad",
-      placeholderLabel: "SPEAKER 09",
-      ...FRAME,
-    },
-    // Pinned: the positional pink would repeat Amar's beside it once the grid
-    // wraps to three up.
     treatment: "indigo",
     confirmed: true,
   },
@@ -154,9 +135,23 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 11",
       ...FRAME,
     },
-    // Pinned: between Abdul's and Shreyansu's indigo, and pink would sit
-    // under Amar's at two up and Kameshwari's at three up.
-    treatment: "mono",
+    treatment: "pink",
+    confirmed: true,
+  },
+  {
+    id: "abdul-samad",
+    name: "Abdul Samad",
+    role: "Co-Founder & Venture Creation Lead",
+    organisation: "QuantumX",
+    topic: null,
+    href: null,
+    media: {
+      src: "/images/speakers/abdul-samad.webp",
+      alt: "Portrait of Abdul Samad",
+      placeholderLabel: "SPEAKER 09",
+      ...FRAME,
+    },
+    treatment: "plum",
     confirmed: true,
   },
   {
@@ -172,10 +167,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 12",
       ...FRAME,
     },
-    // Pinned, as is every card from here to the end: the tail was solved as
-    // one set at two, three and four up. Plum is the only accent that meets
-    // neither Dhruv's mono beside her nor the pink and indigo above.
-    treatment: "plum",
+    treatment: "mono",
     confirmed: true,
   },
   {
@@ -191,9 +183,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 13",
       ...FRAME,
     },
-    // No accent is clear at every width here; mono's one meeting is Dhruv's
-    // card above hers at two up.
-    treatment: "mono",
+    treatment: "indigo",
     confirmed: true,
   },
   {
@@ -210,8 +200,6 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 14",
       ...FRAME,
     },
-    // The only accent clear of Vyahriti's plum, Dhruv's mono, Abdul's indigo
-    // and Ishita's mono, above or beside her at each width.
     treatment: "pink",
     confirmed: true,
   },
@@ -228,8 +216,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 05",
       ...FRAME,
     },
-    // Clear of Astha's pink beside him and the mono and plum above.
-    treatment: "indigo",
+    treatment: "plum",
     confirmed: true,
   },
   {
@@ -245,8 +232,6 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 06",
       ...FRAME,
     },
-    // No accent is clear at every width here; mono's one meeting is Ishita's
-    // card above his at three up, the least used width.
     treatment: "mono",
     confirmed: true,
   },
@@ -263,8 +248,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 03",
       ...FRAME,
     },
-    // Plum: mono would sit under Ishita's at four up.
-    treatment: "plum",
+    treatment: "indigo",
     confirmed: true,
   },
 ];
