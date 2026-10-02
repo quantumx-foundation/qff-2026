@@ -252,9 +252,8 @@ export const speakers: Speaker[] = [
     organisation: "Girls in Quantum",
     topic: null,
     href: "https://www.linkedin.com/in/asthaashray/",
-    // No portrait yet: set src to /images/speakers/astha.webp once it arrives.
     media: {
-      src: null,
+      src: "/images/speakers/astha.webp",
       alt: "Portrait of Astha",
       placeholderLabel: "SPEAKER 14",
       ...FRAME,
