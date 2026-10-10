@@ -5,6 +5,7 @@ import { StructuredData } from "@/components/layout/StructuredData";
 
 import { Hero } from "@/components/sections/Hero";
 import { EventMeta } from "@/components/sections/EventMeta";
+import { Waitlist } from "@/components/sections/Waitlist";
 import { HostBand } from "@/components/sections/HostBand";
 import { EditorialStatement } from "@/components/sections/EditorialStatement";
 import { Program } from "@/components/sections/Program";
@@ -42,6 +43,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <EventMeta />
+        <Waitlist />
         <HostBand />
         <EditorialStatement />
 
