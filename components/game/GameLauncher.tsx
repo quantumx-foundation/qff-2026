@@ -47,7 +47,7 @@ export function GameLauncher() {
         ref={dialog}
         onClose={() => setOpen(false)}
         aria-label="Qubit Blaster, a quantum game"
-        className="on-dark m-0 h-dvh max-h-none w-screen max-w-none flex-col overflow-y-auto overscroll-contain bg-ground p-0 text-ink backdrop:bg-black/70 open:flex sm:m-auto sm:h-fit sm:max-h-[100svh] sm:w-[min(100%_-_2rem,420px)]"
+        className="on-dark m-0 h-dvh max-h-none w-screen max-w-none flex-col overflow-y-auto overscroll-contain bg-ground p-0 text-ink backdrop:bg-black/70 open:flex sm:m-auto sm:h-fit sm:max-h-[100svh] sm:w-fit sm:max-w-[calc(100vw_-_2rem)]"
       >
         <div className="flex items-center justify-between gap-4 px-4 pt-4">
           <span className="label-mono flex items-center gap-2.5 font-bold">
