@@ -223,12 +223,12 @@ body {
 
   /* Box grid. Drawn on pseudo-elements so the masks shape the lines only,
      never the content. `::before` is the resting grid in `--border`, so it
-     follows the band scopes; `::after` is the same grid in yellow, revealed
+     follows the band scopes; `::after` is the same grid in violet, revealed
      only in a spot around the pointer. `BoxGrid` feeds the pointer position
      in as --mx/--my and switches --glow on while the pointer is inside. */
   .box-grid {
     --box: 14px;
-    --glow-color: #f5b800;
+    --glow-color: #8b5cf6;
     position: relative;
     isolation: isolate;
   }

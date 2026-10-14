@@ -4,7 +4,7 @@ import { useRef, type ComponentProps, type PointerEvent } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * A `.box-grid` surface whose lines glow yellow around the pointer.
+ * A `.box-grid` surface whose lines glow violet around the pointer.
  *
  * The drawing is all CSS (see `.box-grid` in globals.css); this only writes
  * the pointer position into --mx/--my, once per frame, and toggles --glow.

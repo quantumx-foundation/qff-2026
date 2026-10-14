@@ -28,6 +28,10 @@ const VARIANTS: Record<Variant, string> = {
     "bg-raised text-ink hover:bg-inverse hover:text-on-inverse",
 };
 
+/** The same look for a real <button>, which `Button` (always a link) is not. */
+export const buttonClasses = (variant: Variant = "primary", className?: string) =>
+  cn(BASE, VARIANTS[variant], className);
+
 type Props = {
   href: string;
   children: ReactNode;

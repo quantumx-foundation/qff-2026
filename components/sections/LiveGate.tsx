@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useSyncExternalStore } from "react";
+import { GameLauncher } from "@/components/game/GameLauncher";
 import { Button } from "@/components/ui/Button";
 import { liveEvent } from "@/data/live";
 
@@ -76,7 +77,10 @@ export function LiveGate() {
     ) : (
       <div className="flex flex-col items-center gap-6">
         <p className="label-mono font-bold">The stream link will be posted here shortly</p>
-        <Button href={liveEvent.registration}>Open on Luma</Button>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button href={liveEvent.registration}>Open on Luma</Button>
+          <GameLauncher />
+        </div>
       </div>
     );
   }
@@ -97,7 +101,10 @@ export function LiveGate() {
         ))}
       </div>
       <div className="flex flex-col items-center gap-4">
-        <Button href={liveEvent.registration}>RSVP on Luma</Button>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button href={liveEvent.registration}>RSVP on Luma</Button>
+          <GameLauncher />
+        </div>
         <p className="label-mono-sm font-bold text-muted">
           This page opens the live stream when the event starts
         </p>
