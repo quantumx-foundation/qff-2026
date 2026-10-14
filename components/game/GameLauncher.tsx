@@ -11,6 +11,10 @@ import { buttonClasses } from "@/components/ui/Button";
  * it and the page behind is inert without any of that written here. The game
  * itself is loaded only when the dialog first opens and unmounted when it
  * closes, which stops its loop and its audio.
+ *
+ * Below `sm` the dialog takes the whole screen, so on a phone the game reads
+ * as its own page with the largest canvas the height allows; from `sm` up it
+ * is a centred popup.
  */
 
 const QuantumShooter = dynamic(
@@ -42,7 +46,7 @@ export function GameLauncher() {
         ref={dialog}
         onClose={() => setOpen(false)}
         aria-label="Qubit Blaster, a quantum game"
-        className="on-dark m-auto w-[min(100%_-_2rem,420px)] max-h-[100svh] overflow-y-auto overscroll-contain bg-ground p-0 text-ink backdrop:bg-black/70"
+        className="on-dark m-0 h-dvh max-h-none w-screen max-w-none flex-col overflow-y-auto overscroll-contain bg-ground p-0 text-ink backdrop:bg-black/70 open:flex sm:m-auto sm:h-fit sm:max-h-[100svh] sm:w-[min(100%_-_2rem,420px)]"
       >
         <div className="flex items-center justify-between gap-4 px-4 pt-4">
           <span className="label-mono font-bold">Qubit Blaster</span>
@@ -54,7 +58,9 @@ export function GameLauncher() {
             Close ✕
           </button>
         </div>
-        <div className="p-4">{open ? <QuantumShooter /> : null}</div>
+        <div className="flex flex-1 flex-col justify-center p-4">
+          {open ? <QuantumShooter /> : null}
+        </div>
       </dialog>
     </>
   );

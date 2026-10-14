@@ -714,9 +714,9 @@ export function QuantumShooter() {
         tabIndex={-1}
         style={{ outline: "none", WebkitTouchCallout: "none" }}
         aria-label="Qubit Blaster game. Use the mouse or arrow keys to move, click or Space to fire, X to switch state."
-        className="block aspect-[2/3] w-full max-w-[min(360px,calc((100svh_-_11rem)*2/3))] cursor-crosshair touch-none select-none"
+        className="block aspect-[2/3] w-full max-w-[min(100%,calc((100dvh_-_8.5rem)*2/3))] sm:max-w-[min(360px,calc((100svh_-_11rem)*2/3))] cursor-crosshair touch-none select-none"
       />
-      <div className="flex w-full max-w-[360px] gap-2">
+      <div className="flex w-full max-w-[min(100%,calc((100dvh_-_8.5rem)*2/3))] gap-2 sm:max-w-[360px]">
         <button
           type="button"
           // Switches on touch-down, not click: a phone player is often holding
