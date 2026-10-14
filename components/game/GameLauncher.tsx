@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useRef, useState } from "react";
+import { BrandMark } from "@/components/ui/BrandMark";
 import { buttonClasses } from "@/components/ui/Button";
 
 /**
@@ -49,7 +50,10 @@ export function GameLauncher() {
         className="on-dark m-0 h-dvh max-h-none w-screen max-w-none flex-col overflow-y-auto overscroll-contain bg-ground p-0 text-ink backdrop:bg-black/70 open:flex sm:m-auto sm:h-fit sm:max-h-[100svh] sm:w-[min(100%_-_2rem,420px)]"
       >
         <div className="flex items-center justify-between gap-4 px-4 pt-4">
-          <span className="label-mono font-bold">Qubit Blaster</span>
+          <span className="label-mono flex items-center gap-2.5 font-bold">
+            <BrandMark className="h-[1.1em]" />
+            Qubit Blaster
+          </span>
           <button
             type="button"
             onClick={() => dialog.current?.close()}
