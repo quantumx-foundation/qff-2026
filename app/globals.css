@@ -221,6 +221,48 @@ body {
     padding-block: var(--space-section);
   }
 
+  /* Box grid. Drawn on pseudo-elements so the masks shape the lines only,
+     never the content. `::before` is the resting grid in `--border`, so it
+     follows the band scopes; `::after` is the same grid in yellow, revealed
+     only in a spot around the pointer. `BoxGrid` feeds the pointer position
+     in as --mx/--my and switches --glow on while the pointer is inside. */
+  .box-grid {
+    --box: 14px;
+    --glow-color: #f5b800;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .box-grid::before,
+  .box-grid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-size: var(--box) var(--box);
+    background-position: center top;
+  }
+
+  .box-grid::before {
+    background-image:
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    opacity: 0.6;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 100%);
+  }
+
+  .box-grid::after {
+    background-image:
+      radial-gradient(circle 140px at var(--mx, -999px) var(--my, -999px), color-mix(in srgb, var(--glow-color) 30%, transparent), transparent),
+      linear-gradient(to right, var(--glow-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--glow-color) 1px, transparent 1px);
+    background-size: auto, var(--box) var(--box), var(--box) var(--box);
+    mask-image: radial-gradient(circle 180px at var(--mx, -999px) var(--my, -999px), #000 25%, transparent 100%);
+    opacity: var(--glow, 0);
+    transition: opacity 300ms var(--ease-out);
+  }
+
   .section-tight {
     padding-block: calc(var(--space-section) * 0.55);
   }

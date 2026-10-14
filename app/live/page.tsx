@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BoxGrid } from "@/components/effects/BoxGrid";
 import { SubpageHeader } from "@/components/layout/SubpageHeader";
 import { LiveGate } from "@/components/sections/LiveGate";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -15,7 +16,7 @@ import { liveEvent } from "@/data/live";
  * through WhatsApp and LinkedIn previews.
  */
 
-const description = `${liveEvent.dateLabel}, ${liveEvent.timeLabel}. Register on Luma; this link opens the live stream when the event starts.`;
+const description = `${liveEvent.dateLabel}, ${liveEvent.timeLabel}. RSVP on Luma; this link opens the live stream when the event starts.`;
 
 export const metadata: Metadata = {
   title: liveEvent.title,
@@ -43,28 +44,30 @@ export default function LivePage() {
       <SubpageHeader />
 
       <main id="main" className="bg-ground">
-        <div className="container-editorial flex flex-col items-center py-16 text-center sm:py-24">
-          <SectionLabel>Live</SectionLabel>
+        <BoxGrid className="min-h-[calc(100svh-4rem)]">
+          <div className="container-editorial flex flex-col items-center py-16 text-center sm:py-24">
+            <SectionLabel>Live</SectionLabel>
 
-          <Image
-            src={liveEvent.image.src}
-            alt={liveEvent.image.alt}
-            width={liveEvent.image.width}
-            height={liveEvent.image.height}
-            priority
-            className="mt-8 w-full max-w-[320px]"
-          />
+            <Image
+              src={liveEvent.image.src}
+              alt={liveEvent.image.alt}
+              width={liveEvent.image.width}
+              height={liveEvent.image.height}
+              priority
+              className="mt-8 w-full max-w-[320px]"
+            />
 
-          <h1 className="text-h2 mt-10 max-w-[24ch]">{liveEvent.title}</h1>
+            <h1 className="text-h2 mt-10 max-w-[24ch]">{liveEvent.title}</h1>
 
-          <p className="label-mono mt-6 font-bold text-muted">
-            {liveEvent.dateLabel} · {liveEvent.timeLabel}
-          </p>
+            <p className="label-mono mt-6 font-bold text-muted">
+              {liveEvent.dateLabel} · {liveEvent.timeLabel}
+            </p>
 
-          <div className="mt-12">
-            <LiveGate />
+            <div className="mt-12">
+              <LiveGate />
+            </div>
           </div>
-        </div>
+        </BoxGrid>
       </main>
     </>
   );

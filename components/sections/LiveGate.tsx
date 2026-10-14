@@ -97,7 +97,7 @@ export function LiveGate() {
         ))}
       </div>
       <div className="flex flex-col items-center gap-4">
-        <Button href={liveEvent.registration}>Register on Luma</Button>
+        <Button href={liveEvent.registration}>RSVP on Luma</Button>
         <p className="label-mono-sm font-bold text-muted">
           This page opens the live stream when the event starts
         </p>
