@@ -144,6 +144,11 @@ export type ProgramDay = {
   /** Event title shown above the running order. Null while unannounced. */
   title: string | null;
   dateLabel: string;
+  /**
+   * Calendar day as ISO YYYY-MM-DD, in India time. Drives the Upcoming / Past
+   * split on the board: an event moves to Past once this day has ended in IST.
+   */
+  date: string;
   /** Venue and city. Null until confirmed. */
   location: string | null;
   /** Standfirst under the event title. Null while unannounced. */

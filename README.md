@@ -111,3 +111,22 @@ Recommended: **Vercel**.
 
 Before promoting to production, run `npm run check:content` and confirm no
 provisional event content remains.
+
+## Program click tracking
+
+Every link in the program section sends a GA4 event (property `G-LSY11T1E61`)
+with a stable `track_id`, defined in `lib/track.ts`. Outbound links also carry
+`utm_source=qff26_website&utm_medium=program&utm_campaign=qff26&utm_content=<track_id>`.
+
+| Track ID | Button | Event | GA4 event | Destination |
+| --- | --- | --- | --- | --- |
+| `prog_e1_register` … `prog_e6_register` | Register | Events 1–6, while upcoming | `program_click` | Event's Luma page |
+| `prog_e1_luma_past` … `prog_e6_luma_past` | View on Luma | Events 1–6, once past | `program_click` | Event's Luma page |
+| `prog_e6_apply` | Apply to present | QuantumX Summit, while upcoming | `program_click` | Tally speaker form |
+| `prog_e1_agenda` … `prog_e6_agenda` | View agenda | Events 1–6 | `program_ui` | (opens agenda) |
+| `prog_filter_upcoming` / `_past` / `_all` | Filter tabs | Board | `program_ui` | (filters board) |
+
+`program_click` params: `track_id`, `program_event`, `program_title`,
+`link_type`, `link_url`. `program_ui` params: `track_id`, plus
+`program_event` or `program_filter`. Register them as event-scoped custom
+dimensions in GA4 to report on them.

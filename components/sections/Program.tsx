@@ -1,7 +1,6 @@
 import { SectionLabel, PendingNote } from "@/components/ui/SectionLabel";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProgramCard } from "@/components/ui/ProgramCard";
-import { Reveal } from "@/components/effects/Reveal";
+import { ProgramBoard } from "@/components/sections/ProgramBoard";
 import { program, programIntro } from "@/data/program";
 
 /**
@@ -13,9 +12,20 @@ import { program, programIntro } from "@/data/program";
  * event happened to be selected. A board shows every event at once and gives each
  * its own Register button, which is the click that matters.
  *
- * The section is a server component; only the per-card running-order toggle is
- * interactive, so the state lives in `ProgramCard`.
+ * Upcoming / Past / All filters were added on 14 October 2026, once the
+ * first event had run. They split by date rather than hide anything: All still
+ * shows the whole series, and Upcoming is the default because it is the list
+ * a visitor can still act on.
+ *
+ * The section is a server component; the filters and the per-card agenda
+ * toggle are the interactive parts, in `ProgramBoard` and `ProgramCard`.
  */
+/**
+ * When this module was evaluated, i.e. build time on a static deploy. The board
+ * splits Upcoming / Past by it in the HTML, then by the browser clock.
+ */
+const RENDERED_AT = Date.now();
+
 export function Program() {
   if (!program.length) return null;
 
@@ -46,13 +56,7 @@ export function Program() {
           </p>
         </div>
 
-        <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-          {program.map((day, i) => (
-            <Reveal as="li" key={day.id} index={i % 3} className="h-full">
-              <ProgramCard day={day} />
-            </Reveal>
-          ))}
-        </ul>
+        <ProgramBoard program={program} renderedAt={RENDERED_AT} />
 
         {pending ? (
           <PendingNote className="mt-10">{programIntro.note}</PendingNote>

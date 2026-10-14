@@ -7,6 +7,13 @@ import { ImageTreatment } from "@/components/effects/ImageTreatment";
 import { PendingNote } from "@/components/ui/SectionLabel";
 import type { Accent, ProgramDay } from "@/types/event";
 import { cn } from "@/lib/utils";
+import {
+  programTrackId,
+  trackProgramClick,
+  trackProgramUi,
+  withUtm,
+  type ProgramLink,
+} from "@/lib/track";
 
 /**
  * One event on the program board.
@@ -42,13 +49,35 @@ const RULE: Record<Accent, string> = {
   plum: "bg-qff-plum",
 };
 
-export function ProgramCard({ day }: { day: ProgramDay }) {
+/**
+ * `past` is decided by the board from the live clock. A past card keeps its
+ * agenda but drops the open call and swaps Register for a quieter link back
+ * to the event's Luma page, where photos and recaps are posted.
+ */
+export function ProgramCard({
+  day,
+  past = false,
+}: {
+  day: ProgramDay;
+  past?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const reduced = useReducedMotion();
 
   const detailId = `program-detail-${day.id}`;
   const headingId = `program-card-${day.id}`;
   const hasSessions = day.sessions.length > 0;
+
+  /** Href, data attribute and GA4 click handler for one tracked link. */
+  const tracked = (link: ProgramLink, href: string) => {
+    const trackId = programTrackId(day, link);
+    const url = withUtm(href, trackId);
+    return {
+      href: url,
+      "data-track-id": trackId,
+      onClick: () => trackProgramClick(day, link, url),
+    };
+  };
 
   return (
     <article
@@ -92,7 +121,7 @@ export function ProgramCard({ day }: { day: ProgramDay }) {
             event supplying its own key art. Every card carries one, so the
             titles below line up across the board. */}
         <span className="label-mono-sm hairline mt-3 w-fit px-2 py-1 font-bold text-dim">
-          {day.isPrivate ? "PRIVATE EVENT" : "PUBLIC EVENT"}
+          {past ? "PAST EVENT" : day.isPrivate ? "PRIVATE EVENT" : "PUBLIC EVENT"}
         </span>
 
         {day.title ? (
@@ -115,7 +144,14 @@ export function ProgramCard({ day }: { day: ProgramDay }) {
             <div>
               <button
                 type="button"
-                onClick={() => setOpen((v) => !v)}
+                onClick={() => {
+                  if (!open) {
+                    trackProgramUi(programTrackId(day, "agenda"), {
+                      program_event: day.id,
+                    });
+                  }
+                  setOpen((v) => !v);
+                }}
                 aria-expanded={open}
                 aria-controls={detailId}
                 className="inline-flex w-full items-center justify-center gap-2.5 whitespace-nowrap border border-ink px-5 py-3 label-mono font-bold text-ink transition-colors duration-200 hover:bg-inverse hover:text-on-inverse"
@@ -180,11 +216,11 @@ export function ProgramCard({ day }: { day: ProgramDay }) {
             </div>
           ) : null}
 
-          {day.openCall ? (
+          {day.openCall && !past ? (
             <div className="hairline-t pt-4">
               <p className="text-body">{day.openCall.description}</p>
               <Button
-                href={day.openCall.href}
+                {...tracked("apply", day.openCall.href)}
                 variant="secondary"
                 className="mt-3 w-full"
               >
@@ -198,9 +234,22 @@ export function ProgramCard({ day }: { day: ProgramDay }) {
           {day.note ? <PendingNote>{day.note}</PendingNote> : null}
 
           {day.registrationUrl ? (
-            <Button href={day.registrationUrl} className="w-full">
-              Register
-            </Button>
+            past ? (
+              <Button
+                {...tracked("luma_past", day.registrationUrl)}
+                variant="secondary"
+                className="w-full"
+              >
+                View on Luma
+              </Button>
+            ) : (
+              <Button
+                {...tracked("register", day.registrationUrl)}
+                className="w-full"
+              >
+                Register
+              </Button>
+            )
           ) : null}
         </div>
       </div>
