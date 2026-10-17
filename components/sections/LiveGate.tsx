@@ -9,9 +9,9 @@ import { liveEvent } from "@/data/live";
  * The time-dependent half of /live.
  *
  * The page is static, so the switch from "register" to "watch" happens in the
- * browser: a countdown to `startsAt`, then `location.replace` to the stream the
+ * browser: a countdown to `opensAt`, then `location.replace` to the stream the
  * moment it passes, for anyone already sitting on the page and anyone opening
- * the link later. `replace` keeps /live out of history, so Back from YouTube
+ * the link later. `replace` keeps /live out of history, so Back from the stream
  * returns to wherever the link was tapped rather than bouncing again.
  *
  * Server and first client snapshot are both 0, so hydration cannot mismatch;
@@ -60,7 +60,7 @@ function Cell({ value, label }: { value: string; label: string }) {
 
 export function LiveGate() {
   const clock = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  const start = Date.parse(liveEvent.startsAt);
+  const start = Date.parse(liveEvent.opensAt);
   const started = clock > 0 && clock >= start;
   const { stream } = liveEvent;
 
@@ -71,8 +71,8 @@ export function LiveGate() {
   if (started) {
     return stream ? (
       <div className="flex flex-col items-center gap-6">
-        <p className="label-mono font-bold">We are live. Taking you to the stream…</p>
-        <Button href={stream}>Watch on YouTube</Button>
+        <p className="label-mono font-bold">Taking you to the Google Meet…</p>
+        <Button href={stream}>Join the session</Button>
       </div>
     ) : (
       <div className="flex flex-col items-center gap-6">
@@ -106,7 +106,7 @@ export function LiveGate() {
           <GameLauncher />
         </div>
         <p className="label-mono-sm font-bold text-muted">
-          This page opens the live stream when the event starts
+          This link opens the Google Meet at {liveEvent.joinLabel}
         </p>
       </div>
     </div>
