@@ -13,6 +13,11 @@
 
 export type LiveEvent = {
   title: string;
+  /**
+   * Set once the session is over. /live then says thank you and points at the
+   * YouTube recording, rendered on the server so nothing else flashes first.
+   */
+  ended: boolean;
   /** ISO timestamps with offset. */
   startsAt: string;
   endsAt: string;
@@ -33,6 +38,7 @@ export type LiveEvent = {
 
 export const liveEvent: LiveEvent = {
   title: "QFF 2026: Foundations of Quantum Computing X Girls In Quantum",
+  ended: true,
   startsAt: "2026-10-17T19:00:00+05:30",
   endsAt: "2026-10-17T20:30:00+05:30",
   opensAt: "2026-10-17T18:45:00+05:30",
