@@ -52,7 +52,8 @@ const RULE: Record<Accent, string> = {
 /**
  * `past` is decided by the board from the live clock. A past card keeps its
  * agenda but drops the open call and swaps Register for a quieter link back
- * to the event's Luma page, where photos and recaps are posted.
+ * to the event's Luma page, where photos and recaps are posted. An event with
+ * a `watchUrl` shows Watch on YouTube instead, upcoming or past.
  */
 export function ProgramCard({
   day,
@@ -233,7 +234,11 @@ export function ProgramCard({
               event can publish its rows and still flag them as provisional. */}
           {day.note ? <PendingNote>{day.note}</PendingNote> : null}
 
-          {day.registrationUrl ? (
+          {day.watchUrl ? (
+            <Button {...tracked("watch", day.watchUrl)} className="w-full">
+              Watch on YouTube
+            </Button>
+          ) : day.registrationUrl ? (
             past ? (
               <Button
                 {...tracked("luma_past", day.registrationUrl)}

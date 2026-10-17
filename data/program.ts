@@ -69,6 +69,8 @@ export const program: ProgramDay[] = [
     description: null,
     note: null,
     registrationUrl: "https://luma.com/8jpgnkcg",
+    // Streamed on YouTube Live on the day; the card links here instead of Luma.
+    watchUrl: "https://youtube.com/live/hwWfou1kUN4",
     // Supplied key art, untreated for the same reason as event 1.
     media: {
       src: "/images/program/event-2.webp",

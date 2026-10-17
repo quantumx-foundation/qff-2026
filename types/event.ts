@@ -165,6 +165,12 @@ export type ProgramDay = {
   /** The event's own registration page. Null hides the CTA for that event. */
   registrationUrl: string | null;
   /**
+   * Live stream or recording. When set, the card's button is Watch on YouTube,
+   * in place of Register and of View on Luma. Optional: absent on every event
+   * without one.
+   */
+  watchUrl?: string;
+  /**
    * An open call attached to one event, e.g. short presentation slots at the
    * Summit. Drawn beneath the agenda, above Register. Optional: absent on every
    * event without one.

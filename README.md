@@ -122,6 +122,7 @@ with a stable `track_id`, defined in `lib/track.ts`. Outbound links also carry
 | --- | --- | --- | --- | --- |
 | `prog_e1_register` … `prog_e6_register` | Register | Events 1–6, while upcoming | `program_click` | Event's Luma page |
 | `prog_e1_luma_past` … `prog_e6_luma_past` | View on Luma | Events 1–6, once past | `program_click` | Event's Luma page |
+| `prog_e2_watch` | Watch on YouTube | Foundations of Quantum Computing (event 2), replacing Register / View on Luma | `program_click` | YouTube Live |
 | `prog_e6_apply` | Apply to present | QuantumX Summit, while upcoming | `program_click` | Tally speaker form |
 | `prog_e1_agenda` … `prog_e6_agenda` | View agenda | Events 1–6 | `program_ui` | (opens agenda) |
 | `prog_filter_upcoming` / `_past` / `_all` | Filter tabs | Board | `program_ui` | (filters board) |
