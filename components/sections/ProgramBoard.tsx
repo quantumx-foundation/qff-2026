@@ -67,7 +67,7 @@ export function ProgramBoard({
     () => renderedAt,
   );
 
-  const isPast = (day: ProgramDay) => clock > endsAt(day);
+  const isPast = (day: ProgramDay) => day.ended === true || clock > endsAt(day);
   const counts: Record<Filter, number> = {
     upcoming: program.filter((d) => !isPast(d)).length,
     past: program.filter(isPast).length,

@@ -149,6 +149,11 @@ export type ProgramDay = {
    * split on the board: an event moves to Past once this day has ended in IST.
    */
   date: string;
+  /**
+   * Moves the event to Past straight away instead of at midnight IST on
+   * `date`, for when it has finished and the day has not. Optional.
+   */
+  ended?: boolean;
   /** Venue and city. Null until confirmed. */
   location: string | null;
   /** Standfirst under the event title. Null while unannounced. */

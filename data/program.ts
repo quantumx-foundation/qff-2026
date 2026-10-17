@@ -65,6 +65,8 @@ export const program: ProgramDay[] = [
     title: "Qiskit Fall Fest 2026: Foundations of Quantum Computing",
     dateLabel: "17 OCT",
     date: "2026-10-17",
+    // Finished on the evening of the 17th; past now rather than at midnight.
+    ended: true,
     location: "Online",
     description: null,
     note: null,
