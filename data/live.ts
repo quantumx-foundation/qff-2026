@@ -25,6 +25,9 @@ export type LiveEvent = {
   timeLabel: string;
   registration: string;
   stream: string | null;
+  /** YouTube Live for the same session, for anyone who would rather watch, or
+   *  can't get into the Meet (free Meet calls cap at 100 people). */
+  youtube: string | null;
   image: { src: string; alt: string; width: number; height: number };
 };
 
@@ -40,6 +43,7 @@ export const liveEvent: LiveEvent = {
   // Google Meet for this session. ?authuser=1 dropped from the shared link: it
   // picks the sender's second Google account and can misroute a visitor.
   stream: "https://meet.google.com/eez-iwqj-kwr",
+  youtube: "https://youtube.com/live/hwWfou1kUN4",
   // Self-hosted from the Luma cover (images.lumacdn.com/.../c9b09d1e-...png):
   // the privacy page states images are served from this domain.
   image: {

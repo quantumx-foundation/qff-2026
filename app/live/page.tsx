@@ -16,7 +16,7 @@ import { liveEvent } from "@/data/live";
  * through WhatsApp and LinkedIn previews.
  */
 
-const description = `${liveEvent.dateLabel}, ${liveEvent.timeLabel}. RSVP on Luma; this link opens the Google Meet at ${liveEvent.joinLabel}.`;
+const description = `${liveEvent.dateLabel}, ${liveEvent.timeLabel}. Join on Google Meet or watch on YouTube Live.`;
 
 export const metadata: Metadata = {
   title: liveEvent.title,
@@ -38,19 +38,9 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Runs while the HTML is still parsing, before React or any image loads, so a
- * visitor arriving after `opensAt` goes straight to the stream with nothing
- * painted first. LiveGate covers people already on the page when it opens.
- */
-const redirectScript = liveEvent.stream
-  ? `if(Date.now()>=${Date.parse(liveEvent.opensAt)})location.replace(${JSON.stringify(liveEvent.stream)})`
-  : null;
-
 export default function LivePage() {
   return (
     <>
-      {redirectScript ? <script dangerouslySetInnerHTML={{ __html: redirectScript }} /> : null}
       <SubpageHeader />
 
       <main id="main" className="bg-ground">

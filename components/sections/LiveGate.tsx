@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import { GameLauncher } from "@/components/game/GameLauncher";
 import { Button } from "@/components/ui/Button";
 import { liveEvent } from "@/data/live";
@@ -8,11 +8,10 @@ import { liveEvent } from "@/data/live";
 /**
  * The time-dependent half of /live.
  *
- * The page is static, so the switch from "register" to "watch" happens in the
- * browser: a countdown to `opensAt`, then `location.replace` to the stream the
- * moment it passes, for anyone already sitting on the page and anyone opening
- * the link later. `replace` keeps /live out of history, so Back from the stream
- * returns to wherever the link was tapped rather than bouncing again.
+ * The page is static, so the switch from "register" to "join" happens in the
+ * browser: a countdown to `opensAt`, then the ways in (Google Meet, YouTube
+ * Live). It used to redirect straight to the stream; with two places to watch
+ * it now lets people choose.
  *
  * Server and first client snapshot are both 0, so hydration cannot mismatch;
  * the pre-start state is what renders without JavaScript.
@@ -62,25 +61,28 @@ export function LiveGate() {
   const clock = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const start = Date.parse(liveEvent.opensAt);
   const started = clock > 0 && clock >= start;
-  const { stream } = liveEvent;
+  const { stream, youtube } = liveEvent;
 
-  useEffect(() => {
-    if (started && stream) window.location.replace(stream);
-  }, [started, stream]);
-
+  // From `opensAt` the page offers the ways in rather than choosing one:
+  // the Meet for people who want to take part, YouTube Live for everyone else
+  // (and for anyone the Meet turns away once it is full).
   if (started) {
-    return stream ? (
+    return (
       <div className="flex flex-col items-center gap-6">
-        <p className="label-mono font-bold">Taking you to the Google Meet…</p>
-        <Button href={stream}>Join the session</Button>
-      </div>
-    ) : (
-      <div className="flex flex-col items-center gap-6">
-        <p className="label-mono font-bold">The stream link will be posted here shortly</p>
+        <p className="label-mono font-bold">We are live. Choose how to join</p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Button href={liveEvent.registration}>Open on Luma</Button>
-          <GameLauncher />
+          {stream ? <Button href={stream}>Join on Google Meet</Button> : null}
+          {youtube ? (
+            <Button href={youtube} variant="secondary">
+              Watch on YouTube Live
+            </Button>
+          ) : null}
+          {!stream && !youtube ? <Button href={liveEvent.registration}>Open on Luma</Button> : null}
         </div>
+        <p className="label-mono-sm max-w-[44ch] font-bold text-muted">
+          Meet is for joining in and has limited seats. YouTube Live has room for everyone.
+        </p>
+        <GameLauncher />
       </div>
     );
   }
@@ -106,7 +108,7 @@ export function LiveGate() {
           <GameLauncher />
         </div>
         <p className="label-mono-sm font-bold text-muted">
-          This link opens the Google Meet at {liveEvent.joinLabel}
+          Join on Google Meet or YouTube Live from {liveEvent.joinLabel}
         </p>
       </div>
     </div>
