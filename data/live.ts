@@ -46,9 +46,10 @@ export const liveEvent: LiveEvent = {
   dateLabel: "Saturday, 17 October",
   timeLabel: "7:00 pm – 8:30 pm IST",
   registration: "https://luma.com/8jpgnkcg",
-  // Google Meet for this session. ?authuser=1 dropped from the shared link: it
-  // picks the sender's second Google account and can misroute a visitor.
-  stream: "https://meet.google.com/eez-iwqj-kwr",
+  // Cleared once the session ended: this object ships in the client bundle, so
+  // a Meet link left here stays public. Treat any link set here as public and
+  // lock the room with Meet host controls (SECURITY_AUDIT.md #3).
+  stream: null,
   youtube: "https://youtube.com/live/hwWfou1kUN4",
   // Self-hosted from the Luma cover (images.lumacdn.com/.../c9b09d1e-...png):
   // the privacy page states images are served from this domain.
