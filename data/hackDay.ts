@@ -33,6 +33,9 @@ export const hackDay = {
       { name: "TinkerSpace", logo: { src: "/images/partners/tinkerhub.png", width: 800, height: 155, alt: "TinkerHub Foundation" } },
     ],
     heading: ["Build. Experiment.", "Solve with Quantum."],
+    // Decorative: a dilution refrigerator, the cryostat that holds a
+    // superconducting quantum chip. Transparent, so it sits on the box grid.
+    image: { src: "/images/kochi-hack/dilution-refrigerator.webp", width: 1100, height: 1100 },
     standfirst:
       "Explore the possibilities of quantum computing by building solutions to real-world problems.",
     body: [

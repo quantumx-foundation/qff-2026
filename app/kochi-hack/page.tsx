@@ -97,6 +97,13 @@ function Bullets({ items, className }: { items: string[]; className?: string }) 
   );
 }
 
+/** Sets the event's name in bold wherever a paragraph mentions it. */
+function withName(text: string) {
+  return text.split(hackDay.title).flatMap((part, i) =>
+    i === 0 ? [part] : [<strong key={i} className="font-semibold text-ink">{hackDay.title}</strong>, part],
+  );
+}
+
 function TextLink({ href, children }: { href: string; children: ReactNode }) {
   const external = href.startsWith("http") || href.startsWith("mailto:");
   return (
@@ -147,21 +154,35 @@ export default function KochiHackPage() {
               <SectionLabel>{hero.label}</SectionLabel>
               <CopyPageMenu src="/kochi-hack.md" className="shrink-0" />
             </div>
-            <h1 className="text-hero mt-6 max-w-[20ch] sm:mt-8">
-              {hero.heading.map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
-            </h1>
-            <p className="text-statement mt-8 max-w-[34ch] text-muted">{hero.standfirst}</p>
+            <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-12">
+              <div className="min-w-0">
+                <h1 className="text-hero mt-6 max-w-[20ch] sm:mt-8">
+                  {hero.heading.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </h1>
+                <p className="text-statement mt-8 max-w-[34ch] text-muted">{hero.standfirst}</p>
 
-            <div className="mt-10 flex max-w-[68ch] flex-col gap-5">
-              {hero.body.map((p) => (
-                <p key={p} className="text-body">
-                  {p}
-                </p>
-              ))}
+                <div className="mt-10 flex max-w-[68ch] flex-col gap-5">
+                  {hero.body.map((p) => (
+                    <p key={p} className="text-body">
+                      {withName(p)}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              <Image
+                src={hero.image.src}
+                alt=""
+                width={hero.image.width}
+                height={hero.image.height}
+                priority
+                sizes="(min-width: 1024px) 26rem, 300px"
+                className="mx-auto w-full max-w-[240px] sm:max-w-[320px] lg:max-w-none"
+              />
             </div>
 
             <dl className="mt-10 grid grid-cols-2 border-l border-t border-[var(--border)] sm:mt-12 lg:grid-cols-3">
@@ -204,7 +225,7 @@ export default function KochiHackPage() {
             <div className="flex max-w-[68ch] flex-col gap-5">
               {about.body.map((p) => (
                 <p key={p} className="text-faq text-muted">
-                  {p}
+                  {withName(p)}
                 </p>
               ))}
             </div>

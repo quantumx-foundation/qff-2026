@@ -10,6 +10,7 @@ import { hackDay } from "@/data/hackDay";
 
 const list = (items: string[]) => items.map((item) => `- ${item}`).join("\n");
 const pending = (note: string) => `_${note}._`;
+const withName = (text: string) => text.split(hackDay.title).join(`**${hackDay.title}**`);
 
 export function hackDayMarkdown(): string {
   const { hero, about, schedule, challenges, requirements, submission, judging, rules, faq, venue, resources, community, awards } = hackDay;
@@ -18,14 +19,14 @@ export function hackDayMarkdown(): string {
   out.push(
     `# ${hackDay.title}`,
     `**${hero.heading.join(" ")}** ${hero.standfirst}`,
-    ...hero.body,
+    ...hero.body.map(withName),
     hero.facts.map((f) => `- **${f.label}:** ${"href" in f && f.href ? `[${f.value}](${f.href})` : f.value}`).join("\n"),
     `[Register](${hackDay.registrationUrl}) · ${event.urls.site}/kochi-hack`,
   );
 
   out.push(
     "## About the hackathon",
-    ...about.body,
+    ...about.body.map(withName),
     "### What you can expect",
     list(about.expect),
     "### Who can participate?",
