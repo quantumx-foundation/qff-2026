@@ -1,10 +1,10 @@
 import Link from "next/link";
+import { QuantumXWordmark } from "@/components/ui/QuantumXWordmark";
 import { Countdown } from "@/components/sections/Countdown";
 import { SocialIcon } from "@/components/ui/SocialIcon";
 import { Arrow } from "@/components/ui/Arrow";
 import { event } from "@/data/event";
 import { FOOTER_STEPS, topStaircase } from "@/lib/steps";
-import { cn } from "@/lib/utils";
 
 /**
  * Footer.
@@ -104,21 +104,12 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Oversized wordmark, treated as a visual object rather than text.
-          Sized in vw so it spans the page width at every breakpoint; the
-          negative inline start offsets the glyph side bearing so the ink sits
-          flush with the page gutter, and any overflow crops deliberately. */}
-      <div className="w-full overflow-hidden px-[var(--pad)] pb-8 sm:pb-10">
-        <span
-          aria-hidden="true"
-          className={cn(
-            "num-display block w-full whitespace-nowrap text-ink",
-            "-ml-[0.062em] text-[34vw] leading-[0.84] tracking-[-0.045em]",
-          )}
-        >
-          {event.shortName}
-        </span>
-        <span className="sr-only">{event.shortName}</span>
+      {/* Oversized QuantumX lockup, treated as a visual object rather than
+          text. A vector sized to the content width, so it spans the page
+          between the gutters at every breakpoint. */}
+      <div className="w-full px-[var(--pad)] pb-8 sm:pb-10">
+        <QuantumXWordmark className="text-ink" />
+        <span className="sr-only">QuantumX</span>
       </div>
 
       <div className="container-wide pb-8">

@@ -128,7 +128,7 @@ export default function KochiHackPage() {
       <main id="main" className="bg-ground">
         {/* Hero */}
         <BoxGrid className="hairline-b">
-          <div className="container-editorial py-12 sm:py-24 lg:py-32">
+          <div className="container-editorial pt-8 pb-12 sm:pt-12 sm:pb-24 lg:pt-14 lg:pb-32">
             <div className="flex">
               <div
                 aria-label={`Organised by ${hero.organisers.map((o) => o.name).join(" and ")}`}
