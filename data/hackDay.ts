@@ -24,7 +24,7 @@ export const hackDay = {
   registrationUrl: hackDay3?.registrationUrl ?? event.urls.registration,
 
   hero: {
-    label: "QFF26 · Hackathon",
+    label: "Qiskit Fall Fest 2026 · QuantumX Hackathon",
     // Both marks are white-on-transparent and sit on a plum plate; on the light
     // hero they would vanish. TinkerSpace is represented by the TinkerHub
     // Foundation mark, at the user's direction (22 Oct 2026); alt follows the

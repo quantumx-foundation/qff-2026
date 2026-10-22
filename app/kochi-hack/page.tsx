@@ -135,7 +135,7 @@ export default function KochiHackPage() {
             </div>
             <div className="mt-8 flex items-center justify-between gap-4 sm:mt-10">
               <SectionLabel>{hero.label}</SectionLabel>
-              <CopyPageMenu src="/kochi-hack.md" />
+              <CopyPageMenu src="/kochi-hack.md" className="shrink-0" />
             </div>
             <h1 className="text-hero mt-6 max-w-[20ch] sm:mt-8">
               {hero.heading.map((line) => (

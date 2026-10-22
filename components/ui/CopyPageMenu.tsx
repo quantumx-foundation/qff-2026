@@ -90,7 +90,7 @@ export function CopyPageMenu({ src, className }: { src: string; className?: stri
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
-        className="hairline inline-flex items-center gap-2.5 bg-raised px-4 py-2.5 label-mono font-bold text-ink transition-colors duration-200 hover:border-ink"
+        className="hairline inline-flex items-center gap-2.5 whitespace-nowrap bg-raised px-4 py-2.5 label-mono font-bold text-ink transition-colors duration-200 hover:border-ink"
       >
         <span aria-live="polite">
           {status === "copied" ? "Copied" : status === "failed" ? "Copy failed" : "Copy page"}
