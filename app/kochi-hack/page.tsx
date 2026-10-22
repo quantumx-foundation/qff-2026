@@ -166,7 +166,7 @@ export default function KochiHackPage() {
 
             <dl className="mt-10 grid grid-cols-2 border-l border-t border-[var(--border)] sm:mt-12 lg:grid-cols-3">
               {hero.facts.map((fact) => (
-                <div key={fact.label} className="min-w-0 border-b border-r border-[var(--border)] bg-raised/60 px-3.5 py-3 sm:px-5 sm:py-4">
+                <div key={fact.label} className="min-w-0 border-b border-r border-[var(--border)] bg-raised px-3.5 py-3 sm:px-5 sm:py-4">
                   <dt className="label-mono-sm text-dim">{fact.label}</dt>
                   <dd className="mt-1.5 text-[0.9375rem] text-ink sm:text-base">
                     {"href" in fact && fact.href ? (
