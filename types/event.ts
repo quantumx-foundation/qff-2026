@@ -51,6 +51,8 @@ export type EventConfig = {
     speakerApplication: string;
     /** Past speakers on the Foundation's own site, not this event's roster. */
     pastSpeakers: string;
+    /** QuantumX community sign-up. */
+    community: string;
     sponsor: string;
     contact: string;
     codeOfConduct: string;
@@ -175,6 +177,11 @@ export type ProgramDay = {
    * without one.
    */
   watchUrl?: string;
+  /**
+   * The event's own page on this site, e.g. the Hack Day participant guide.
+   * Drawn as a secondary button above Register. Optional.
+   */
+  guide?: { label: string; href: string };
   /**
    * An open call attached to one event, e.g. short presentation slots at the
    * Summit. Drawn beneath the agenda, above Register. Optional: absent on every

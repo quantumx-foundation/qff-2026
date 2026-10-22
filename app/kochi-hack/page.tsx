@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { BoxGrid } from "@/components/effects/BoxGrid";
+import { Community } from "@/components/sections/Community";
 import { HackTabs } from "@/components/sections/HackTabs";
 import { Footer } from "@/components/layout/Footer";
 import { SubpageHeader } from "@/components/layout/SubpageHeader";
@@ -175,7 +176,6 @@ export default function KochiHackPage() {
                 </div>
               ))}
             </dl>
-            <PendingNote className="mt-4">{hero.pending}</PendingNote>
 
             <div className="mt-10 flex flex-wrap gap-3">
               <Button href={hackDay.registrationUrl} className="w-full sm:w-auto">
@@ -479,16 +479,11 @@ export default function KochiHackPage() {
             ) },
 
             { id: "community", label: "Community", panel: (
-          <Section id="community" heading="Community and support" aside={<PendingNote>{community.pending}</PendingNote>}>
+          <Section id="community" heading="Community and support">
             <p className="text-faq max-w-[68ch] text-muted">{community.body}</p>
             <ul className="flex flex-wrap gap-x-8 gap-y-4">
-              {community.discord ? (
-                <li>
-                  <TextLink href={community.discord}>QuantumX Discord</TextLink>
-                </li>
-              ) : null}
               <li>
-                <TextLink href={community.joinUrl}>QuantumX community</TextLink>
+                <TextLink href={community.joinUrl}>Join the QuantumX community</TextLink>
               </li>
               <li>
                 <TextLink href={`mailto:${community.email}`}>{community.email}</TextLink>
@@ -513,6 +508,8 @@ export default function KochiHackPage() {
             <Button href={hackDay.registrationUrl}>Register free</Button>
           </div>
         </section>
+        {/* Its own id: "community" is already this page's tab. */}
+        <Community id="join-community" />
       </main>
 
       <Footer />

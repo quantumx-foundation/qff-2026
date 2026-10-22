@@ -3,7 +3,8 @@ import { event } from "./event";
 /**
  * Community band.
  *
- * The copy is supplied by the organisers, not written here. The destination
+ * The copy is supplied by the organisers, not written here. The Discord entry
+ * points at the QuantumX community page, not a raw invite. The destination
  * resolves from `event.socials` so there is one Discord URL in the codebase:
  * if the invite is ever rotated, it changes in `data/event.ts` and every
  * reference follows.
@@ -18,6 +19,6 @@ export const community = discord
       label: "COMMUNITY",
       heading: ["Join the QuantumX", "Discord community"],
       body: "Stay on top of event updates and connect with folks in the quantum tech space: mentors, speakers, and everyone else building through the foundation.",
-      cta: { label: "Join Discord server", href: discord.href },
+      cta: { label: "Join the community", href: discord.href },
     }
   : null;

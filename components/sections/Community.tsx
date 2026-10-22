@@ -12,16 +12,18 @@ import { community } from "@/data/community";
  * it gives the Discord invitation its own stop rather than leaving it as a
  * footer icon, and it breaks up a long run of white sections.
  *
+ * `id` is overridable because /kochi-hack already has a "community" tab.
+ *
  * The oversized glyph is decorative and sits behind the copy, clipped by the
  * band, so it reads as a graphic rather than as a second icon to click.
  */
-export function Community() {
+export function Community({ id = "community" }: { id?: string }) {
   if (!community) return null;
 
   return (
     <section
-      id="community"
-      aria-labelledby="community-heading"
+      id={id}
+      aria-labelledby={`${id}-heading`}
       className="on-accent section-tight relative isolate overflow-hidden bg-ground"
     >
       <div
@@ -32,14 +34,14 @@ export function Community() {
       </div>
 
       <div className="container-wide relative">
-        <div className="max-w-[46ch]">
+        <div>
           <Reveal>
             <SectionLabel>{community.label}</SectionLabel>
           </Reveal>
 
           <Reveal index={1}>
             <SectionHeading
-              id="community-heading"
+              id={`${id}-heading`}
               lines={community.heading}
               className="mt-5"
             />

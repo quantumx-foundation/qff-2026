@@ -234,6 +234,16 @@ export function ProgramCard({
               event can publish its rows and still flag them as provisional. */}
           {day.note ? <PendingNote>{day.note}</PendingNote> : null}
 
+          {day.guide ? (
+            <Button
+              {...tracked("guide", day.guide.href)}
+              variant="secondary"
+              className="w-full"
+            >
+              {day.guide.label}
+            </Button>
+          ) : null}
+
           {day.watchUrl ? (
             <Button {...tracked("watch", day.watchUrl)} className="w-full">
               Watch on YouTube

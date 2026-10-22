@@ -20,7 +20,6 @@ export function hackDayMarkdown(): string {
     `**${hero.heading.join(" ")}** ${hero.standfirst}`,
     ...hero.body,
     hero.facts.map((f) => `- **${f.label}:** ${"href" in f && f.href ? `[${f.value}](${f.href})` : f.value}`).join("\n"),
-    pending(hero.pending),
     `[Register](${hackDay.registrationUrl}) · ${event.urls.site}/kochi-hack`,
   );
 
@@ -104,10 +103,8 @@ export function hackDayMarkdown(): string {
   out.push(
     "## Community and support",
     community.body,
-    pending(community.pending),
     list([
-      ...(community.discord ? [`[QuantumX Discord](${community.discord})`] : []),
-      `[QuantumX community](${community.joinUrl})`,
+      `[Join the QuantumX community](${community.joinUrl})`,
       `[${community.email}](mailto:${community.email})`,
     ]),
   );

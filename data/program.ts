@@ -105,6 +105,7 @@ export const program: ProgramDay[] = [
     // once the real order lands.
     note: null,
     registrationUrl: "https://luma.com/ndjvmw7w",
+    guide: { label: "Hackathon details", href: "/kochi-hack" },
     // Supplied key art, untreated for the same reason as event 1.
     media: {
       src: "/images/program/event-3.webp",

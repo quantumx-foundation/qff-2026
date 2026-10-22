@@ -9,6 +9,12 @@ import { TBD } from "@/types/event";
  * exactly what ships. Changing a destination means editing this file.
  */
 
+/**
+ * The one community entry point. Discord links go here, never to a raw invite:
+ * invites rotate and expire, this page does not.
+ */
+const COMMUNITY_URL = "https://join.quantumx.community/";
+
 export const event: EventConfig = {
   name: "QFF26",
   shortName: "QFF26",
@@ -45,6 +51,7 @@ export const event: EventConfig = {
     // Foundation site, so it is never confused with this event's own roster.
     pastSpeakers: "https://quantumx.foundation/speakers/",
     sponsor: "https://tally.so/r/kdoOkZ",
+    community: COMMUNITY_URL,
     // The four footer documents live on this site.
     contact: "/contact",
     codeOfConduct: "/code-of-conduct",
@@ -75,7 +82,7 @@ export const event: EventConfig = {
     },
     {
       label: "Discord",
-      href: "https://discord.com/invite/2w3pgqTQY",
+      href: COMMUNITY_URL,
       icon: "discord",
     },
   ],

@@ -15,7 +15,6 @@ import { program } from "./program";
 
 const hackDay3 = program.find((day) => day.id === "event-3");
 const MAP_URL = "https://maps.app.goo.gl/3UsEPFVUBNV5oKh67";
-const discord = event.socials.find((s) => s.icon === "discord")?.href ?? null;
 
 export const hackDay = {
   title: "Quantum Hack Day Kochi",
@@ -47,7 +46,6 @@ export const hackDay = {
       { label: "Participation", value: "Individual or team" },
       { label: "Organisers", value: "QuantumX × TinkerSpace" },
     ],
-    pending: "Final schedule to be confirmed",
   },
 
   about: {
@@ -442,12 +440,8 @@ export const hackDay = {
 
   community: {
     body: "Stay connected with the organizers and fellow participants throughout the hackathon. Discord is where announcements, resources, team formation, submission guidance, and event-day support will happen.",
-    discord,
-    joinUrl: "https://join.quantumx.community/",
+    joinUrl: event.urls.community,
     email: event.contactEmail,
-    // The brief plans a dedicated participant server; until its invite is
-    // supplied the QuantumX community Discord above stands in for it.
-    pending: "Participant server invite to follow",
   },
 
   awards: {

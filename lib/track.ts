@@ -12,7 +12,7 @@ import type { ProgramDay } from "@/types/event";
  * README's "Program click tracking" table; keep the two in step.
  */
 
-export type ProgramLink = "register" | "luma_past" | "apply" | "watch";
+export type ProgramLink = "register" | "luma_past" | "apply" | "watch" | "guide";
 
 /** "event-2" → "e2". */
 const short = (day: ProgramDay) => day.id.replace("event-", "e");
