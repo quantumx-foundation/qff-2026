@@ -5,6 +5,7 @@ import { event } from "@/data/event";
 const DOCUMENT_PATHS = [
   "/resources",
   "/why-qiskit",
+  "/kochi-hack",
   "/terms",
   "/privacy",
   "/code-of-conduct",
