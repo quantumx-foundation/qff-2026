@@ -51,8 +51,16 @@ export function HackTabs({ tabs }: { tabs: Tab[] }) {
   }, [tabs, reduced]);
 
   // Keep the active tab in view when the strip scrolls sideways on phones.
+  // Scrolls the strip only: scrollIntoView would also move the page, which on
+  // load dragged the tab bar up from below the fold.
   useEffect(() => {
-    if (active) tabRefs.current[active]?.scrollIntoView({ block: "nearest", inline: "nearest" });
+    const tab = active ? tabRefs.current[active] : null;
+    const strip = tab?.parentElement;
+    if (!tab || !strip) return;
+    const left = tab.offsetLeft - strip.offsetLeft;
+    if (left < strip.scrollLeft || left + tab.offsetWidth > strip.scrollLeft + strip.clientWidth) {
+      strip.scrollTo({ left: left - 16 });
+    }
   }, [active]);
 
   function select(id: string, focus = false) {

@@ -25,6 +25,15 @@ import { hackDay } from "@/data/hackDay";
 
 const PAGE_URL = `${event.urls.site}/kochi-hack`;
 
+// The event-3 key art as a JPG: LinkedIn previews reject WebP and WhatsApp
+// renders it unreliably, and those are where this link gets pasted.
+const SHARE_IMAGE = {
+  url: "/images/program/event-3-og.jpg",
+  width: 1200,
+  height: 763,
+  alt: "Qiskit Fall Fest 2026 #3, Quantum Hack Day Kochi, 1st November",
+};
+
 export const metadata: Metadata = {
   title: hackDay.title,
   description: hackDay.summary,
@@ -34,13 +43,13 @@ export const metadata: Metadata = {
     url: PAGE_URL,
     title: `${hackDay.title} | ${event.shortName}`,
     description: hackDay.summary,
-    images: [{ url: "/images/program/event-3.webp", width: 1573, height: 1000 }],
+    images: [SHARE_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: hackDay.title,
     description: hackDay.summary,
-    images: ["/images/program/event-3.webp"],
+    images: [SHARE_IMAGE],
   },
 };
 
@@ -157,7 +166,7 @@ export default function KochiHackPage() {
 
             <dl className="mt-10 grid grid-cols-2 border-l border-t border-[var(--border)] sm:mt-12 lg:grid-cols-3">
               {hero.facts.map((fact) => (
-                <div key={fact.label} className="min-w-0 border-b border-r border-[var(--border)] bg-raised px-3.5 py-3 sm:px-5 sm:py-4">
+                <div key={fact.label} className="min-w-0 border-b border-r border-[var(--border)] bg-raised/60 px-3.5 py-3 sm:px-5 sm:py-4">
                   <dt className="label-mono-sm text-dim">{fact.label}</dt>
                   <dd className="mt-1.5 text-[0.9375rem] text-ink sm:text-base">
                     {"href" in fact && fact.href ? (
