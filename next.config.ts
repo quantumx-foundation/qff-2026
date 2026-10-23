@@ -20,6 +20,14 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  // Short links for sharing. Temporary (307), so a destination can change
+  // without browsers caching the old one.
+  async redirects() {
+    return [
+      // QuantumX Summit registration; same URL as event 6 in data/program.ts.
+      { source: "/qxsummit", destination: "https://luma.com/rzpptnuq", permanent: false },
+    ];
+  },
 };
 
 export default nextConfig;
