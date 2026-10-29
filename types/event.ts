@@ -53,6 +53,8 @@ export type EventConfig = {
     pastSpeakers: string;
     /** QuantumX community sign-up. */
     community: string;
+    /** The Hack Day venue's own site. */
+    tinkerspace: string;
     sponsor: string;
     contact: string;
     codeOfConduct: string;

@@ -10,6 +10,7 @@ import { hackDay } from "@/data/hackDay";
 
 const list = (items: string[]) => items.map((item) => `- ${item}`).join("\n");
 const pending = (note: string) => `_${note}._`;
+const withVenue = (text: string) => text.replace(/TinkerSpace/g, `[TinkerSpace](${event.urls.tinkerspace})`);
 const withName = (text: string) => text.split(hackDay.title).join(`**${hackDay.title}**`);
 
 export function hackDayMarkdown(): string {
@@ -20,7 +21,7 @@ export function hackDayMarkdown(): string {
     `# ${hackDay.title}`,
     `**${hero.heading.join(" ")}** ${hero.standfirst}`,
     ...hero.body.map(withName),
-    hero.facts.map((f) => `- **${f.label}:** ${"href" in f && f.href ? `[${f.value}](${f.href})` : f.value}`).join("\n"),
+    hero.facts.map((f) => `- **${f.label}:** ${withVenue(f.value)}${"href" in f && f.href ? ` ([map](${f.href}))` : ""}`).join("\n"),
     `[Register](${hackDay.registrationUrl}) · ${event.urls.site}/kochi-hack`,
     `_${hackDay.community.notice}_`,
   );
@@ -37,7 +38,6 @@ export function hackDayMarkdown(): string {
 
   out.push(
     "## Schedule",
-    pending(schedule.pending),
     ["| Time | Activity |", "| --- | --- |", ...schedule.rows.map((r) => `| ${r.time} | ${r.activity} |`)].join("\n"),
   );
 
@@ -89,8 +89,8 @@ export function hackDayMarkdown(): string {
 
   out.push(
     "## Venue and travel",
-    `**[${venue.name}](${venue.mapUrl})**`,
-    venue.body,
+    `**${withVenue(venue.name)}** ([map](${venue.mapUrl}))`,
+    withVenue(venue.body),
     "### Before you travel",
     list(venue.beforeYouTravel),
   );

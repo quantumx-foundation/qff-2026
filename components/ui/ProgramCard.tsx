@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/Button";
+import { WithTinkerSpace } from "@/components/ui/TinkerSpaceLink";
 import { ImageTreatment } from "@/components/effects/ImageTreatment";
 import { PendingNote } from "@/components/ui/SectionLabel";
 import type { Accent, ProgramDay } from "@/types/event";
@@ -115,7 +116,12 @@ export function ProgramCard({
       <div className="flex flex-1 flex-col p-6 lg:p-7">
         <p className="label-mono-sm text-dim">
           {day.dateLabel.toUpperCase()}
-          {day.location ? ` · ${day.location.toUpperCase()}` : ""}
+          {day.location ? (
+            <>
+              {" · "}
+              <WithTinkerSpace text={day.location.toUpperCase()} />
+            </>
+          ) : null}
         </p>
 
         {/* Sits in the card body rather than on the tile so it survives an
@@ -193,6 +199,9 @@ export function ProgramCard({
                               {String(i + 1).padStart(2, "0")}
                             </span>
                             <div>
+                              {session.time ? (
+                                <p className="label-mono-sm mb-1 text-dim">{session.time}</p>
+                              ) : null}
                               <p className="text-ink">{session.title}</p>
                               {/* An unconfirmed row says so rather than
                                   showing a blank where a name belongs. */}

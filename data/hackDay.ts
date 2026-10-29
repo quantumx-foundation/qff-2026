@@ -29,8 +29,8 @@ export const hackDay = {
     // Foundation mark, at the user's direction (22 Oct 2026); alt follows the
     // artwork, not the venue name.
     organisers: [
-      { name: "QuantumX", logo: { src: "/logos/quantumx-white.png", width: 800, height: 118, alt: "QuantumX" } },
-      { name: "TinkerSpace", logo: { src: "/images/partners/tinkerhub.png", width: 800, height: 155, alt: "TinkerHub Foundation" } },
+      { name: "QuantumX", href: null as string | null, logo: { src: "/logos/quantumx-white.png", width: 800, height: 118, alt: "QuantumX" } },
+      { name: "TinkerSpace", href: event.urls.tinkerspace as string | null, logo: { src: "/images/partners/tinkerhub.png", width: 800, height: 155, alt: "TinkerHub Foundation" } },
     ],
     heading: ["Build. Experiment.", "Solve with Quantum."],
     // Decorative: a dilution refrigerator, the cryostat that holds a
@@ -43,7 +43,7 @@ export const hackDay = {
     ],
     facts: [
       { label: "Date", value: "Sunday, 1 November 2026" },
-      { label: "Time", value: "10:00 AM – 6:00 PM" },
+      { label: "Time", value: "9:00 AM – 6:00 PM" },
       { label: "Venue", value: "TinkerSpace, Kochi", href: MAP_URL },
       { label: "Fee", value: "Free" },
       { label: "Participation", value: "Solo or teams of up to 4" },
@@ -75,20 +75,10 @@ export const hackDay = {
       "Prior quantum computing experience is not required. Basic Python knowledge may be helpful, particularly for implementation-focused challenges.",
   },
 
+  // Read from event 3 in data/program.ts, so the homepage card and this
+  // page show one schedule.
   schedule: {
-    rows: [
-      { time: "9:00–9:30 AM", activity: "Registration and Check-in" },
-      { time: "9:30–9:45 AM", activity: "Welcome and Hack Day Briefing" },
-      { time: "9:45–10:00 AM", activity: "Challenge Tracks and Problem Statement Reveal" },
-      { time: "10:00 AM–1:30 PM", activity: "Hackathon Build Sprint I" },
-      { time: "1:30–2:00 PM", activity: "Lunch and Networking" },
-      { time: "2:00–4:00 PM", activity: "Hackathon Build Sprint II" },
-      { time: "4:15–4:30 PM", activity: "Project Submission and Demo Preparation" },
-      { time: "4:30–5:15 PM", activity: "Project Showcase and Demos" },
-      { time: "5:15–5:30 PM", activity: "Jury Deliberation and Community Activity" },
-      { time: "5:30–6:00 PM", activity: "Awards and Closing" },
-    ],
-    pending: "Timings to be confirmed",
+    rows: (hackDay3?.sessions ?? []).map((row) => ({ time: row.time ?? "", activity: row.title })),
   },
 
   challenges: [
@@ -244,6 +234,8 @@ export const hackDay = {
     },
   ],
 
+  // The organisers' "Hack Day Project Submission Guide", posted on Discord on
+  // 31 Oct 2026; wording follows it so the site and the server agree.
   requirements: [
     {
       heading: "Project information",
@@ -251,85 +243,81 @@ export const hackDay = {
       items: [
         "Team name",
         "Project name",
-        "Selected challenge",
-        "Names of team members",
-        "Team member roles, if applicable",
+        "Selected challenge or problem statement",
+        "Team member names",
+        "Team member roles (optional but recommended)",
       ],
       note: null,
     },
     {
-      heading: "Problem definition",
-      body: "Explain the problem your project addresses.",
+      heading: "Problem statement",
+      body: "Explain the real-world problem your project aims to solve. Include:",
       items: [
-        "What is the real-world problem?",
-        "Why does it matter?",
-        "Who is affected?",
+        "What is the problem, and why is it important?",
+        "Who is affected by it?",
         "What are you trying to optimize, predict, classify, or simulate?",
       ],
-      note: "Recommended length: 150–300 words.",
+      note: "Approximately 150–300 words.",
     },
     {
       heading: "Proposed solution",
-      body: "Describe your solution in a way that a reviewer can understand.",
+      body: "Describe your solution in simple, understandable terms. Include:",
       items: [
         "Your overall approach",
-        "Inputs, processing steps, and outputs",
-        "How the solution addresses the problem",
-        "Why you selected this approach",
+        "The workflow: Input → Processing → Output",
+        "How your system addresses the problem",
+        "Why you chose this approach",
       ],
-      note: "An architecture or workflow diagram is strongly recommended.",
+      note: "A simple architecture or workflow diagram is highly recommended.",
     },
     {
-      heading: "Meaningful quantum component (mandatory)",
-      body: "Every project must contain a meaningful quantum computing component, such as QAOA, VQE (where appropriate), VQC, QSVM, quantum kernels, quantum neural networks, quantum simulation, quantum optimization, or other relevant Qiskit-supported approaches. Explain:",
+      heading: "Quantum component (mandatory)",
+      body: "Every project must include a meaningful quantum computing component. Clearly explain:",
       items: [
-        "Which quantum technology or algorithm you used",
-        "Why you selected it",
-        "How the problem maps to a quantum formulation",
-        "What the circuit or algorithm does",
-        "What role the quantum component plays in the complete solution",
+        "Quantum technology used: for example QAOA, VQE, VQC, QSVM, quantum kernels, quantum neural networks, quantum simulation, or another Qiskit-supported approach",
+        "Why you chose it, and why it suits your problem",
+        "Problem mapping: how your real-world problem is represented as a quantum problem",
+        "Quantum circuit or algorithm: what it does and how it contributes to the solution",
+        "Role of quantum computing: which part of your system uses it, and what it achieves",
       ],
-      note: "Merely adding a Hadamard gate or an unrelated random quantum circuit does not qualify as meaningful quantum integration.",
+      note: "Simply adding a Hadamard gate or a random quantum circuit does not qualify as meaningful quantum integration. The quantum component must have a clear purpose in solving or investigating the selected problem.",
     },
     {
-      heading: "Working implementation",
-      body: "Submit a reproducible implementation containing:",
+      heading: "Implementation and reproducibility",
+      body: "Submit a complete, working implementation that another person can reproduce. Include:",
       items: [
-        "Source code",
-        "Python files and/or Jupyter notebooks",
-        "Installation and setup instructions",
-        "Required dependencies",
-        "Dataset or instructions for accessing it, where applicable",
-        "Instructions for running the project",
+        "Source code (.py files, Jupyter notebooks, or both)",
+        "README with setup and execution instructions",
+        "Required dependencies and installation instructions",
+        "Dataset, or instructions for accessing the dataset",
+        "Configuration details, where applicable",
       ],
-      note: "Another person should be able to follow your README and run the project.",
+      note: "Make sure your code is organized, documented, and runnable by following the instructions in your README.",
     },
     {
       heading: "Qiskit usage",
-      body: "Since this is a Qiskit Hack Day, use Qiskit wherever appropriate to your solution. Document:",
+      body: "As this is a Qiskit Hack Day, use Qiskit wherever appropriate and document your implementation. Mention:",
       items: [
         "Qiskit libraries used",
         "Quantum circuits created",
         "Quantum algorithms implemented",
-        "Simulator or backend used",
+        "Backend or simulator used",
       ],
-      note: "If you use additional frameworks or tools, clearly identify their role.",
+      note: "If your project uses a hybrid classical–quantum approach, explain how the classical and quantum components interact.",
     },
   ],
 
   submission: {
     intro:
-      "Every team must submit its project before the official deadline announced by the organizers.",
+      "All teams must submit their projects before the submission deadline. Review your submission carefully and make sure every mandatory requirement is met.",
     checklist: [
-      "Team and project information",
-      "Selected problem statement",
-      "Problem definition and proposed solution",
-      "Explanation of the quantum component",
-      "Source code or Jupyter notebook",
-      "README with setup and execution instructions",
-      "Dependencies and dataset access instructions",
-      "Results and evaluation",
-      "Presentation slides or demo material",
+      "Provided all project and team details",
+      "Explained the problem and proposed solution",
+      "Clearly documented the mandatory quantum component",
+      "Included the complete source code and necessary files",
+      "Added setup instructions and dependencies",
+      "Documented your Qiskit implementation and backend or simulator",
+      "Verified that another person can reproduce your project",
     ],
     recommended:
       "Architecture diagram, screenshots, a short demo video, classical baseline comparison, and future improvements.",

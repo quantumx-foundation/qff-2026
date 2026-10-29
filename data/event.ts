@@ -52,6 +52,7 @@ export const event: EventConfig = {
     pastSpeakers: "https://quantumx.foundation/speakers/",
     sponsor: "https://tally.so/r/kdoOkZ",
     community: COMMUNITY_URL,
+    tinkerspace: "https://tinkerhub.org/tinkerspace",
     // The four footer documents live on this site.
     contact: "/contact",
     codeOfConduct: "/code-of-conduct",

@@ -31,6 +31,12 @@ const session = (
   confirmed: true,
 });
 
+/** A session with a published clock time. */
+const timed = (time: string, title: string): ProgramSession => ({
+  ...session(title),
+  time,
+});
+
 export const program: ProgramDay[] = [
   {
     id: "event-1",
@@ -97,12 +103,6 @@ export const program: ProgramDay[] = [
     date: "2026-11-01",
     location: "TinkerSpace, Kochi",
     description: null,
-    // The running order below is ASSUMED, not published: it was added at the
-    // user's request on 9 Sep 2026 and inferred from the Luma page's format and
-    // "What You'll Gain" list, not from a confirmed schedule. The card carried
-    // an INDICATIVE RUNNING ORDER note; the user removed it on the same day, so
-    // nothing on the page now marks these rows as provisional. Replace them
-    // once the real order lands.
     note: null,
     registrationUrl: "https://luma.com/ndjvmw7w",
     guide: { label: "Hackathon details", href: "/kochi-hack" },
@@ -115,14 +115,20 @@ export const program: ProgramDay[] = [
       height: 1000,
     },
     accent: "plum",
+    // The organisers' published event flow (Discord, 31 Oct 2026). Also the
+    // Schedule tab on /kochi-hack, which reads these rows. 4:00–4:15 PM is
+    // unscheduled in the published flow.
     sessions: [
-      session("Introduction to Qiskit & the IBM Quantum Platform"),
-      session("Team Formation"),
-      session("Guided Challenges: Hack Time"),
-      session("Mentor Sessions & Mini-workshops"),
-      session("Project Showcase"),
-      session("Recognition & Certificates"),
-      session("Closing & Networking"),
+      timed("9:00–9:30 AM", "Registration"),
+      timed("9:30–9:45 AM", "Welcome & Hack Day Briefing"),
+      timed("9:45–10:00 AM", "Challenge Tracks & Problem Statement Reveal"),
+      timed("10:00 AM–1:30 PM", "Hackathon Build Sprint I"),
+      timed("1:30–2:00 PM", "Lunch & Networking"),
+      timed("2:00–4:00 PM", "Hackathon Build Sprint II"),
+      timed("4:15–4:30 PM", "Project Submission & Demo Preparation"),
+      timed("4:30–5:15 PM", "Project Showcase / Demos"),
+      timed("5:15–5:30 PM", "Jury Deliberation + Community Activity"),
+      timed("5:30–6:00 PM", "Awards & Closing"),
     ],
   },
   {

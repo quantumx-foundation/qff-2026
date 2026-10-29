@@ -10,6 +10,7 @@ import { SubpageHeader } from "@/components/layout/SubpageHeader";
 import { Arrow } from "@/components/ui/Arrow";
 import { Button } from "@/components/ui/Button";
 import { CopyPageMenu } from "@/components/ui/CopyPageMenu";
+import { WithTinkerSpace } from "@/components/ui/TinkerSpaceLink";
 import { PendingNote, SectionLabel } from "@/components/ui/SectionLabel";
 import { event } from "@/data/event";
 import { hackDay } from "@/data/hackDay";
@@ -141,7 +142,11 @@ export default function KochiHackPage() {
                         ×
                       </span>
                     ) : null}
-                    {o.logo ? (
+                    {o.logo && o.href ? (
+                      <a href={o.href} target="_blank" rel="noopener noreferrer" className="transition-opacity duration-200 hover:opacity-80">
+                        <Image src={o.logo.src} alt={o.logo.alt} width={o.logo.width} height={o.logo.height} priority className="h-5 w-auto sm:h-7" />
+                      </a>
+                    ) : o.logo ? (
                       <Image src={o.logo.src} alt={o.logo.alt} width={o.logo.width} height={o.logo.height} priority className="h-5 w-auto sm:h-7" />
                     ) : (
                       <span className="num-display text-base text-ink sm:text-xl">{o.name}</span>
@@ -190,18 +195,17 @@ export default function KochiHackPage() {
                 <div key={fact.label} className="min-w-0 border-b border-r border-[var(--border)] bg-raised px-3.5 py-3 sm:px-5 sm:py-4">
                   <dt className="label-mono-sm text-dim">{fact.label}</dt>
                   <dd className="mt-1.5 text-[0.9375rem] text-ink sm:text-base">
+                    <WithTinkerSpace text={fact.value} />
                     {"href" in fact && fact.href ? (
                       <a
                         href={fact.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline decoration-[var(--border)] underline-offset-4 transition-colors duration-200 hover:decoration-current"
+                        className="label-mono-sm ml-2 font-bold text-muted transition-colors duration-200 hover:text-ink"
                       >
-                        {fact.value}
+                        Map ↗
                       </a>
-                    ) : (
-                      fact.value
-                    )}
+                    ) : null}
                   </dd>
                 </div>
               ))}
@@ -250,7 +254,7 @@ export default function KochiHackPage() {
             ) },
 
             { id: "schedule", label: "Schedule", panel: (
-          <Section id="schedule" heading="Schedule" aside={<PendingNote>{schedule.pending}</PendingNote>}>
+          <Section id="schedule" heading="Schedule">
             <ol className="flex flex-col">
               {schedule.rows.map((row) => (
                 <li
@@ -472,15 +476,12 @@ export default function KochiHackPage() {
             { id: "venue", label: "Venue", panel: (
           <Section id="venue" heading="Venue and travel">
             <div className="flex flex-col gap-3">
-              <a
-                href={venue.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-h3 w-fit text-ink underline decoration-[var(--border)] underline-offset-[6px] transition-colors duration-200 hover:decoration-current"
-              >
-                {venue.name}
-              </a>
-              <p className="text-body">{venue.body}</p>
+              <p className="text-h3 text-ink">
+                <WithTinkerSpace text={venue.name} />
+              </p>
+              <p className="text-body">
+                <WithTinkerSpace text={venue.body} />
+              </p>
               <TextLink href={venue.mapUrl}>Open in Google Maps</TextLink>
             </div>
             <div className="flex flex-col gap-4">
@@ -546,7 +547,9 @@ export default function KochiHackPage() {
         {/* Closing call to action */}
         <section className="on-dark bg-ground">
           <div className="container-editorial flex flex-col items-start gap-8 py-20 sm:py-24">
-            <SectionLabel>1 November 2026 · TinkerSpace, Kochi</SectionLabel>
+            <SectionLabel>
+              <WithTinkerSpace text="1 November 2026 · TinkerSpace, Kochi" />
+            </SectionLabel>
             <p className="text-h2 max-w-[30ch]">Bring your curiosity, collaborate with others, and turn your ideas into working prototypes.</p>
             <Button href={hackDay.registrationUrl}>Register free</Button>
           </div>
