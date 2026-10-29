@@ -28,7 +28,7 @@ export function PendingNote({
         className,
       )}
     >
-      <span aria-hidden="true" className="inline-block h-1.5 w-1.5 bg-accent" />
+      <span aria-hidden="true" className="inline-block h-1.5 w-1.5 shrink-0 bg-accent" />
       {children}
     </p>
   );

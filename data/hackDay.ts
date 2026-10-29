@@ -400,7 +400,7 @@ export const hackDay = {
     { question: "Do I need prior quantum computing experience?", answer: "No. The event is beginner-friendly; you can learn as you build." },
     { question: "Do I need to know Python?", answer: "Python is recommended for implementation-focused challenges, particularly when using Qiskit." },
     { question: "Can I participate alone?", answer: "Yes. Any team-size limits will be announced by the organizers." },
-    { question: "Can I join a team if I don't have one?", answer: "Check the QuantumX Discord community for announcements and requests from other participants." },
+    { question: "Can I join a team if I don't have one?", answer: "Yes. Confirmed participants get a participant Discord invite by email, and the server has a channel for forming teams." },
     { question: "Do all projects need to use Qiskit?", answer: "Qiskit should be used wherever appropriate, as this is a Qiskit Hack Day. Every project must include a meaningful quantum computing component." },
     { question: "Do I need access to a real quantum computer?", answer: "No. A suitable simulator-based implementation may be used; document the simulator or backend in your submission." },
     { question: "Do I need to prove quantum advantage?", answer: "No. The goal is to explore how quantum computing can contribute to the problem. Explain your approach and evaluate your results honestly." },
@@ -409,7 +409,7 @@ export const hackDay = {
     { question: "Will participants receive certificates?", answer: "Yes." },
     { question: "Is there a registration fee?", answer: "No. Quantum Hack Day Kochi is free." },
     { question: "What should I bring?", answer: "A laptop, charger, and any login credentials you need for your development tools." },
-    { question: "Where can I ask for help?", answer: "Join the QuantumX Discord, or email the organising team." },
+    { question: "Where can I ask for help?", answer: "On the participant Discord server, whose invite confirmed participants receive by email, or by emailing the organising team." },
   ],
 
   venue: {
@@ -442,7 +442,17 @@ export const hackDay = {
   },
 
   community: {
-    body: "Stay connected with the organizers and fellow participants throughout the hackathon. Discord is where announcements, resources, team formation, submission guidance, and event-day support will happen.",
+    body: "All discussion for the hackathon happens on the participant Discord server. If you are a registered and confirmed participant, check your email for the link to join it.",
+    // The invite reaches confirmed participants by email; it is never
+    // published here (see data/event.ts on raw Discord invites).
+    notice: "Registered and confirmed? Check your email for the participant Discord invite.",
+    onDiscord: [
+      "Introduce yourself",
+      "Form or find a team",
+      "Hack discussion",
+      "Problem statements",
+      "Submission guidance",
+    ],
     joinUrl: event.urls.community,
     email: event.contactEmail,
   },

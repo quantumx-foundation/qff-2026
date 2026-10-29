@@ -22,6 +22,7 @@ export function hackDayMarkdown(): string {
     ...hero.body.map(withName),
     hero.facts.map((f) => `- **${f.label}:** ${"href" in f && f.href ? `[${f.value}](${f.href})` : f.value}`).join("\n"),
     `[Register](${hackDay.registrationUrl}) · ${event.urls.site}/kochi-hack`,
+    `_${hackDay.community.notice}_`,
   );
 
   out.push(
@@ -104,6 +105,8 @@ export function hackDayMarkdown(): string {
   out.push(
     "## Community and support",
     community.body,
+    "### On the server",
+    list(community.onDiscord),
     list([
       `[Join the QuantumX community](${community.joinUrl})`,
       `[${community.email}](mailto:${community.email})`,

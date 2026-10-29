@@ -215,6 +215,7 @@ export default function KochiHackPage() {
                 See the challenges
               </Button>
             </div>
+            <PendingNote className="mt-5">{community.notice}</PendingNote>
           </div>
         </BoxGrid>
 
@@ -511,6 +512,10 @@ export default function KochiHackPage() {
             { id: "community", label: "Community", panel: (
           <Section id="community" heading="Community and support">
             <p className="text-faq max-w-[68ch] text-muted">{community.body}</p>
+            <div className="flex flex-col gap-4">
+              <SubHeading>On the server</SubHeading>
+              <Bullets items={community.onDiscord} />
+            </div>
             <ul className="flex flex-wrap gap-x-8 gap-y-4">
               <li>
                 <TextLink href={community.joinUrl}>Join the QuantumX community</TextLink>
