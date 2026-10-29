@@ -513,6 +513,14 @@ export default function KochiHackPage() {
           <Section id="community" heading="Community and support">
             <p className="text-faq max-w-[68ch] text-muted">{community.body}</p>
             <div className="flex flex-col gap-4">
+              <SubHeading>{community.access.heading}</SubHeading>
+              <p className="text-body max-w-[68ch]">{community.access.body}</p>
+              <pre className="hairline overflow-x-auto bg-raised px-5 py-4 font-mono text-sm leading-7 text-ink">
+                {community.access.fields.map((f) => `${f}:`).join("\n")}
+              </pre>
+              <Bullets items={community.access.rules} />
+            </div>
+            <div className="flex flex-col gap-4">
               <SubHeading>On the server</SubHeading>
               <Bullets items={community.onDiscord} />
             </div>

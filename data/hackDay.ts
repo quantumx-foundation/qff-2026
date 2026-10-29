@@ -46,7 +46,7 @@ export const hackDay = {
       { label: "Time", value: "10:00 AM – 6:00 PM" },
       { label: "Venue", value: "TinkerSpace, Kochi", href: MAP_URL },
       { label: "Fee", value: "Free" },
-      { label: "Participation", value: "Individual or team" },
+      { label: "Participation", value: "Solo or teams of up to 4" },
       { label: "Organisers", value: "QuantumX × TinkerSpace" },
     ],
   },
@@ -384,9 +384,10 @@ export const hackDay = {
 
   rules: {
     items: [
-      { heading: "Original work", body: "Participants should develop their own solutions during the hackathon and clearly acknowledge external code, datasets, libraries, and other resources." },
+      { heading: "Original work", body: "Code a major part of your project on the day of the event, and clearly acknowledge external code, datasets, libraries, and other resources." },
       { heading: "Relevant quantum integration", body: "Every project must include a meaningful quantum computing component related to the selected challenge." },
-      { heading: "Team participation", body: "Both individual and team participation are permitted, subject to the final registration rules." },
+      { heading: "Team participation", body: "Join solo or as a team of up to four members. Each team submits its details once on Discord to get hackathon access." },
+      { heading: "Bring a laptop", body: "Every team needs at least one working laptop: you demonstrate your final project and present your code on it during the evaluation." },
       { heading: "Respectful collaboration", body: "Treat participants, organizers, volunteers, and judges respectfully." },
       { heading: "Responsible data use", body: "Use authorized datasets and do not expose confidential, personal, or sensitive information." },
       { heading: "Transparency", body: "Clearly explain what has been implemented, what is simulated, what is incomplete, and what results have actually been obtained." },
@@ -399,8 +400,11 @@ export const hackDay = {
   faq: [
     { question: "Do I need prior quantum computing experience?", answer: "No. The event is beginner-friendly; you can learn as you build." },
     { question: "Do I need to know Python?", answer: "Python is recommended for implementation-focused challenges, particularly when using Qiskit." },
-    { question: "Can I participate alone?", answer: "Yes. Any team-size limits will be announced by the organizers." },
-    { question: "Can I join a team if I don't have one?", answer: "Yes. Confirmed participants get a participant Discord invite by email, and the server has a channel for forming teams." },
+    { question: "Can I participate alone?", answer: "Yes. You can join solo or as a team." },
+    { question: "How many people can be in a team?", answer: "Up to four members, including the team leader." },
+    { question: "Can I join a team if I don't have one?", answer: "Yes. Use the #general chat on the participant Discord server to team up, or join solo." },
+    { question: "Do I need a laptop?", answer: "Yes. You demonstrate your final project and present your code on the day, so every team needs at least one working laptop. One per team is enough." },
+    { question: "Can I build my project before the event?", answer: "You can prepare, but a major part of the project must be coded on the day of the event." },
     { question: "Do all projects need to use Qiskit?", answer: "Qiskit should be used wherever appropriate, as this is a Qiskit Hack Day. Every project must include a meaningful quantum computing component." },
     { question: "Do I need access to a real quantum computer?", answer: "No. A suitable simulator-based implementation may be used; document the simulator or backend in your submission." },
     { question: "Do I need to prove quantum advantage?", answer: "No. The goal is to explore how quantum computing can contribute to the problem. Explain your approach and evaluate your results honestly." },
@@ -408,7 +412,7 @@ export const hackDay = {
     { question: "Will there be a project presentation?", answer: "Yes. The day includes a project showcase and demos. The exact presentation format and time limit will be announced by the organizers." },
     { question: "Will participants receive certificates?", answer: "Yes." },
     { question: "Is there a registration fee?", answer: "No. Quantum Hack Day Kochi is free." },
-    { question: "What should I bring?", answer: "A laptop, charger, and any login credentials you need for your development tools." },
+    { question: "What should I bring?", answer: "A working laptop (at least one per team), its charger, and any login credentials you need for your development tools." },
     { question: "Where can I ask for help?", answer: "On the participant Discord server, whose invite confirmed participants receive by email, or by emailing the organising team." },
   ],
 
@@ -418,7 +422,7 @@ export const hackDay = {
     mapUrl: MAP_URL,
     beforeYouTravel: [
       "Keep your registration confirmation accessible.",
-      "Bring your laptop, charger, and any necessary accessories.",
+      "Bring a working laptop (at least one per team) and its charger.",
       "Follow the check-in instructions shared by the organizers.",
     ],
   },
@@ -446,6 +450,19 @@ export const hackDay = {
     // The invite reaches confirmed participants by email; it is never
     // published here (see data/event.ts on raw Discord invites).
     notice: "Registered and confirmed? Check your email for the participant Discord invite.",
+    // Posted by the organisers on Discord, 29 Oct 2026. Verified by hand
+    // before the participant role and hackathon channels are granted.
+    access: {
+      heading: "Get hackathon access",
+      body: "To receive the participant role and the hackathon channels, each team posts its details once in the team details channel on Discord. The organizers verify them before granting access.",
+      fields: ["Team Name", "Number of Members", "Team Members (Discord IDs)"],
+      rules: [
+        "Submit only one response per team.",
+        "Include the Discord ID of every member, including the team leader.",
+        "Every listed member must have joined the QuantumX Discord server.",
+        "Do not post duplicates; for a correction, contact the organizers.",
+      ],
+    },
     onDiscord: [
       "Introduce yourself",
       "Form or find a team",

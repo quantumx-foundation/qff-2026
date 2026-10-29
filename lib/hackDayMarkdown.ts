@@ -105,6 +105,10 @@ export function hackDayMarkdown(): string {
   out.push(
     "## Community and support",
     community.body,
+    `### ${community.access.heading}`,
+    community.access.body,
+    ["```", ...community.access.fields.map((f) => `${f}:`), "```"].join("\n"),
+    list(community.access.rules),
     "### On the server",
     list(community.onDiscord),
     list([
