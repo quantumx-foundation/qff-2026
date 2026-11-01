@@ -537,7 +537,34 @@ export default function KochiHackPage() {
             ) },
 
             { id: "awards", label: "Awards", panel: (
-          <Section id="awards" heading="Awards and recognition" aside={<PendingNote>{awards.pending}</PendingNote>}>
+          <Section id="awards" heading="Awards and recognition">
+            <div>
+              <p className="num-display text-[clamp(4rem,10vw,8rem)] text-ink">{awards.prizePool.value}</p>
+              <p className="text-h3 mt-4 text-ink">{awards.prizePool.label}</p>
+            </div>
+            <figure className="on-dark grid overflow-hidden bg-ground md:grid-cols-2">
+              <div className="relative aspect-square">
+                <Image
+                  src={awards.workspace.image.src}
+                  alt={awards.workspace.image.alt}
+                  fill
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="flex flex-col justify-center gap-3 p-6 sm:p-8">
+                <h3 className="text-h3 text-ink">{awards.workspace.heading}</h3>
+                <p className="text-body">{awards.workspace.body}</p>
+                <dl className="mt-3 flex flex-col">
+                  {awards.workspace.places.map((p) => (
+                    <div key={p.place} className="flex items-baseline justify-between gap-4 border-t border-[var(--border)] py-3">
+                      <dt className="label-mono-sm text-muted">{p.place}</dt>
+                      <dd className="text-h3 whitespace-nowrap text-ink">{p.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </figcaption>
+            </figure>
             <p className="text-faq max-w-[68ch] text-muted">{awards.body}</p>
           </Section>
             ) },

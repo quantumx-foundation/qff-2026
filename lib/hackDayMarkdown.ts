@@ -117,7 +117,14 @@ export function hackDayMarkdown(): string {
     ]),
   );
 
-  out.push("## Awards and recognition", awards.body, pending(awards.pending));
+  out.push(
+    "## Awards and recognition",
+    `**${awards.prizePool.label}:** ${awards.prizePool.value}`,
+    `### ${awards.workspace.heading}`,
+    awards.workspace.body,
+    list(awards.workspace.places.map((p) => `**${p.place}:** ${p.value} of workspace access`)),
+    awards.body,
+  );
 
   return out.join("\n\n") + "\n";
 }

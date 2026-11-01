@@ -464,7 +464,17 @@ export const hackDay = {
 
   awards: {
     body: "The day closes with awards. Participants showcase their projects, explain their technical approach, and receive feedback from the evaluation panel. Every participant receives a certificate.",
-    pending: "Awards and prizes to be announced",
+    prizePool: { label: "Prize pool", value: "₹25K" },
+    workspace: {
+      image: { src: "/images/kochi-hack/startup-park.webp", alt: "The Startup Park building in Bengaluru" },
+      heading: "Startup Park workspace access",
+      body: "Startup Park, Bengaluru has committed workspace access for the winning teams.",
+      places: [
+        { place: "1st place", value: "3 months" },
+        { place: "2nd place", value: "1 month" },
+        { place: "3rd place", value: "1 month" },
+      ],
+    },
   },
 };
 
