@@ -40,3 +40,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local exports of the /design posters and print files
+/design-exports/
+# Source photos and logos for the /design posters
+/assets/
+# One-off social and print designs, not part of the site
+/app/design/
+/public/images/design/
