@@ -78,7 +78,7 @@ export const event: EventConfig = {
     },
     {
       label: "Instagram",
-      href: "https://www.instagram.com/quantumx.school/",
+      href: "https://www.instagram.com/quantumx.foundation/",
       icon: "instagram",
     },
     {
