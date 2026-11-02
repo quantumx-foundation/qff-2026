@@ -22,6 +22,18 @@ export const hackDay = {
     "A free, hands-on quantum computing hackathon at TinkerSpace, Kochi, on Sunday 1 November 2026. Pick a real-world challenge, build with Qiskit, and demo your prototype.",
   registrationUrl: hackDay3?.registrationUrl ?? event.urls.registration,
 
+  // Shown above the hero now the day is over (1 November 2026).
+  wrapUp: {
+    label: "Event wrapped up",
+    heading: "Thanks for joining us at Quantum Hack Day Kochi.",
+    image: {
+      src: "/images/kochi-hack/group-photo.webp",
+      alt: "Participants, mentors and organisers of Quantum Hack Day Kochi in a group photo at TinkerSpace, taken from above",
+      width: 2000,
+      height: 1196,
+    },
+  },
+
   hero: {
     label: "Qiskit Fall Fest 2026 · QuantumX Hackathon",
     // Both marks are white-on-transparent and sit on a plum plate; on the light

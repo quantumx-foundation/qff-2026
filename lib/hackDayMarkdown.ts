@@ -19,6 +19,7 @@ export function hackDayMarkdown(): string {
 
   out.push(
     `# ${hackDay.title}`,
+    `_${hackDay.wrapUp.label}._ ${hackDay.wrapUp.heading}`,
     `**${hero.heading.join(" ")}** ${hero.standfirst}`,
     ...hero.body.map(withName),
     hero.facts.map((f) => `- **${f.label}:** ${withVenue(f.value)}${"href" in f && f.href ? ` ([map](${f.href}))` : ""}`).join("\n"),

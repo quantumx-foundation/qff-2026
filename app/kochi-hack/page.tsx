@@ -127,6 +127,25 @@ export default function KochiHackPage() {
       <SubpageHeader />
 
       <main id="main" className="bg-ground">
+        {/* Thank-you band, now the event is over */}
+        <section aria-labelledby="wrap-up-heading" className="on-dark bg-ground">
+          <div className="container-editorial pt-10 pb-12 sm:pt-14 sm:pb-16">
+            <SectionLabel>{hackDay.wrapUp.label}</SectionLabel>
+            <h2 id="wrap-up-heading" className="text-h2 mt-4 max-w-[26ch]">
+              {hackDay.wrapUp.heading}
+            </h2>
+            <Image
+              src={hackDay.wrapUp.image.src}
+              alt={hackDay.wrapUp.image.alt}
+              width={hackDay.wrapUp.image.width}
+              height={hackDay.wrapUp.image.height}
+              priority
+              sizes="(min-width: 1280px) 1200px, 100vw"
+              className="mt-8 h-auto w-full sm:mt-10"
+            />
+          </div>
+        </section>
+
         {/* Hero */}
         <BoxGrid className="hairline-b">
           <div className="container-editorial pt-8 pb-12 sm:pt-12 sm:pb-24 lg:pt-14 lg:pb-32">
