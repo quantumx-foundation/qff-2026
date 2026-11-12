@@ -23,6 +23,8 @@ const PHOTOS: { n: number; w: number; h: number }[] = [
   { n: 13, w: 3, h: 4 },
   { n: 14, w: 4, h: 3 },
   { n: 15, w: 4, h: 3 },
+  { n: 16, w: 3, h: 4 },
+  { n: 17, w: 3, h: 4 },
 ];
 
 const src = (n: number, width: 800 | 1600) =>
