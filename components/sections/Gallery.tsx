@@ -34,16 +34,16 @@ export function Gallery() {
       <div className="container-wide">
         <SectionHeading id="gallery-heading" lines={["Fall Fest gallery"]} />
 
-        <ul className="mt-12 columns-1 gap-4 sm:columns-2 lg:mt-14 lg:columns-3">
+        <ul className="mt-12 columns-2 gap-2 sm:columns-3 md:gap-3 lg:mt-14 lg:columns-4 xl:columns-5">
           {PHOTOS.map(({ n, w, h }) => (
-            <li key={n} className="mb-4 break-inside-avoid">
+            <li key={n} className="mb-2 break-inside-avoid md:mb-3">
               {/* Plain img: the site ships images unoptimized (see
                   next.config.ts), so next/image would not emit a srcset. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src(n, 800)}
                 srcSet={`${src(n, 800)} 800w, ${src(n, 1600)} 1600w`}
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                 width={w * 100}
                 height={h * 100}
                 alt={`Fall Fest photo ${n} of ${PHOTOS.length}`}
