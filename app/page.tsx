@@ -8,6 +8,7 @@ import { EventMeta } from "@/components/sections/EventMeta";
 import { HostBand } from "@/components/sections/HostBand";
 import { EditorialStatement } from "@/components/sections/EditorialStatement";
 import { Program } from "@/components/sections/Program";
+import { Gallery } from "@/components/sections/Gallery";
 import { Speakers } from "@/components/sections/Speakers";
 import { IdentityBand } from "@/components/sections/IdentityBand";
 import { EventCarousel } from "@/components/sections/EventCarousel";
@@ -48,6 +49,7 @@ export default function Home() {
         <GlitchMarquee tokens={marqueeTop} duration={95} />
 
         <Program />
+        <Gallery />
         <Speakers />
 
         <IdentityBand />
