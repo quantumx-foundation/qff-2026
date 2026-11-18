@@ -20,7 +20,7 @@ import { liveEvent } from "@/data/live";
 
 const description = liveEvent.ended
   ? `${liveEvent.dateLabel}. Thank you for coming! The recording is on YouTube.`
-  : `${liveEvent.dateLabel}${liveEvent.timeLabel ? `, ${liveEvent.timeLabel}` : ""}. Join on Google Meet or watch on YouTube Live.`;
+  : `${liveEvent.dateLabel}${liveEvent.timeLabel ? `, ${liveEvent.timeLabel}` : ""}.`;
 
 export const metadata: Metadata = {
   title: liveEvent.title,

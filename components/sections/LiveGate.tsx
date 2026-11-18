@@ -107,10 +107,6 @@ export function LiveGate() {
           <Button href={liveEvent.registration}>RSVP on Luma</Button>
           <GameLauncher />
         </div>
-        <p className="label-mono-sm font-bold text-muted">
-          Join on Google Meet or YouTube Live
-          {liveEvent.joinLabel ? ` from ${liveEvent.joinLabel}` : null}
-        </p>
       </div>
     </div>
   );
