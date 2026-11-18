@@ -66,6 +66,19 @@ export function LiveGate() {
   // From `opensAt` the page offers the ways in rather than choosing one:
   // the Meet for people who want to take part, YouTube Live for everyone else
   // (and for anyone the Meet turns away once it is full).
+  if (started && liveEvent.venue && !stream && !youtube) {
+    return (
+      <div className="flex flex-col items-center gap-6">
+        <p className="label-mono font-bold">Happening now at {liveEvent.venue.name}</p>
+        <p className="max-w-[48ch] text-muted">{liveEvent.venue.address}</p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button href={liveEvent.registration}>Open on Luma</Button>
+          <GameLauncher />
+        </div>
+      </div>
+    );
+  }
+
   if (started) {
     return (
       <div className="flex flex-col items-center gap-6">
@@ -97,7 +110,7 @@ export function LiveGate() {
 
   return (
     <div className="flex flex-col items-center gap-10">
-      <div className="grid grid-cols-4 gap-6 sm:gap-10" role="timer" aria-label="Time until the stream starts">
+      <div className="grid grid-cols-4 gap-6 sm:gap-10" role="timer" aria-label={liveEvent.venue ? "Time until the event starts" : "Time until the stream starts"}>
         {units.map(([label, value]) => (
           <Cell key={label} label={label} value={value} />
         ))}
@@ -107,9 +120,15 @@ export function LiveGate() {
           <Button href={liveEvent.registration}>RSVP on Luma</Button>
           <GameLauncher />
         </div>
-        <p className="label-mono-sm font-bold text-muted">
-          Join on Google Meet or YouTube Live from {liveEvent.joinLabel}
-        </p>
+        {liveEvent.venue ? (
+          <p className="label-mono-sm max-w-[44ch] font-bold text-muted">
+            {liveEvent.venue.name} · {liveEvent.venue.address}
+          </p>
+        ) : (
+          <p className="label-mono-sm font-bold text-muted">
+            Join on Google Meet or YouTube Live from {liveEvent.joinLabel}
+          </p>
+        )}
       </div>
     </div>
   );

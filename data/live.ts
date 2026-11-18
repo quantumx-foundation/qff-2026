@@ -33,29 +33,36 @@ export type LiveEvent = {
   /** YouTube Live for the same session, for anyone who would rather watch, or
    *  can't get into the Meet (free Meet calls cap at 100 people). */
   youtube: string | null;
+  /** Set for an in-person session. /live then points people at the venue
+   *  instead of offering online ways in. */
+  venue: { name: string; address: string } | null;
   image: { src: string; alt: string; width: number; height: number };
 };
 
 export const liveEvent: LiveEvent = {
-  title: "QFF 2026: Foundations of Quantum Computing X Girls In Quantum",
-  ended: true,
-  startsAt: "2026-10-17T19:00:00+05:30",
-  endsAt: "2026-10-17T20:30:00+05:30",
-  opensAt: "2026-10-17T18:45:00+05:30",
-  joinLabel: "6:45 pm IST",
-  dateLabel: "Saturday, 17 October",
-  timeLabel: "7:00 pm – 8:30 pm IST",
-  registration: "https://luma.com/8jpgnkcg",
-  // Cleared once the session ended: this object ships in the client bundle, so
-  // a Meet link left here stays public. Treat any link set here as public and
-  // lock the room with Meet host controls (SECURITY_AUDIT.md #3).
+  title: "QFF 2026: QuantumX Summit",
+  ended: false,
+  startsAt: "2026-11-28T09:00:00+05:30",
+  endsAt: "2026-11-28T12:00:00+05:30",
+  // In person: no doors-open time has been published, so the page turns over
+  // at the start time.
+  opensAt: "2026-11-28T09:00:00+05:30",
+  joinLabel: "9:00 am IST",
+  dateLabel: "Saturday, 28 November",
+  timeLabel: "9:00 am – 12:00 pm IST",
+  registration: "https://luma.com/rzpptnuq",
+  // Treat any link set here as public: this object ships in the client bundle
+  // (SECURITY_AUDIT.md #3).
   stream: null,
-  youtube: "https://youtube.com/live/hwWfou1kUN4",
-  // Self-hosted from the Luma cover (images.lumacdn.com/.../c9b09d1e-...png):
-  // the privacy page states images are served from this domain.
+  youtube: null,
+  venue: {
+    name: "Quad AI School of Technology and Business, Bengaluru",
+    address: "27th Main Rd, beside RBIH, 1st Sector, HSR Layout, Bengaluru, Karnataka 560102",
+  },
+  // Supplied key art for event 6.
   image: {
-    src: "/images/live/foundations-girls-in-quantum.jpg",
-    alt: "QFF 2026: Foundations of Quantum Computing X Girls In Quantum",
+    src: "/images/live/quantumx-summit.jpg",
+    alt: "Qiskit Fall Fest 2026 #6, QuantumX Summit, 28th November",
     width: 800,
     height: 800,
   },
