@@ -33,9 +33,6 @@ export type LiveEvent = {
   /** YouTube Live for the same session, for anyone who would rather watch, or
    *  can't get into the Meet (free Meet calls cap at 100 people). */
   youtube: string | null;
-  /** Set for an in-person session. /live then points people at the venue
-   *  instead of offering online ways in. */
-  venue: { name: string; address: string } | null;
   image: { src: string; alt: string; width: number; height: number };
 };
 
@@ -44,21 +41,16 @@ export const liveEvent: LiveEvent = {
   ended: false,
   startsAt: "2026-11-28T09:00:00+05:30",
   endsAt: "2026-11-28T12:00:00+05:30",
-  // In person: no doors-open time has been published, so the page turns over
-  // at the start time.
+  // No earlier join time has been published, so the page opens at the start.
   opensAt: "2026-11-28T09:00:00+05:30",
   joinLabel: "9:00 am IST",
   dateLabel: "Saturday, 28 November",
   timeLabel: "9:00 am – 12:00 pm IST",
   registration: "https://luma.com/rzpptnuq",
-  // Treat any link set here as public: this object ships in the client bundle
-  // (SECURITY_AUDIT.md #3).
+  // Treat any link set here as public: this object ships in the client bundle,
+  // so lock the room with Meet host controls (SECURITY_AUDIT.md #3).
   stream: null,
   youtube: null,
-  venue: {
-    name: "Quad AI School of Technology and Business, Bengaluru",
-    address: "27th Main Rd, beside RBIH, 1st Sector, HSR Layout, Bengaluru, Karnataka 560102",
-  },
   // Supplied key art for event 6.
   image: {
     src: "/images/live/quantumx-summit.jpg",

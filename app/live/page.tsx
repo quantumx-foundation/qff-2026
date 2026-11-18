@@ -19,10 +19,8 @@ import { liveEvent } from "@/data/live";
  */
 
 const description = liveEvent.ended
-  ? `${liveEvent.dateLabel}. Thank you for coming!${liveEvent.youtube ? " The recording is on YouTube." : ""}`
-  : liveEvent.venue
-    ? `${liveEvent.dateLabel}, ${liveEvent.timeLabel}. ${liveEvent.venue.name}.`
-    : `${liveEvent.dateLabel}, ${liveEvent.timeLabel}. Join on Google Meet or watch on YouTube Live.`;
+  ? `${liveEvent.dateLabel}. Thank you for coming! The recording is on YouTube.`
+  : `${liveEvent.dateLabel}, ${liveEvent.timeLabel}. Join on Google Meet or watch on YouTube Live.`;
 
 export const metadata: Metadata = {
   title: liveEvent.title,
@@ -84,11 +82,9 @@ function Ended() {
   return (
     <div className="flex flex-col items-center gap-6">
       <p className="text-h3 max-w-[28ch]">This session has ended. Thank you for coming!</p>
-      {liveEvent.youtube ? (
-        <p className="max-w-[48ch] text-muted">
-          The recording will be on YouTube, at the same link as the live stream.
-        </p>
-      ) : null}
+      <p className="max-w-[48ch] text-muted">
+        The recording will be on YouTube, at the same link as the live stream.
+      </p>
       <div className="flex flex-wrap justify-center gap-3">
         {liveEvent.youtube ? <Button href={liveEvent.youtube}>Watch the recording</Button> : null}
         <Button href="/#program" variant="secondary">
