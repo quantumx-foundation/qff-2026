@@ -20,7 +20,7 @@ import { liveEvent } from "@/data/live";
 
 const description = liveEvent.ended
   ? `${liveEvent.dateLabel}. Thank you for coming! The recording is on YouTube.`
-  : `${liveEvent.dateLabel}, ${liveEvent.timeLabel}. Join on Google Meet or watch on YouTube Live.`;
+  : `${liveEvent.dateLabel}${liveEvent.timeLabel ? `, ${liveEvent.timeLabel}` : ""}. Join on Google Meet or watch on YouTube Live.`;
 
 export const metadata: Metadata = {
   title: liveEvent.title,
@@ -64,7 +64,8 @@ export default function LivePage() {
             <h1 className="text-h2 mt-10 max-w-[24ch]">{liveEvent.title}</h1>
 
             <p className="label-mono mt-6 font-bold text-muted">
-              {liveEvent.dateLabel} · {liveEvent.timeLabel}
+              {liveEvent.dateLabel}
+              {liveEvent.timeLabel ? ` · ${liveEvent.timeLabel}` : null}
             </p>
 
             <div className="mt-12">

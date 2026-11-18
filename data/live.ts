@@ -24,10 +24,11 @@ export type LiveEvent = {
   /** When /live stops showing the page and sends everyone to `stream`.
    *  Usually a little before `startsAt`, so people are in the room on time. */
   opensAt: string;
-  /** `opensAt` as people read it, shown under the RSVP button. */
-  joinLabel: string;
+  /** `opensAt` as people read it, shown under the RSVP button. Null hides it. */
+  joinLabel: string | null;
   dateLabel: string;
-  timeLabel: string;
+  /** Null hides the time on the page and in link previews. */
+  timeLabel: string | null;
   registration: string;
   stream: string | null;
   /** YouTube Live for the same session, for anyone who would rather watch, or
@@ -43,9 +44,9 @@ export const liveEvent: LiveEvent = {
   endsAt: "2026-11-28T12:00:00+05:30",
   // No earlier join time has been published, so the page opens at the start.
   opensAt: "2026-11-28T09:00:00+05:30",
-  joinLabel: "9:00 am IST",
+  joinLabel: null,
   dateLabel: "Saturday, 28 November",
-  timeLabel: "9:00 am – 12:00 pm IST",
+  timeLabel: null,
   registration: "https://luma.com/rzpptnuq",
   // Treat any link set here as public: this object ships in the client bundle,
   // so lock the room with Meet host controls (SECURITY_AUDIT.md #3).
