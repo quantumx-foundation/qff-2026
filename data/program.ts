@@ -196,7 +196,7 @@ export const program: ProgramDay[] = [
     title: "QuantumX Summit",
     dateLabel: "28 NOV",
     date: "2026-11-28",
-    location: "Startup Park, Bengaluru",
+    location: "Online",
     description: null,
     note: null,
     registrationUrl: "https://luma.com/rzpptnuq",
