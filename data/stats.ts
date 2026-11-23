@@ -13,7 +13,7 @@ export const statsIntro = {
 };
 
 export const stats: Stat[] = [
-  { value: "1000+", label: "Participants", confirmed: true },
+  { value: "5000+", label: "Participants", confirmed: true },
   { value: "15+", label: "Speakers", confirmed: true },
   { value: "20+", label: "Sessions", confirmed: true },
 ];
