@@ -17,6 +17,7 @@ import { Community } from "@/components/sections/Community";
 import { Partners } from "@/components/sections/Partners";
 import { Involvement } from "@/components/sections/Involvement";
 import { Faq } from "@/components/sections/Faq";
+import { AskAi } from "@/components/sections/AskAi";
 
 import { GlitchMarquee } from "@/components/effects/GlitchMarquee";
 import { marqueeTop, marqueeMid } from "@/data/marquee";
@@ -62,6 +63,7 @@ export default function Home() {
         <Partners />
         <Involvement />
         <Faq />
+        <AskAi />
       </main>
 
       <Footer />
