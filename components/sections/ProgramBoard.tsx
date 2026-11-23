@@ -60,7 +60,7 @@ export function ProgramBoard({
   program: ProgramDay[];
   renderedAt: number;
 }) {
-  const [filter, setFilter] = useState<Filter>("upcoming");
+  const [filter, setFilter] = useState<Filter>("all");
   const clock = useSyncExternalStore(
     subscribe,
     () => now || renderedAt,
