@@ -65,7 +65,7 @@ export const speakers: Speaker[] = [
     href: "https://www.linkedin.com/in/ajmal-ima/",
     media: {
       src: "/images/speakers/ajmal.webp",
-      alt: "Ajmal Ibn Mohammed Althaf speaking on stage",
+      alt: "Ajmal Ibn Mohammed Althaf",
       placeholderLabel: "SPEAKER 01",
       ...FRAME,
     },
