@@ -137,7 +137,7 @@ export const program: ProgramDay[] = [
     title: "Qiskit Fall Fest 2026: Quantum and Qiskit 101",
     dateLabel: "06 NOV",
     date: "2026-11-06",
-    location: "Startup Park, Bengaluru",
+    location: "Quad AI School, Bengaluru",
     description: null,
     note: null,
     registrationUrl: "https://luma.com/hczdve5y",
