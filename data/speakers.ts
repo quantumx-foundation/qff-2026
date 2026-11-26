@@ -40,6 +40,23 @@ export const speakers: Speaker[] = [
   //   confirmed: true,
   // },
   {
+    // Guest speaker at the QuantumX Summit (28 November 2026).
+    id: "anders-indset",
+    name: "Anders Indset",
+    role: "Founder & Chairman",
+    organisation: "tomorrowmensch AG",
+    topic: null,
+    href: "https://www.linkedin.com/in/andersindset/",
+    media: {
+      src: "/images/speakers/anders-indset.webp",
+      alt: "Portrait of Anders Indset",
+      placeholderLabel: "SPEAKER 15",
+      ...FRAME,
+    },
+    treatment: "mono",
+    confirmed: true,
+  },
+  {
     // Guest speaker at event 4, Quantum and Qiskit 101.
     id: "subarna-roy",
     name: "Dr. Subarna Roy",
@@ -53,7 +70,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 07",
       ...FRAME,
     },
-    treatment: "indigo",
+    treatment: "pink",
     confirmed: true,
   },
   {
@@ -69,7 +86,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 01",
       ...FRAME,
     },
-    treatment: "pink",
+    treatment: "indigo",
     confirmed: true,
   },
   {
@@ -117,7 +134,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 04",
       ...FRAME,
     },
-    treatment: "indigo",
+    treatment: "pink",
     confirmed: true,
   },
   {
@@ -135,7 +152,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 11",
       ...FRAME,
     },
-    treatment: "pink",
+    treatment: "indigo",
     confirmed: true,
   },
   {
@@ -183,7 +200,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 13",
       ...FRAME,
     },
-    treatment: "indigo",
+    treatment: "pink",
     confirmed: true,
   },
   {
@@ -200,7 +217,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 14",
       ...FRAME,
     },
-    treatment: "pink",
+    treatment: "indigo",
     confirmed: true,
   },
   {
@@ -248,7 +265,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 03",
       ...FRAME,
     },
-    treatment: "indigo",
+    treatment: "pink",
     confirmed: true,
   },
 ];
