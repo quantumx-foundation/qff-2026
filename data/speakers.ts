@@ -53,7 +53,24 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 15",
       ...FRAME,
     },
-    treatment: "mono",
+    treatment: "plum",
+    confirmed: true,
+  },
+  {
+    // Guest speaker at the QuantumX Summit (28 November 2026).
+    id: "fida-abdulrasheed",
+    name: "Fida AbdulRasheed",
+    role: "Quantum Computing & AI Practitioner",
+    organisation: null,
+    topic: null,
+    href: "https://www.linkedin.com/in/fida-abdulrasheed-705309308/",
+    media: {
+      src: "/images/speakers/fida-abdulrasheed.webp",
+      alt: "Portrait of Fida AbdulRasheed",
+      placeholderLabel: "SPEAKER 16",
+      ...FRAME,
+    },
+    treatment: "indigo",
     confirmed: true,
   },
   {
@@ -86,7 +103,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 01",
       ...FRAME,
     },
-    treatment: "indigo",
+    treatment: "mono",
     confirmed: true,
   },
   {
@@ -118,7 +135,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 10",
       ...FRAME,
     },
-    treatment: "mono",
+    treatment: "indigo",
     confirmed: true,
   },
   {
@@ -152,7 +169,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 11",
       ...FRAME,
     },
-    treatment: "indigo",
+    treatment: "mono",
     confirmed: true,
   },
   {
@@ -184,7 +201,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 12",
       ...FRAME,
     },
-    treatment: "mono",
+    treatment: "indigo",
     confirmed: true,
   },
   {
@@ -217,7 +234,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 14",
       ...FRAME,
     },
-    treatment: "indigo",
+    treatment: "mono",
     confirmed: true,
   },
   {
@@ -249,7 +266,7 @@ export const speakers: Speaker[] = [
       placeholderLabel: "SPEAKER 06",
       ...FRAME,
     },
-    treatment: "mono",
+    treatment: "indigo",
     confirmed: true,
   },
   {
